@@ -1,251 +1,545 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Andrey Esipov — A Scroll Journey</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<style>
-  :root{
-    --bg: #06070d;
-    --fg: #e9ecf5;
-    --muted:#9aa3b2;
-    --accent:#7cf6ff;
-    --accent2:#c08bff;
-    --accent3:#7bff9d;
-  }
-  *{box-sizing:border-box;}
-  html,body{height:100%;}
-  body{
-    margin:0; background:var(--bg); color:var(--fg);
-    font-family:'Space Grotesk', system-ui, sans-serif;
-    scroll-behavior:smooth; overflow-y:auto;
-  }
-  #world{
-    height:100vh; overflow-y:scroll; scroll-snap-type:y mandatory; scroll-behavior:smooth;
-  }
-  .scene{
-    position:relative; height:100vh; min-height:100vh; scroll-snap-align:start;
-    display:flex; align-items:center; justify-content:center; padding:6rem 8vw;
-    overflow:hidden; isolation:isolate;
-  }
-  .scene .content{max-width:900px; z-index:2;}
-  h1,h2{font-family:'Playfair Display', serif; margin:0 0 1rem;}
-  h1{font-size:clamp(3rem,6vw,6rem); letter-spacing:.5px;}
-  h2{font-size:clamp(2rem,4vw,3.5rem);}
-  p{font-size:clamp(1rem,2vw,1.25rem); line-height:1.7; color:var(--fg);}
-  .muted{color:var(--muted);}
-  .tagline{font-size:clamp(1.2rem,2.6vw,2rem); color:var(--accent);}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andrey Esipov — A 3D World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #071019;
+      --teal: #49e6d6;
+      --warm: #ffb86b;
+      --light: #e9f2ff;
+      --muted: rgba(233,242,255,.7);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: var(--bg);
+      font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--light);
+    }
+    #scene { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
 
-  /* Scene backgrounds */
-  .scene:before{
-    content:""; position:absolute; inset:-20%; z-index:0; filter:blur(20px); opacity:.6;
-    background:radial-gradient(60% 60% at 20% 20%, rgba(124,246,255,.35), transparent 60%),
-               radial-gradient(50% 50% at 80% 40%, rgba(192,139,255,.35), transparent 60%);
-    transform:translateZ(0);
-    animation: drift 18s ease-in-out infinite alternate;
-  }
-  @keyframes drift{from{transform:translate3d(-5%, -2%,0) scale(1);}to{transform:translate3d(5%, 2%,0) scale(1.05);}}
+    .hud {
+      position: fixed; inset: 0; pointer-events: none; display: flex; align-items: center; justify-content: center;
+    }
+    .card {
+      position: absolute; left: 6vw; bottom: 8vh; max-width: 480px;
+      padding: 18px 22px; border-radius: 18px;
+      background: rgba(6, 12, 20, 0.6); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+      opacity: 0; transform: translateY(12px); transition: all .6s ease;
+      pointer-events: auto;
+    }
+    .card.active { opacity: 1; transform: translateY(0); }
+    .card h1 { font-size: 34px; margin: 0 0 8px; letter-spacing: .2px; }
+    .card h2 { font-size: 22px; margin: 0 0 8px; color: var(--teal); font-weight: 600; }
+    .card p { margin: 6px 0; color: var(--muted); line-height: 1.5; }
+    .card a { color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(73,230,214,.4); }
 
-  /* Floating particles */
-  .particles{position:absolute; inset:0; z-index:1; pointer-events:none;}
-  .particle{
-    position:absolute; width:6px; height:6px; border-radius:50%;
-    background:rgba(124,246,255,.6); box-shadow:0 0 10px rgba(124,246,255,.8);
-    animation: floaty 8s linear infinite;
-  }
-  @keyframes floaty{from{transform:translateY(120vh) translateX(0);}to{transform:translateY(-20vh) translateX(20vw);}}
+    .nav {
+      position: fixed; right: 24px; top: 50%; transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: 10px; pointer-events: auto;
+    }
+    .dot {
+      width: 12px; height: 12px; border-radius: 50%; border: 2px solid rgba(255,255,255,.45);
+      background: rgba(255,255,255,.15); cursor: pointer; transition: all .3s;
+    }
+    .dot.active { background: var(--teal); border-color: var(--teal); box-shadow: 0 0 12px rgba(73,230,214,.8); }
 
-  /* Scene-specific accents */
-  #scene1:before{background:radial-gradient(60% 60% at 10% 30%, rgba(124,246,255,.5), transparent 60%),
-                           radial-gradient(50% 50% at 80% 60%, rgba(192,139,255,.45), transparent 60%);} 
-  #scene2:before{background:radial-gradient(60% 60% at 20% 20%, rgba(124,246,255,.35), transparent 60%),
-                           radial-gradient(70% 70% at 80% 40%, rgba(255,255,255,.25), transparent 65%);} 
-  #scene3:before{background:radial-gradient(60% 60% at 20% 30%, rgba(123,255,157,.4), transparent 60%),
-                           radial-gradient(60% 60% at 80% 50%, rgba(124,246,255,.25), transparent 60%);} 
-  #scene4:before{background:radial-gradient(60% 60% at 20% 20%, rgba(255,120,120,.4), transparent 60%),
-                           radial-gradient(60% 60% at 80% 50%, rgba(124,246,255,.25), transparent 60%);} 
-  #scene5:before{background:radial-gradient(60% 60% at 20% 20%, rgba(255,220,160,.45), transparent 60%),
-                           radial-gradient(60% 60% at 80% 60%, rgba(255,140,200,.35), transparent 60%);} 
-  #scene6:before{background:radial-gradient(60% 60% at 20% 20%, rgba(124,246,255,.35), transparent 60%),
-                           radial-gradient(60% 60% at 80% 60%, rgba(192,139,255,.35), transparent 60%);} 
+    .controls {
+      position: fixed; left: 6vw; top: 6vh; display: flex; gap: 10px; pointer-events: auto;
+    }
+    .btn {
+      padding: 10px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.1);
+      background: rgba(6,12,20,.6); color: var(--light); cursor: pointer; font-weight: 600;
+      transition: all .3s; user-select: none;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: rgba(255,255,255,.3); }
 
-  /* UI motifs */
-  .floating-window{
-    position:absolute; width:180px; height:120px; border-radius:14px;
-    border:1px solid rgba(255,255,255,.15); backdrop-filter:blur(8px);
-    background:rgba(10,12,20,.35); box-shadow:0 20px 60px rgba(0,0,0,.35);
-    animation: bob 6s ease-in-out infinite;
-  }
-  @keyframes bob{0%,100%{transform:translateY(-6px);}50%{transform:translateY(10px);}}
+    .progress {
+      position: fixed; left: 6vw; bottom: 4vh; font-size: 13px; color: var(--muted);
+    }
 
-  .chart{
-    position:absolute; width:260px; height:140px; border-radius:16px;
-    background:linear-gradient(135deg, rgba(0,0,0,.4), rgba(123,255,157,.12));
-    border:1px solid rgba(123,255,157,.35); overflow:hidden;
-  }
-  .chart svg{position:absolute; inset:10px; width:calc(100% - 20px); height:calc(100% - 20px);} 
+    .hint {
+      position: fixed; right: 24px; bottom: 24px; font-size: 12px; color: var(--muted);
+      background: rgba(6,12,20,.5); padding: 8px 10px; border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.08);
+    }
 
-  .athlete-lines{
-    position:absolute; inset:0; pointer-events:none; z-index:1;
-  }
-  .athlete-lines span{
-    position:absolute; height:2px; width:30vw; background:linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
-    animation: dash 4s linear infinite;
-  }
-  @keyframes dash{from{transform:translateX(-40vw);}to{transform:translateX(40vw);}}
-
-  /* Scroll progress */
-  #progress{
-    position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg, var(--accent), var(--accent2));
-    width:0%; z-index:1000;
-  }
-
-  .reveal{opacity:0; transform:translateY(40px); transition:all 1s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);} 
-
-  /* Connect buttons */
-  .links a{
-    display:inline-flex; align-items:center; gap:.5rem; margin-right:1rem; margin-top:1rem;
-    padding:.75rem 1.2rem; border-radius:999px; text-decoration:none;
-    color:var(--fg); border:1px solid rgba(255,255,255,.2);
-    background:rgba(255,255,255,.05); transition:.2s ease;
-  }
-  .links a:hover{transform:translateY(-3px); border-color:var(--accent); box-shadow:0 10px 30px rgba(124,246,255,.2);} 
-
-  /* Scroll hint */
-  .scroll-hint{position:absolute; bottom:30px; left:50%; transform:translateX(-50%); font-size:.9rem; color:var(--muted);} 
-  .scroll-hint:after{content:""; display:block; margin:6px auto 0; width:2px; height:24px; background:var(--muted); animation: pulse 1.5s infinite;} 
-  @keyframes pulse{0%,100%{opacity:.2;}50%{opacity:1;}}
-
-  /* Responsive tweaks */
-  @media (max-width:768px){
-    .scene{padding:4rem 8vw;}
-    .floating-window, .chart{transform:scale(.85);} 
-  }
-</style>
+    @media (max-width: 768px) {
+      .card { left: 5vw; right: 5vw; max-width: none; }
+      .nav { right: 12px; }
+      .controls { top: 12px; left: 12px; }
+      .card h1 { font-size: 28px; }
+      .card h2 { font-size: 18px; }
+    }
+  </style>
 </head>
 <body>
-<div id="progress"></div>
-<div id="world">
+  <canvas id="scene"></canvas>
 
-  <!-- Scene 1 -->
-  <section class="scene" id="scene1">
-    <div class="particles" aria-hidden="true"></div>
-    <div class="content">
-      <h1 class="reveal">Andrey Esipov</h1>
-      <p class="tagline reveal">Building at the intersection of AI, product, and human potential.</p>
-      <p class="muted reveal">Scroll to enter the story.</p>
+  <div class="hud">
+    <div class="card" id="card">
+      <h1 id="title">Hi, I'm Andrey</h1>
+      <h2 id="subtitle">A builder of systems, products, and endurance.</h2>
+      <p id="body">Welcome to my 3D world. Scroll or use the arrows to travel through the chapters.</p>
+      <div id="links"></div>
     </div>
-    <div class="scroll-hint">Begin the journey</div>
-  </section>
+  </div>
 
-  <!-- Scene 2 -->
-  <section class="scene" id="scene2">
-    <div class="content">
-      <h2 class="reveal">The Day Job</h2>
-      <p class="reveal">Principal Product Manager at Microsoft, shaping the intelligence of OneDrive. Bringing Copilot into file organization, powering semantic search in Windows, and making AI feel natural for millions.</p>
-    </div>
-    <div class="floating-window" style="top:18%; left:10%;"></div>
-    <div class="floating-window" style="top:50%; right:12%; width:220px; height:140px; animation-delay:1.2s;"></div>
-    <div class="floating-window" style="bottom:15%; left:30%; width:140px; height:90px; animation-delay:.6s;"></div>
-  </section>
+  <div class="controls">
+    <div class="btn" id="prev">◀ Back</div>
+    <div class="btn" id="next">Next ▶</div>
+  </div>
 
-  <!-- Scene 3 -->
-  <section class="scene" id="scene3">
-    <div class="content">
-      <h2 class="reveal">The Side Quest</h2>
-      <p class="reveal">He runs a quantitative trading business — systematic strategies across stocks and crypto. A world of signals, probabilities, and disciplined algorithms.</p>
-    </div>
-    <div class="chart" style="top:20%; right:10%;">
-      <svg viewBox="0 0 100 60">
-        <polyline fill="none" stroke="rgba(123,255,157,.9)" stroke-width="2" points="0,50 10,40 20,45 30,30 40,35 50,20 60,30 70,10 80,18 90,5 100,12" />
-      </svg>
-    </div>
-    <div class="chart" style="bottom:18%; left:10%; width:220px; height:120px;">
-      <svg viewBox="0 0 100 60">
-        <polyline fill="none" stroke="rgba(124,246,255,.9)" stroke-width="2" points="0,30 10,25 20,28 30,20 40,22 50,18 60,15 70,18 80,10 90,12 100,5" />
-      </svg>
-    </div>
-  </section>
+  <div class="nav" id="nav"></div>
+  <div class="progress" id="progress">Chapter 1 of 6</div>
+  <div class="hint">Scroll / Swipe to travel</div>
 
-  <!-- Scene 4 -->
-  <section class="scene" id="scene4">
-    <div class="athlete-lines" aria-hidden="true">
-      <span style="top:20%; animation-delay:0s"></span>
-      <span style="top:45%; animation-delay:1s"></span>
-      <span style="top:70%; animation-delay:2s"></span>
-    </div>
-    <div class="content">
-      <h2 class="reveal">The Athlete</h2>
-      <p class="reveal">Multiple Ironman finisher. Top 10 at Norseman Xtreme Triathlon. SwimRun World Championship competitor. Endurance isn’t just a sport — it’s a mindset.</p>
-    </div>
-  </section>
+  <script type="module">
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+    import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+    import { gsap } from 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js';
 
-  <!-- Scene 5 -->
-  <section class="scene" id="scene5">
-    <div class="content">
-      <h2 class="reveal">The Life</h2>
-      <p class="reveal">Home is Franklin, Tennessee, a new chapter after Seattle. He’s a dad of three — two boys (5, 3.5) and a baby girl (1). A fierce balance of ambition and warmth.</p>
-    </div>
-  </section>
+    const canvas = document.getElementById('scene');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x071019, 1);
 
-  <!-- Scene 6 -->
-  <section class="scene" id="scene6">
-    <div class="content">
-      <h2 class="reveal">Connect</h2>
-      <p class="reveal">Let’s build something together.</p>
-      <div class="links reveal">
-        <a href="https://github.com/andrey-esipov" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/andrey-esipov" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </div>
-  </section>
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0x071019, 20, 120);
 
-</div>
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 300);
+    camera.position.set(0, 6, 16);
 
-<script>
-  // Scroll progress
-  const world = document.getElementById('world');
-  const progress = document.getElementById('progress');
-  world.addEventListener('scroll', () => {
-    const max = world.scrollHeight - world.clientHeight;
-    const p = (world.scrollTop / max) * 100;
-    progress.style.width = p + '%';
-  });
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enabled = false;
 
-  // Particle generator
-  document.querySelectorAll('.particles').forEach(layer => {
-    for(let i=0;i<30;i++){
-      const p = document.createElement('div');
-      p.className='particle';
-      p.style.left = Math.random()*100 + '%';
-      p.style.animationDelay = (Math.random()*8) + 's';
-      p.style.opacity = Math.random();
-      p.style.transform = `scale(${Math.random()*1.5+0.5})`;
-      layer.appendChild(p);
+    // Lighting
+    const ambient = new THREE.AmbientLight(0x9bb7ff, 0.4);
+    scene.add(ambient);
+
+    const dir = new THREE.DirectionalLight(0xffffff, 1.0);
+    dir.position.set(10, 20, 10);
+    dir.castShadow = false;
+    scene.add(dir);
+
+    const warm = new THREE.PointLight(0xffb86b, 0.9, 40);
+    warm.position.set(-5, 6, 6);
+    scene.add(warm);
+
+    // Ground plane
+    const ground = new THREE.Mesh(
+      new THREE.PlaneGeometry(500, 500, 10, 10),
+      new THREE.MeshStandardMaterial({ color: 0x0c1622, roughness: 0.9 })
+    );
+    ground.rotation.x = -Math.PI / 2;
+    ground.position.y = -1.2;
+    scene.add(ground);
+
+    // Helper functions
+    const palette = {
+      teal: 0x49e6d6,
+      blue: 0x1c2c3b,
+      dark: 0x0d1219,
+      warm: 0xffb86b,
+      purple: 0x6b6bff,
+      green: 0x7bd88f,
+      gray: 0x98a6b8,
+    };
+
+    function makeTree(x, z, scale = 1) {
+      const group = new THREE.Group();
+      const trunk = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.2 * scale, 0.25 * scale, 1.2 * scale, 6),
+        new THREE.MeshStandardMaterial({ color: 0x5c3b2e, roughness: 0.9 })
+      );
+      trunk.position.y = 0.6 * scale;
+      const leaves = new THREE.Mesh(
+        new THREE.ConeGeometry(0.8 * scale, 1.4 * scale, 6),
+        new THREE.MeshStandardMaterial({ color: palette.green, roughness: 0.8 })
+      );
+      leaves.position.y = 1.6 * scale;
+      group.add(trunk, leaves);
+      group.position.set(x, -1.1, z);
+      return group;
     }
-  });
 
-  // Reveal on scroll
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(e.isIntersecting) e.target.classList.add('in');
-    });
-  }, {threshold:0.2});
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    function makeHouse() {
+      const group = new THREE.Group();
+      const base = new THREE.Mesh(
+        new THREE.BoxGeometry(4.4, 2.6, 3.4),
+        new THREE.MeshStandardMaterial({ color: 0x1b2733, roughness: 0.8 })
+      );
+      base.position.y = 0.1;
+      const roof = new THREE.Mesh(
+        new THREE.ConeGeometry(3.6, 1.6, 4),
+        new THREE.MeshStandardMaterial({ color: palette.warm, roughness: 0.7 })
+      );
+      roof.position.y = 2.1;
+      roof.rotation.y = Math.PI / 4;
+      const door = new THREE.Mesh(
+        new THREE.BoxGeometry(0.7, 1.2, 0.1),
+        new THREE.MeshStandardMaterial({ color: palette.teal })
+      );
+      door.position.set(0, -0.2, 1.75);
+      group.add(base, roof, door);
+      return group;
+    }
 
-  // Subtle parallax
-  world.addEventListener('scroll', () => {
-    const scrollY = world.scrollTop;
-    document.querySelectorAll('.floating-window, .chart').forEach((el, i) => {
-      const speed = (i%3+1)*0.03;
-      el.style.transform = `translateY(${scrollY*speed}px)`;
+    function makeDesk() {
+      const group = new THREE.Group();
+      const desk = new THREE.Mesh(
+        new THREE.BoxGeometry(3.8, 0.4, 1.6),
+        new THREE.MeshStandardMaterial({ color: 0x1f2c3b, roughness: 0.7 })
+      );
+      desk.position.y = 0.2;
+      const legs = new THREE.Mesh(
+        new THREE.BoxGeometry(3.6, 1.1, 1.4),
+        new THREE.MeshStandardMaterial({ color: 0x131b24, roughness: 0.7 })
+      );
+      legs.position.y = -0.5;
+      const screen = new THREE.Mesh(
+        new THREE.BoxGeometry(1.6, 1, 0.1),
+        new THREE.MeshStandardMaterial({ color: palette.teal, emissive: palette.teal, emissiveIntensity: 0.6 })
+      );
+      screen.position.set(0, 1.1, -0.4);
+      const screen2 = screen.clone();
+      screen2.position.set(1.6, 0.9, -0.5);
+      screen2.scale.set(0.8, 0.7, 0.8);
+      group.add(desk, legs, screen, screen2);
+      return group;
+    }
+
+    function makeNeuralCluster(count = 12) {
+      const group = new THREE.Group();
+      for (let i = 0; i < count; i++) {
+        const node = new THREE.Mesh(
+          new THREE.SphereGeometry(0.15, 10, 10),
+          new THREE.MeshStandardMaterial({ color: palette.purple, emissive: palette.purple, emissiveIntensity: 0.7 })
+        );
+        node.position.set((Math.random() - 0.5) * 2.6, Math.random() * 1.8 + 0.2, (Math.random() - 0.5) * 2.6);
+        group.add(node);
+      }
+      return group;
+    }
+
+    function makeCandles() {
+      const group = new THREE.Group();
+      for (let i = 0; i < 10; i++) {
+        const height = Math.random() * 2 + 0.6;
+        const candle = new THREE.Mesh(
+          new THREE.BoxGeometry(0.3, height, 0.3),
+          new THREE.MeshStandardMaterial({ color: palette.teal, emissive: 0x1e99a7, emissiveIntensity: 0.4 })
+        );
+        candle.position.set(i * 0.5 - 2.2, height / 2 - 0.6, (Math.random() - 0.5) * 1.2);
+        group.add(candle);
+      }
+      return group;
+    }
+
+    function makeMountain(offsetX) {
+      const mountain = new THREE.Mesh(
+        new THREE.ConeGeometry(4, 6, 6),
+        new THREE.MeshStandardMaterial({ color: 0x112433, roughness: 0.9 })
+      );
+      mountain.position.set(offsetX, 1, -4);
+      return mountain;
+    }
+
+    function makeWater() {
+      const water = new THREE.Mesh(
+        new THREE.CircleGeometry(4, 18),
+        new THREE.MeshStandardMaterial({ color: 0x0d3653, roughness: 0.3, metalness: 0.2 })
+      );
+      water.rotation.x = -Math.PI / 2;
+      water.position.y = -1.1;
+      return water;
+    }
+
+    function makeSwingSet() {
+      const group = new THREE.Group();
+      const frameMat = new THREE.MeshStandardMaterial({ color: 0x273241, roughness: 0.8 });
+      const leg1 = new THREE.Mesh(new THREE.BoxGeometry(0.2, 2, 0.2), frameMat);
+      leg1.position.set(-0.8, 0.0, 0);
+      leg1.rotation.z = Math.PI / 12;
+      const leg2 = leg1.clone();
+      leg2.position.x = 0.8;
+      leg2.rotation.z = -Math.PI / 12;
+      const top = new THREE.Mesh(new THREE.BoxGeometry(2, 0.2, 0.2), frameMat);
+      top.position.y = 1.0;
+      const seat = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.08, 0.25), new THREE.MeshStandardMaterial({ color: palette.warm }));
+      seat.position.y = -0.2;
+      group.add(leg1, leg2, top, seat);
+      return group;
+    }
+
+    function makeMailbox() {
+      const group = new THREE.Group();
+      const post = new THREE.Mesh(new THREE.BoxGeometry(0.2, 1.4, 0.2), new THREE.MeshStandardMaterial({ color: 0x1b2835 }));
+      post.position.y = 0.2;
+      const box = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.5, 0.6), new THREE.MeshStandardMaterial({ color: palette.teal, emissive: palette.teal, emissiveIntensity: 0.4 }));
+      box.position.set(0.4, 0.8, 0);
+      group.add(post, box);
+      return group;
+    }
+
+    // Locations
+    const locations = [];
+
+    function addLocation(name, position) {
+      const group = new THREE.Group();
+      group.position.copy(position);
+      scene.add(group);
+      locations.push({ name, group });
+      return group;
+    }
+
+    // 1. Home
+    const home = addLocation('Home', new THREE.Vector3(0, 0, 0));
+    home.add(makeHouse());
+    for (let i = 0; i < 7; i++) {
+      home.add(makeTree(-6 + i * 2, -4 + Math.random() * 4, 1 + Math.random() * 0.4));
+    }
+
+    // Firefly particles
+    const fireflies = new THREE.Group();
+    const fireflyGeom = new THREE.SphereGeometry(0.05, 6, 6);
+    for (let i = 0; i < 40; i++) {
+      const fly = new THREE.Mesh(
+        fireflyGeom,
+        new THREE.MeshStandardMaterial({ color: palette.warm, emissive: palette.warm, emissiveIntensity: 1 })
+      );
+      fly.position.set((Math.random() - 0.5) * 8, Math.random() * 3 + 0.5, (Math.random() - 0.5) * 6);
+      fireflies.add(fly);
+    }
+    home.add(fireflies);
+
+    // 2. Office
+    const office = addLocation('Office', new THREE.Vector3(28, 0, -6));
+    office.add(makeDesk());
+    const nodes = makeNeuralCluster();
+    nodes.position.set(0, 0.3, 2.4);
+    office.add(nodes);
+    const floatingPanel = new THREE.Mesh(
+      new THREE.BoxGeometry(2.8, 1.4, 0.1),
+      new THREE.MeshStandardMaterial({ color: 0x1d3f51, emissive: 0x2dcfe0, emissiveIntensity: 0.4 })
+    );
+    floatingPanel.position.set(-2.4, 1.5, -0.8);
+    office.add(floatingPanel);
+
+    // 3. Trading Floor
+    const trading = addLocation('Trading', new THREE.Vector3(56, 0, 8));
+    const candles = makeCandles();
+    trading.add(candles);
+    const chartBase = new THREE.Mesh(
+      new THREE.BoxGeometry(6, 0.3, 3),
+      new THREE.MeshStandardMaterial({ color: 0x16202b, roughness: 0.6 })
+    );
+    chartBase.position.y = -0.6;
+    trading.add(chartBase);
+    const stream = new THREE.TorusKnotGeometry(1.8, 0.2, 60, 8);
+    const streamMesh = new THREE.Mesh(stream, new THREE.MeshStandardMaterial({ color: palette.teal, emissive: palette.teal, emissiveIntensity: 0.3 }));
+    streamMesh.position.set(0, 1.2, -1.6);
+    trading.add(streamMesh);
+
+    // 4. Outdoors
+    const outdoors = addLocation('Outdoors', new THREE.Vector3(84, 0, -6));
+    outdoors.add(makeMountain(-2.5));
+    outdoors.add(makeMountain(3.5));
+    const trail = new THREE.Mesh(
+      new THREE.BoxGeometry(10, 0.2, 2.4),
+      new THREE.MeshStandardMaterial({ color: 0x172532, roughness: 0.9 })
+    );
+    trail.position.set(0, -0.9, 3);
+    outdoors.add(trail);
+    const water = makeWater();
+    water.position.set(-4.5, -1.05, 2.5);
+    outdoors.add(water);
+
+    // 5. Backyard
+    const backyard = addLocation('Backyard', new THREE.Vector3(112, 0, 6));
+    const house2 = makeHouse();
+    house2.scale.set(0.8, 0.8, 0.8);
+    house2.position.set(-2, 0, -2);
+    backyard.add(house2);
+    backyard.add(makeSwingSet());
+    backyard.add(makeTree(2.8, 3, 1.1));
+    backyard.add(makeTree(-5, 2.6, 0.9));
+
+    // 6. Mailbox
+    const mailbox = addLocation('Mailbox', new THREE.Vector3(140, 0, -2));
+    const box = makeMailbox();
+    mailbox.add(box);
+    const beacon = new THREE.Mesh(
+      new THREE.SphereGeometry(0.6, 16, 16),
+      new THREE.MeshStandardMaterial({ color: palette.warm, emissive: palette.warm, emissiveIntensity: 0.7 })
+    );
+    beacon.position.set(1.4, 1.6, 0);
+    mailbox.add(beacon);
+
+    // Road/path
+    const path = new THREE.Mesh(
+      new THREE.BoxGeometry(150, 0.2, 6),
+      new THREE.MeshStandardMaterial({ color: 0x0f1a27, roughness: 1 })
+    );
+    path.position.set(70, -1.1, 0);
+    scene.add(path);
+
+    // Camera waypoints
+    const chapters = [
+      {
+        title: "Hi, I'm Andrey",
+        subtitle: "A builder of systems, products, and endurance.",
+        body: "Welcome to my 3D world. Scroll or use the arrows to travel through the chapters.",
+        links: "",
+        camPos: new THREE.Vector3(0, 6, 16),
+        camLook: new THREE.Vector3(0, 1.5, 0),
+      },
+      {
+        title: "The Office",
+        subtitle: "Principal PM at Microsoft — building AI into OneDrive",
+        body: "Driving Copilot integration, semantic search, and experiences that make AI accessible to everyone.",
+        links: "",
+        camPos: new THREE.Vector3(26, 6, 14),
+        camLook: new THREE.Vector3(28, 1.2, -4),
+      },
+      {
+        title: "The Trading Floor",
+        subtitle: "Running a quantitative trading business",
+        body: "Systematic strategies, algorithms, and data-driven edge — where research meets execution.",
+        links: "",
+        camPos: new THREE.Vector3(54, 6, 18),
+        camLook: new THREE.Vector3(56, 0.6, 8),
+      },
+      {
+        title: "The Outdoors",
+        subtitle: "Endurance, adventure, and the edge of possibility",
+        body: "Top 10 at Norseman. Ironman. SwimRun World Championship — always chasing the next horizon.",
+        links: "",
+        camPos: new THREE.Vector3(84, 8, 16),
+        camLook: new THREE.Vector3(84, 1.2, -4),
+      },
+      {
+        title: "The Backyard",
+        subtitle: "Franklin, Tennessee. Dad of 3.",
+        body: "Building a warm, grounded life — curiosity, family, and community at the center.",
+        links: "",
+        camPos: new THREE.Vector3(110, 6, 16),
+        camLook: new THREE.Vector3(112, 1.2, 6),
+      },
+      {
+        title: "The Mailbox",
+        subtitle: "Let’s connect",
+        body: "Reach out or explore my work across platforms.",
+        links: "<p><a href='https://github.com/andrey-esipov' target='_blank'>GitHub</a> · <a href='https://linkedin.com/in/andrey-esipov' target='_blank'>LinkedIn</a></p>",
+        camPos: new THREE.Vector3(138, 5.5, 12),
+        camLook: new THREE.Vector3(140, 0.8, -2),
+      }
+    ];
+
+    const card = document.getElementById('card');
+    const titleEl = document.getElementById('title');
+    const subtitleEl = document.getElementById('subtitle');
+    const bodyEl = document.getElementById('body');
+    const linksEl = document.getElementById('links');
+    const progress = document.getElementById('progress');
+    const nav = document.getElementById('nav');
+
+    let current = 0;
+    let isAnimating = false;
+
+    function updateCard(index) {
+      const chapter = chapters[index];
+      titleEl.textContent = chapter.title;
+      subtitleEl.textContent = chapter.subtitle;
+      bodyEl.textContent = chapter.body;
+      linksEl.innerHTML = chapter.links || '';
+      card.classList.add('active');
+      progress.textContent = `Chapter ${index + 1} of ${chapters.length}`;
+      document.querySelectorAll('.dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    function moveTo(index) {
+      if (index < 0 || index >= chapters.length || isAnimating) return;
+      isAnimating = true;
+      current = index;
+      card.classList.remove('active');
+      const { camPos, camLook } = chapters[index];
+      gsap.to(camera.position, {
+        duration: 1.8,
+        x: camPos.x, y: camPos.y, z: camPos.z,
+        ease: 'power2.inOut',
+        onUpdate: () => camera.lookAt(camLook),
+        onComplete: () => {
+          camera.lookAt(camLook);
+          updateCard(index);
+          isAnimating = false;
+        }
+      });
+    }
+
+    chapters.forEach((chapter, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => moveTo(i));
+      nav.appendChild(dot);
     });
-  });
-</script>
+
+    document.getElementById('next').addEventListener('click', () => moveTo(current + 1));
+    document.getElementById('prev').addEventListener('click', () => moveTo(current - 1));
+
+    let scrollLock = false;
+    window.addEventListener('wheel', (e) => {
+      if (scrollLock) return;
+      scrollLock = true;
+      if (e.deltaY > 0) moveTo(current + 1); else moveTo(current - 1);
+      setTimeout(() => scrollLock = false, 900);
+    }, { passive: true });
+
+    // Touch swipe
+    let touchStartY = 0;
+    window.addEventListener('touchstart', (e) => touchStartY = e.touches[0].clientY, { passive: true });
+    window.addEventListener('touchend', (e) => {
+      const delta = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(delta) > 40) {
+        if (delta < 0) moveTo(current + 1); else moveTo(current - 1);
+      }
+    }, { passive: true });
+
+    // Animate elements
+    const clock = new THREE.Clock();
+    function animate() {
+      const t = clock.getElapsedTime();
+      fireflies.children.forEach((fly, i) => {
+        fly.position.y += Math.sin(t * 1.4 + i) * 0.002;
+      });
+      nodes.children.forEach((node, i) => {
+        node.position.y += Math.sin(t * 1.2 + i) * 0.0015;
+      });
+      streamMesh.rotation.x += 0.004;
+      streamMesh.rotation.y += 0.003;
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+
+    updateCard(0);
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    });
+  </script>
 </body>
 </html>
