@@ -3,216 +3,469 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Andrey Esipov</title>
-  <meta name="description" content="Principal Product Manager at Microsoft (OneDrive)." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <title>Andrey Esipov — Principal Product Manager</title>
+  <meta name="description" content="Andrey Esipov — Principal Product Manager at Microsoft. Building AI-powered experiences, quantitative trading, and elite endurance athletics." />
+
+  <!-- Premium Fonts (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #0b0c0f;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --soft: #6b7280;
-      --line: rgba(255, 255, 255, 0.08);
-      --accent: #cbd5f5;
+      --bg: #0b0c10;
+      --bg-2: #0f1117;
+      --text: #e8ecf1;
+      --muted: #9aa3ad;
+      --accent: #4fd1ff;
+      --accent-2: #8b5cff;
+      --accent-3: #00ffa3;
+      --card: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 20px 50px rgba(0,0,0,0.35);
+      --glow: 0 0 30px rgba(79, 209, 255, 0.35);
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      margin: 0;
+      font-family: "Inter", sans-serif;
       background: var(--bg);
       color: var(--text);
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+      line-height: 1.5;
+      overflow-x: hidden;
     }
 
     .page {
-      max-width: 780px;
+      position: relative;
+      min-height: 100vh;
+      background: radial-gradient(1200px 600px at 15% 10%, rgba(79,209,255,0.15), transparent),
+                  radial-gradient(1000px 700px at 80% 20%, rgba(139,92,255,0.18), transparent),
+                  radial-gradient(800px 500px at 60% 80%, rgba(0,255,163,0.10), transparent),
+                  linear-gradient(180deg, #0a0b0f 0%, #0f121a 50%, #0b0c10 100%);
+    }
+
+    /* Animated gradient mesh */
+    .mesh {
+      position: absolute;
+      inset: -20vh -20vw;
+      z-index: 0;
+      background: radial-gradient(40% 40% at 20% 20%, rgba(79,209,255,0.20), transparent 60%),
+                  radial-gradient(35% 35% at 80% 10%, rgba(139,92,255,0.20), transparent 60%),
+                  radial-gradient(30% 30% at 70% 80%, rgba(0,255,163,0.15), transparent 60%),
+                  radial-gradient(30% 30% at 20% 70%, rgba(79,209,255,0.12), transparent 60%);
+      filter: blur(30px) saturate(120%);
+      animation: meshShift 18s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes meshShift {
+      0% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(4%, -2%, 0) scale(1.05); }
+      100% { transform: translate3d(-3%, 3%, 0) scale(1.02); }
+    }
+
+    /* Grain overlay */
+    .grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 72px 24px 56px;
+      padding: 80px 24px 120px;
     }
 
-    header {
+    .nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 56px;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 24px;
+      align-items: center;
+      margin-bottom: 60px;
     }
-
-    .name {
-      font-size: clamp(2.1rem, 4vw, 3rem);
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
       font-weight: 600;
-      letter-spacing: -0.02em;
-      margin: 0 0 6px 0;
-    }
-
-    .role {
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
       color: var(--muted);
-      font-size: 1.05rem;
-      margin: 0;
     }
-
-    .links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .links a {
+    .nav a {
       color: var(--text);
       text-decoration: none;
+      margin-left: 20px;
       font-size: 0.95rem;
-      border-bottom: 1px solid transparent;
-      padding-bottom: 2px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 0.3s ease;
+    }
+    .nav a:hover { color: var(--accent); }
+    .nav a:hover::after { width: 100%; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 80px;
     }
 
-    .links a:hover {
-      border-color: var(--accent);
-    }
-
-    section {
-      margin: 44px 0;
-    }
-
-    h2 {
-      font-size: 1.1rem;
+    .hero h1 {
+      font-family: "Space Grotesk", sans-serif;
       font-weight: 600;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      color: var(--soft);
-      margin: 0 0 12px 0;
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
     }
 
-    p {
-      margin: 0 0 14px 0;
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .about {
-      font-size: 1.05rem;
-      color: var(--text);
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 26px;
     }
 
     .meta {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .timeline {
-      border-left: 1px solid var(--line);
-      padding-left: 18px;
-      display: grid;
+      display: flex;
       gap: 16px;
+      align-items: center;
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .meta .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: var(--glow);
     }
 
-    .timeline-item {
+    .cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.02);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #0b0c10;
+      border: none;
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+    .profile-card {
       position: relative;
-      padding-left: 6px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    .timeline-item::before {
+    .profile-avatar {
+      width: 200px; height: 200px;
+      border-radius: 28px;
+      background: conic-gradient(from 140deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent));
+      display: grid;
+      place-items: center;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .profile-avatar::after {
       content: "";
       position: absolute;
-      left: -24px;
-      top: 10px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
+      inset: 10px;
+      background: #0c0e14;
+      border-radius: 22px;
     }
 
-    .timeline-title {
-      font-weight: 500;
-      margin: 0 0 2px 0;
+    .profile-avatar span {
+      position: relative;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      background: linear-gradient(90deg, #e8ecf1, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .timeline-detail {
+    .about {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 40px;
+      align-items: start;
+      margin: 80px 0 60px;
+    }
+
+    .eyebrow {
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .about h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+    }
+
+    .about p {
       color: var(--muted);
-      font-size: 0.95rem;
-      margin: 0;
+      font-size: 1.05rem;
     }
 
-    footer {
-      border-top: 1px solid var(--line);
-      margin-top: 56px;
-      padding-top: 20px;
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: minmax(120px, auto);
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: rgba(79,209,255,0.4);
+    }
+
+    .card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.98rem;
+    }
+
+    .card.ai { grid-column: span 7; }
+    .card.trading { grid-column: span 5; }
+    .card.athletics { grid-column: span 6; }
+    .card.current { grid-column: span 6; }
+
+    .card .tag {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .current-role {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .current-role .highlight {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    .current-role .highlight span {
+      color: var(--accent);
+    }
+
+    .connect {
+      margin-top: 80px;
+      padding-top: 60px;
+      border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 20px;
     }
 
-    @media (max-width: 640px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    .social a {
+      margin-right: 18px;
+      color: var(--text);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .social a:hover { color: var(--accent); }
+
+    .footer {
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
+      .about { grid-template-columns: 1fr; }
+      .current-role { grid-template-columns: 1fr; }
+      .card.ai, .card.trading, .card.athletics, .card.current { grid-column: span 12; }
+      .profile-avatar { width: 180px; height: 180px; }
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <header>
-      <div>
-        <h1 class="name">Andrey Esipov</h1>
-        <p class="role">Principal Product Manager, Microsoft OneDrive</p>
-        <p class="meta">Based in Franklin, Tennessee</p>
-      </div>
-      <nav class="links" aria-label="Primary">
-        <a href="https://github.com/andrey-esipov" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/andrey-esipov" target="_blank" rel="noopener">LinkedIn</a>
+  <div class="page">
+    <div class="mesh"></div>
+    <div class="grain"></div>
+
+    <div class="container">
+      <nav class="nav">
+        <div class="logo">ANDREY ESIPOV</div>
+        <div>
+          <a href="#about">About</a>
+          <a href="#work">What I Do</a>
+          <a href="#current">Current</a>
+          <a href="#connect">Connect</a>
+        </div>
       </nav>
-    </header>
 
-    <section aria-labelledby="about">
-      <h2 id="about">About</h2>
-      <p class="about">
-        Product leader focused on intelligent file experiences and the intersection of AI, search, and productivity.
-        I build systems that make information easier to find, organize, and act on.
-        Background spans engineering, analytics, and business with a bias for shipping.
-      </p>
-    </section>
+      <section class="hero reveal">
+        <div>
+          <div class="meta"><span class="dot"></span> Franklin, Tennessee</div>
+          <h1>Principal Product Manager <br>building <span>AI-powered</span> experiences.</h1>
+          <p>Driving Copilot integrations and semantic search at Microsoft OneDrive, while running a quantitative trading business and competing at the highest levels of endurance sport.</p>
+          <div class="cta">
+            <a class="btn primary" href="#connect">Let’s Connect</a>
+            <a class="btn" href="#work">Explore Work</a>
+          </div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-avatar"><span>AE</span></div>
+        </div>
+      </section>
 
-    <section aria-labelledby="role">
-      <h2 id="role">Current Role</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <p class="timeline-title">Microsoft — OneDrive</p>
-          <p class="timeline-detail">Principal Product Manager • AI-powered file organization, semantic search, and Copilot experiences.</p>
+      <section id="about" class="about reveal">
+        <div>
+          <div class="eyebrow">About</div>
+          <h2>At the intersection of AI, markets, and human performance.</h2>
         </div>
-      </div>
-    </section>
+        <p>Harvard-trained data scientist and MBA with a master’s in MIS. I design AI-driven product experiences, run systematic trading strategies, and chase podiums at the world’s most demanding endurance events.</p>
+      </section>
 
-    <section aria-labelledby="education">
-      <h2 id="education">Education</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <p class="timeline-title">Harvard University</p>
-          <p class="timeline-detail">M.S. Data Science</p>
+      <section id="work" class="reveal">
+        <div class="eyebrow">What I Do</div>
+        <div class="bento">
+          <div class="card ai">
+            <h3>AI / Product Leadership</h3>
+            <p>Architecting intelligent experiences — from Copilot integrations to semantic discovery — to make OneDrive feel like it anticipates what people need next.</p>
+            <div class="tag">Microsoft OneDrive</div>
+          </div>
+          <div class="card trading">
+            <h3>Quantitative Trading</h3>
+            <p>Building systematic strategies with robust risk frameworks, signal research, and disciplined execution.</p>
+            <div class="tag">Systematic</div>
+          </div>
+          <div class="card athletics">
+            <h3>Endurance Athletics</h3>
+            <p>Multiple Ironmans, Top 10 at Norseman Xtreme Triathlon, and SwimRun World Championship competitor.</p>
+            <div class="tag">Elite Performance</div>
+          </div>
+          <div class="card current">
+            <h3>Education</h3>
+            <p>Harvard — Data Science. MBA. Master’s in MIS. Continuous learning at the edge of tech, business, and systems.</p>
+            <div class="tag">Harvard</div>
+          </div>
         </div>
-        <div class="timeline-item">
-          <p class="timeline-title">Master of Business Administration</p>
-          <p class="timeline-detail">MBA</p>
-        </div>
-        <div class="timeline-item">
-          <p class="timeline-title">Master of Information Systems</p>
-          <p class="timeline-detail">M.S. MIS</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <footer>
-      <span>© 2026 Andrey Esipov</span>
-      <span>Built with care. Minimal by design.</span>
-    </footer>
-  </main>
+      <section id="current" class="current-role reveal">
+        <div class="highlight">Currently shaping the future of OneDrive at <span>Microsoft</span>.</div>
+        <p>Leading product strategy and delivery for AI-powered experiences, turning next-gen research into real-world capabilities that scale to millions.</p>
+      </section>
+
+      <section id="connect" class="connect reveal">
+        <div>
+          <div class="eyebrow">Connect</div>
+          <div class="social">
+            <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <div class="footer">© 2025 Andrey Esipov — Crafted with precision.</div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // IntersectionObserver for subtle scroll reveals
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
