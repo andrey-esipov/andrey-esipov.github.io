@@ -215,6 +215,8 @@ body {
 
 /* ===========================================
    CARD SIZE VARIANTS
+   Tall = vertical rectangle (1 col x 2 rows)
+   Wide = horizontal rectangle (2 cols x 1 row)
    =========================================== */
 .card-tall { grid-row: span 2; }
 .card-wide { grid-column: span 2; }
