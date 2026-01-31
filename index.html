@@ -13,13 +13,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div id="top" class="scroll-target"></div>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <a href="#" class="nav-logo">Andrey</a>
+        <a href="#top" class="nav-logo" aria-label="Andrey Esipov">
+            <span class="logo-mark">Andrey</span>
+            <span class="logo-symbol">◆</span>
+        </a>
         <div class="nav-menu">
-            <a href="#" class="nav-link active">All</a>
-            <a href="#" class="nav-link">Bio</a>
-            <a href="#" class="nav-link">Projects</a>
+            <a href="#top" class="nav-link active">All</a>
+            <a href="#bio" class="nav-link">Bio</a>
+            <a href="#projects" class="nav-link">Projects</a>
         </div>
         <div class="nav-actions">
             <a class="nav-social github" href="https://github.com/andrey-esipov" target="_blank" rel="noopener" aria-label="GitHub">
@@ -34,15 +38,15 @@
                     <path d="M24 14c-5.52 0-10 4.48-10 10 0 4.41 2.86 8.14 6.84 9.47.5.1.68-.22.68-.48 0-.24-.01-.86-.01-1.68-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.1-1.47-1.1-1.47-.9-.62.07-.61.07-.61 1 .07 1.52 1.03 1.52 1.03.9 1.54 2.36 1.1 2.94.84.09-.65.35-1.1.63-1.35-2.22-.26-4.56-1.11-4.56-4.95 0-1.1.39-2 1.03-2.7-.1-.25-.45-1.28.1-2.66 0 0 .84-.27 2.75 1.03.8-.22 1.66-.34 2.52-.34s1.72.12 2.52.34c1.9-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.41.1 2.66.64.7 1.03 1.6 1.03 2.7 0 3.85-2.34 4.69-4.57 4.94.36.32.68.93.68 1.87 0 1.35-.01 2.43-.01 2.77 0 .26.18.58.69.48A10.02 10.02 0 0 0 34 24c0-5.52-4.48-10-10-10Z" fill="#1F2933"/>
                 </svg>
             </a>
-            <a href="#" class="nav-contact">Contact</a>
+            <a href="#contact" class="nav-contact">Contact</a>
         </div>
     </nav>
 
     <div class="page">
-        <main class="bento-grid" id="bentoGrid">
+        <main class="bento-grid scroll-target" id="projects">
 
             <!-- Bio Card - Wide -->
-            <article class="card card-bio" data-id="bio">
+            <article class="card card-bio scroll-target" data-id="bio" id="bio">
                 <div class="bio-header">
                     <div class="avatar">
                         <!-- Airbnb-style 3D Avatar SVG - Darker Blonde Hair, Blue Eyes -->
@@ -111,7 +115,10 @@
                     </div>
                 </div>
                 <div class="bio-content">
-                    <p class="bio-intro">Hi, I'm <span class="name-accent">Andrey</span>, product leader at Microsoft.</p>
+                    <p class="bio-intro">Hi, I'm <span class="name-accent">Andrey</span> — a product leader who builds AI-powered experiences used by millions.</p>
+                    <p class="bio-desc">At Microsoft, I lead product for OneDrive’s AI integration, bringing Copilot intelligence to how people manage their digital lives. I’m passionate about the intersection of AI and product craft — making powerful technology feel simple and delightful.</p>
+                    <p class="bio-desc">Previously shipped products across cloud storage, search, and productivity. Harvard Data Science, MBA. Always building.</p>
+                    <div class="bio-looking">Open to roles where I can scale thoughtful AI experiences with real-world impact.</div>
                 </div>
             </article>
 
@@ -119,19 +126,42 @@
             <article class="card card-location" data-id="location">
                 <div class="map-wrapper">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51654.82876698095!2d-86.89890565!3d35.925064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88646ee8f59b5c1b%3A0xc0a5934120230753!2sFranklin%2C%20TN!5e0!3m2!1sen!2sus!4v1706640000000"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d205398.5096564152!2d-87.10976020520708!3d36.18655830558978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864660e99f3bb4f%3A0x4b0d4d7ac9b1f5b!2sNashville%2C%20TN!5e0!3m2!1sen!2sus!4v1706640000000&disableDefaultUI=true&zoomControl=true"
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
+                    <div class="map-avatar" aria-hidden="true">
+                        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="miniSkin" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FFE4D6"/>
+                                    <stop offset="100%" style="stop-color:#F5CDB8"/>
+                                </linearGradient>
+                                <linearGradient id="miniHair" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#C9A86C"/>
+                                    <stop offset="100%" style="stop-color:#8B734A"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="60" cy="60" r="58" fill="#E8F4FC"/>
+                            <ellipse cx="60" cy="110" rx="32" ry="18" fill="#5A8EC4"/>
+                            <rect x="50" y="76" width="20" height="14" rx="5" fill="url(#miniSkin)"/>
+                            <ellipse cx="60" cy="52" rx="28" ry="30" fill="url(#miniSkin)"/>
+                            <ellipse cx="60" cy="30" rx="30" ry="18" fill="url(#miniHair)"/>
+                            <path d="M30 36 Q30 18 60 15 Q90 18 90 36 L90 48 Q82 40 60 40 Q38 40 30 48 Z" fill="url(#miniHair)"/>
+                            <circle cx="48" cy="52" r="4" fill="#4A85BD"/>
+                            <circle cx="72" cy="52" r="4" fill="#4A85BD"/>
+                            <path d="M50 70 Q60 76 70 70" stroke="#C4846C" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                 </div>
                 <div class="location-badge">
                     <span class="pulse-dot"></span>
-                    <span class="location-text">Franklin, TN</span>
+                    <span class="location-text">Greater Nashville Area</span>
                 </div>
             </article>
 
             <!-- Project 1 - Tall Coral (OneDrive Sync) -->
-            <article class="card card-project card-coral card-tall" data-id="project1">
+            <article class="card card-project card-coral card-tall project-onedrive" data-id="project1">
                 <div class="project-visual">
                     <svg class="project-icon-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
                         <defs>
@@ -450,6 +480,19 @@
             </article>
 
         </main>
+
+        <!-- Footer / Contact -->
+        <footer id="contact" class="footer scroll-target">
+            <div class="footer-content">
+                <p class="footer-tagline">Let's build something great together.</p>
+                <div class="footer-links">
+                    <a href="mailto:andrey.esipov@outlook.com" class="footer-link">Email</a>
+                    <a href="https://linkedin.com/in/andrey-esipov" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+                    <a href="https://github.com/andrey-esipov" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+                </div>
+                <p class="footer-copy">© 2026 Andrey Esipov</p>
+            </div>
+        </footer>
     </div>
 
     <script src="js/main.js"></script>
