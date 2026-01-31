@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Next.js (not needed for static site)
+.next/
+out/
+
+# Build files
+*.log
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Temp files
+*.tmp

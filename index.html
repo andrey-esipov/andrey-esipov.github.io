@@ -1,41 +1,146 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Andrey Esipov — 3D World</title>
-  <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrey Yevseyev</title>
+
+    <!-- Refined Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div id="app">
-    <canvas id="world"></canvas>
-    <div id="overlay" class="overlay">
-      <div class="chapter">
-        <h1 id="chapterTitle">Loading...</h1>
-        <h2 id="chapterSubtitle"></h2>
-        <p id="chapterDescription"></p>
-        <div id="chapterLinks" class="links"></div>
-      </div>
-    </div>
-    <div class="nav">
-      <button id="navPrev" class="nav-btn" aria-label="Previous">◀</button>
-      <button id="navNext" class="nav-btn" aria-label="Next">▶</button>
-    </div>
-    <div id="dots" class="dots" aria-label="Chapters"></div>
-    <div id="fallback" class="fallback hidden">
-      <h2>WebGL not supported</h2>
-      <p>Please use a modern browser or enable WebGL to view the 3D world.</p>
-    </div>
-  </div>
+    <div class="page">
+        <main class="bento-grid" id="bentoGrid">
 
-  <!-- UMD Builds (no ES modules) -->
-  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-  <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+            <!-- Bio Card - Wide -->
+            <article class="card card-bio" data-id="bio">
+                <div class="bio-header">
+                    <div class="avatar">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Andrey&backgroundColor=c0e8ff" alt="Avatar">
+                    </div>
+                </div>
+                <div class="bio-content">
+                    <p class="bio-intro">I'm <span class="name-accent">Andrey</span>, a product leader at Microsoft.</p>
+                    <p class="bio-desc">I'm passionate about Cloud, AI, Data Science, and building products that delight millions.</p>
+                </div>
+            </article>
 
-  <script src="js/locations.js"></script>
-  <script src="js/world.js"></script>
-  <script src="js/ui.js"></script>
-  <script src="js/navigation.js"></script>
-  <script src="js/main.js"></script>
+            <!-- Location Card -->
+            <article class="card card-location" data-id="location">
+                <div class="map-wrapper">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51654.82876698095!2d-86.89890565!3d35.925064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88646ee8f59b5c1b%3A0xc0a5934120230753!2sFranklin%2C%20TN!5e0!3m2!1sen!2sus!4v1706640000000"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="location-badge">
+                    <span class="pulse-dot"></span>
+                    <span class="location-text">Franklin, TN</span>
+                </div>
+            </article>
+
+            <!-- Project 1 - Tall Coral -->
+            <article class="card card-project card-coral card-tall" data-id="project1">
+                <div class="project-visual">
+                    <div class="project-icon">☁️</div>
+                    <div class="project-glow"></div>
+                </div>
+                <button class="expand-btn" data-label="Project 1">
+                    <span class="btn-icon">↗</span>
+                    <span class="btn-text">Project 1</span>
+                </button>
+            </article>
+
+            <!-- Hobby Card -->
+            <article class="card card-hobby" data-id="hobby">
+                <div class="hobby-emoji">🏊</div>
+                <div class="hobby-content">
+                    <span class="hobby-label">Currently into</span>
+                    <h3 class="hobby-title">Endurance Sports</h3>
+                    <p class="hobby-sub">Ironman & Swimrun</p>
+                </div>
+            </article>
+
+            <!-- Project 2 - Blue Wide -->
+            <article class="card card-project card-blue card-wide" data-id="project2">
+                <div class="project-visual">
+                    <div class="project-icon">⚡</div>
+                    <div class="project-glow"></div>
+                </div>
+                <button class="expand-btn" data-label="Project 2">
+                    <span class="btn-icon">↗</span>
+                    <span class="btn-text">Project 2</span>
+                </button>
+            </article>
+
+            <!-- Writing Card - Wide -->
+            <article class="card card-writing" data-id="writing">
+                <div class="writing-content">
+                    <h3 class="writing-title">How it started vs. how it's going</h3>
+                    <p class="writing-desc">13 years at Microsoft — from IC to Principal PM, Seattle to Tennessee.</p>
+                </div>
+                <div class="writing-footer">
+                    <button class="pill-btn">
+                        <span class="pill-arrow">↗</span>
+                        <span class="pill-text">Read more</span>
+                    </button>
+                    <span class="writing-date">Jan 2024</span>
+                </div>
+            </article>
+
+            <!-- Project 3 - Pink -->
+            <article class="card card-project card-pink" data-id="project3">
+                <div class="project-visual">
+                    <div class="project-icon">📊</div>
+                    <div class="project-glow"></div>
+                </div>
+                <button class="expand-btn" data-label="Project 3">
+                    <span class="btn-icon">↗</span>
+                    <span class="btn-text">Project 3</span>
+                </button>
+            </article>
+
+            <!-- Project 4 - Mint Tall -->
+            <article class="card card-project card-mint card-tall" data-id="project4">
+                <div class="project-visual">
+                    <div class="project-icon">🚀</div>
+                    <div class="project-glow"></div>
+                </div>
+                <button class="expand-btn" data-label="Project 4">
+                    <span class="btn-icon">↗</span>
+                    <span class="btn-text">Project 4</span>
+                </button>
+            </article>
+
+            <!-- Education Card -->
+            <article class="card card-education" data-id="education">
+                <span class="edu-label">Education</span>
+                <div class="edu-degrees">
+                    <p class="edu-degree">MS Data Science <em>Harvard</em></p>
+                    <p class="edu-degree">MBA <em>Arizona</em></p>
+                </div>
+            </article>
+
+            <!-- Project 5 - Yellow -->
+            <article class="card card-project card-yellow" data-id="project5">
+                <div class="project-visual">
+                    <div class="project-icon">🎯</div>
+                    <div class="project-glow"></div>
+                </div>
+                <button class="expand-btn" data-label="Project 5">
+                    <span class="btn-icon">↗</span>
+                    <span class="btn-text">Project 5</span>
+                </button>
+            </article>
+
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
