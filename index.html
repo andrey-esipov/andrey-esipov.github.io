@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrey Esipov</title>
 
-    <!-- Refined Typography - Clean Sans-Serif -->
+    <!-- Stylish Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -40,15 +40,15 @@
                                 </linearGradient>
                                 <linearGradient id="hairGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                                     <stop offset="0%" style="stop-color:#C9A86C"/>
-                                    <stop offset="100%" style="stop-color:#A68B4B"/>
+                                    <stop offset="100%" style="stop-color:#8B734A"/>
                                 </linearGradient>
                                 <linearGradient id="eyeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#5B9BD5"/>
-                                    <stop offset="100%" style="stop-color:#3A7BBD"/>
+                                    <stop offset="0%" style="stop-color:#6BA3D6"/>
+                                    <stop offset="100%" style="stop-color:#4A85BD"/>
                                 </linearGradient>
                                 <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#6B9FD4"/>
-                                    <stop offset="100%" style="stop-color:#4A7FB8"/>
+                                    <stop offset="0%" style="stop-color:#5A8EC4"/>
+                                    <stop offset="100%" style="stop-color:#3A6EA8"/>
                                 </linearGradient>
                                 <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
                                     <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.15"/>
@@ -61,41 +61,43 @@
                             <!-- Neck -->
                             <rect x="50" y="78" width="20" height="15" rx="5" fill="url(#skinGrad)"/>
                             <!-- Head -->
-                            <ellipse cx="60" cy="52" rx="32" ry="35" fill="url(#skinGrad)" filter="url(#softShadow)"/>
-                            <!-- Hair - Darker Blonde -->
-                            <path d="M28 45 Q30 20 60 18 Q90 20 92 45 Q92 30 75 25 Q60 22 45 25 Q28 30 28 45" fill="url(#hairGrad)"/>
-                            <ellipse cx="35" cy="42" rx="8" ry="12" fill="url(#hairGrad)"/>
-                            <ellipse cx="85" cy="42" rx="8" ry="12" fill="url(#hairGrad)"/>
-                            <!-- Hair highlight -->
-                            <path d="M40 22 Q50 18 60 20 Q55 24 45 25" fill="#D4B87A" opacity="0.6"/>
+                            <ellipse cx="60" cy="55" rx="30" ry="32" fill="url(#skinGrad)" filter="url(#softShadow)"/>
+                            <!-- Hair - Fuller coverage, darker blonde -->
+                            <ellipse cx="60" cy="32" rx="32" ry="20" fill="url(#hairGrad)"/>
+                            <path d="M28 38 Q28 15 60 12 Q92 15 92 38 L92 50 Q85 42 60 42 Q35 42 28 50 Z" fill="url(#hairGrad)"/>
+                            <!-- Side hair -->
+                            <ellipse cx="30" cy="48" rx="7" ry="14" fill="url(#hairGrad)"/>
+                            <ellipse cx="90" cy="48" rx="7" ry="14" fill="url(#hairGrad)"/>
+                            <!-- Hair texture/highlights -->
+                            <path d="M45 18 Q55 14 65 16 Q60 22 50 22 Z" fill="#D4B87A" opacity="0.5"/>
+                            <path d="M38 25 Q45 20 55 22" stroke="#D4B87A" stroke-width="2" fill="none" opacity="0.4"/>
                             <!-- Ears -->
-                            <ellipse cx="28" cy="55" rx="6" ry="8" fill="url(#skinGrad)"/>
-                            <ellipse cx="92" cy="55" rx="6" ry="8" fill="url(#skinGrad)"/>
+                            <ellipse cx="30" cy="58" rx="5" ry="7" fill="url(#skinGrad)"/>
+                            <ellipse cx="90" cy="58" rx="5" ry="7" fill="url(#skinGrad)"/>
                             <!-- Eyes - Blue -->
-                            <ellipse cx="45" cy="52" rx="6" ry="7" fill="white"/>
-                            <ellipse cx="75" cy="52" rx="6" ry="7" fill="white"/>
-                            <ellipse cx="45" cy="53" rx="4" ry="5" fill="url(#eyeGrad)"/>
-                            <ellipse cx="75" cy="53" rx="4" ry="5" fill="url(#eyeGrad)"/>
-                            <circle cx="45" cy="52" r="2" fill="#1E4A73"/>
-                            <circle cx="75" cy="52" r="2" fill="#1E4A73"/>
-                            <circle cx="46" cy="50" r="1.5" fill="#fff"/>
-                            <circle cx="76" cy="50" r="1.5" fill="#fff"/>
-                            <!-- Eyebrows - Darker Blonde -->
-                            <path d="M38 42 Q45 39 52 42" stroke="#8B7355" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                            <path d="M68 42 Q75 39 82 42" stroke="#8B7355" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <ellipse cx="47" cy="55" rx="6" ry="6" fill="white"/>
+                            <ellipse cx="73" cy="55" rx="6" ry="6" fill="white"/>
+                            <ellipse cx="47" cy="56" rx="4" ry="4.5" fill="url(#eyeGrad)"/>
+                            <ellipse cx="73" cy="56" rx="4" ry="4.5" fill="url(#eyeGrad)"/>
+                            <circle cx="47" cy="55" r="2" fill="#1E4A73"/>
+                            <circle cx="73" cy="55" r="2" fill="#1E4A73"/>
+                            <circle cx="48" cy="53" r="1.5" fill="#fff"/>
+                            <circle cx="74" cy="53" r="1.5" fill="#fff"/>
+                            <!-- Eyebrows -->
+                            <path d="M40 46 Q47 43 54 46" stroke="#8B734A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <path d="M66 46 Q73 43 80 46" stroke="#8B734A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
                             <!-- Nose -->
-                            <ellipse cx="60" cy="62" rx="4" ry="3" fill="#E8C4A8" opacity="0.6"/>
+                            <ellipse cx="60" cy="64" rx="3" ry="2.5" fill="#E8C4A8" opacity="0.5"/>
                             <!-- Smile -->
-                            <path d="M50 72 Q60 80 70 72" stroke="#C4846C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <path d="M52 74 Q60 81 68 74" stroke="#C4846C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
                             <!-- Cheeks -->
-                            <circle cx="38" cy="65" r="6" fill="#FFB5A0" opacity="0.35"/>
-                            <circle cx="82" cy="65" r="6" fill="#FFB5A0" opacity="0.35"/>
+                            <circle cx="40" cy="68" r="5" fill="#FFB5A0" opacity="0.3"/>
+                            <circle cx="80" cy="68" r="5" fill="#FFB5A0" opacity="0.3"/>
                         </svg>
                     </div>
                 </div>
                 <div class="bio-content">
-                    <p class="bio-intro">I'm <span class="name-accent">Andrey</span>, a product leader at Microsoft.</p>
-                    <p class="bio-desc">I'm passionate about Cloud, AI, Data Science, and building products that delight millions.</p>
+                    <p class="bio-intro">Hi, I'm <span class="name-accent">Andrey</span>, product leader at Microsoft.</p>
                 </div>
             </article>
 
@@ -145,28 +147,43 @@
 
             <!-- Hobby Card -->
             <article class="card card-hobby" data-id="hobby">
-                <svg class="hobby-icon-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <svg class="hobby-icon-svg" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#6DD5FA"/>
-                            <stop offset="100%" style="stop-color:#2980B9"/>
+                        <linearGradient id="bikeFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FF6B6B"/>
+                            <stop offset="100%" style="stop-color:#EE5A5A"/>
                         </linearGradient>
+                        <linearGradient id="wheelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#4A5568"/>
+                            <stop offset="100%" style="stop-color:#2D3748"/>
+                        </linearGradient>
+                        <filter id="bikeShadow">
+                            <feDropShadow dx="0" dy="3" stdDeviation="2" flood-opacity="0.2"/>
+                        </filter>
                     </defs>
-                    <!-- Swimming figure -->
-                    <ellipse cx="30" cy="38" rx="25" ry="8" fill="url(#waterGrad)" opacity="0.4"/>
-                    <circle cx="30" cy="25" r="10" fill="#FFE0D0"/>
-                    <ellipse cx="30" cy="40" rx="12" ry="6" fill="#FF6B6B"/>
-                    <path d="M18 38 Q10 35 5 40" stroke="#FFE0D0" stroke-width="4" fill="none" stroke-linecap="round"/>
-                    <path d="M42 38 Q50 35 55 40" stroke="#FFE0D0" stroke-width="4" fill="none" stroke-linecap="round"/>
-                    <!-- Splash -->
-                    <circle cx="12" cy="42" r="2" fill="#6DD5FA"/>
-                    <circle cx="48" cy="44" r="2" fill="#6DD5FA"/>
-                    <circle cx="8" cy="38" r="1.5" fill="#6DD5FA"/>
+                    <!-- Back wheel -->
+                    <circle cx="18" cy="45" r="14" fill="none" stroke="url(#wheelGrad)" stroke-width="3" filter="url(#bikeShadow)"/>
+                    <circle cx="18" cy="45" r="3" fill="#4A5568"/>
+                    <!-- Front wheel -->
+                    <circle cx="52" cy="45" r="14" fill="none" stroke="url(#wheelGrad)" stroke-width="3" filter="url(#bikeShadow)"/>
+                    <circle cx="52" cy="45" r="3" fill="#4A5568"/>
+                    <!-- Frame -->
+                    <path d="M18 45 L32 28 L52 45 M32 28 L32 45 M32 45 L18 45" stroke="url(#bikeFrameGrad)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Handlebars -->
+                    <path d="M32 28 L38 24 L44 26" stroke="url(#bikeFrameGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <!-- Seat -->
+                    <ellipse cx="24" cy="24" rx="6" ry="3" fill="#2D3748"/>
+                    <line x1="26" y1="26" x2="32" y2="28" stroke="#2D3748" stroke-width="2"/>
+                    <!-- Pedals -->
+                    <circle cx="32" cy="45" r="4" fill="#FFD700"/>
+                    <line x1="28" y1="48" x2="36" y2="42" stroke="#4A5568" stroke-width="2" stroke-linecap="round"/>
+                    <!-- Sparkle -->
+                    <circle cx="58" cy="18" r="2" fill="#FFD700" opacity="0.8"/>
                 </svg>
                 <div class="hobby-content">
                     <span class="hobby-label">Currently into</span>
                     <h3 class="hobby-title">Endurance Sports</h3>
-                    <p class="hobby-sub">Ironman & Swimrun</p>
+                    <p class="hobby-sub">Ironman & Cycling</p>
                 </div>
             </article>
 
@@ -197,19 +214,8 @@
                 </button>
             </article>
 
-            <!-- Writing Card - Wide -->
-            <article class="card card-writing" data-id="writing">
-                <div class="writing-content">
-                    <h3 class="writing-title">How it started vs. how it's going</h3>
-                    <p class="writing-desc">13 years at Microsoft - from IC to Principal PM, Seattle to Tennessee.</p>
-                </div>
-                <div class="writing-footer">
-                    <button class="pill-btn">
-                        <span class="pill-arrow">&#8599;</span>
-                        <span class="pill-text">Read more</span>
-                    </button>
-                    <span class="writing-date">Jan 2024</span>
-                </div>
+            <!-- Writing Card - Wide (Empty placeholder) -->
+            <article class="card card-writing card-empty" data-id="writing">
             </article>
 
             <!-- Project 3 - Pink (Data/Charts) -->
@@ -379,11 +385,10 @@
                             <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.15"/>
                         </filter>
                     </defs>
-                    <!-- LinkedIn-style icon -->
-                    <rect x="10" y="10" width="40" height="40" rx="8" fill="url(#linkedinGrad)" filter="url(#socialShadow)"/>
-                    <rect x="16" y="36" width="6" height="12" rx="1" fill="white"/>
-                    <circle cx="19" cy="22" r="4" fill="white"/>
-                    <path d="M28 36 L28 48 L34 48 L34 41 Q34 36 39 36 Q44 36 44 41 L44 48 L50 48 L50 40 Q50 32 41 32 Q36 32 34 35 L34 36 Z" fill="white"/>
+                    <!-- LinkedIn icon - clean design -->
+                    <rect x="8" y="8" width="44" height="44" rx="10" fill="url(#linkedinGrad)" filter="url(#socialShadow)"/>
+                    <!-- "in" text style -->
+                    <text x="18" y="42" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">in</text>
                 </svg>
                 <div class="connect-content">
                     <span class="connect-label">Let's Connect</span>
