@@ -21,9 +21,9 @@
     --text-muted: #9a9a9a;
     --text-accent: #2d8a6e;
 
-    /* Typography - Stylish modern fonts */
-    --font-display: 'Space Grotesk', -apple-system, sans-serif;
-    --font-body: 'Outfit', -apple-system, sans-serif;
+    /* Typography - Designer editorial fonts */
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --font-body: 'General Sans', -apple-system, sans-serif;
 
     /* Spacing & Radius */
     --radius: 28px;
@@ -80,19 +80,16 @@ body {
 
 .nav-logo {
     font-family: var(--font-display);
-    font-size: 28px;
-    font-weight: 700;
-    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 50%, #FFA726 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--text-primary);
     text-decoration: none;
-    letter-spacing: -0.02em;
-    transition: transform 0.3s ease;
+    letter-spacing: -0.01em;
+    transition: opacity 0.3s ease;
 }
 
 .nav-logo:hover {
-    transform: scale(1.05);
+    opacity: 0.7;
 }
 
 .nav-menu {
@@ -260,22 +257,19 @@ body {
 
 .bio-intro {
     font-family: var(--font-body);
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 400;
-    line-height: 1.6;
-    color: var(--text-primary);
+    line-height: 1.5;
+    color: var(--text-secondary);
     letter-spacing: -0.01em;
 }
 
 .name-accent {
     font-family: var(--font-display);
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 34px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
 }
 
 .bio-desc {
@@ -424,10 +418,40 @@ body {
 .card-yellow .project-icon-svg { animation-delay: 1.6s; }
 
 .hobby-icon-svg {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 12px;
+    width: 70px;
+    height: 55px;
+    margin-bottom: 8px;
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+/* Bicycle animation */
+.bike-animated .wheel-spin {
+    transform-origin: center;
+    animation: wheelRotate 3s linear infinite;
+}
+
+.bike-animated .pedal-spin {
+    transform-origin: 36px 38px;
+    animation: pedalRotate 2s linear infinite;
+}
+
+@keyframes wheelRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pedalRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Subtle hover boost */
+.card-hobby:hover .bike-animated .wheel-spin {
+    animation-duration: 1s;
+}
+
+.card-hobby:hover .bike-animated .pedal-spin {
+    animation-duration: 0.7s;
 }
 
 .edu-icon-svg {
@@ -541,22 +565,13 @@ body {
     margin-top: auto;
 }
 
-.hobby-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-accent);
-    margin-bottom: 4px;
-}
-
 .hobby-title {
     font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    margin-bottom: 2px;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+    color: var(--text-primary);
 }
 
 .hobby-sub {
@@ -659,14 +674,15 @@ body {
 }
 
 .edu-degree {
-    font-family: var(--font-display);
-    font-size: 15px;
+    font-family: var(--font-body);
+    font-size: 14px;
     font-weight: 500;
     margin-bottom: 6px;
     letter-spacing: -0.01em;
 }
 
 .edu-degree .school {
+    font-family: var(--font-display);
     font-weight: 400;
     color: var(--text-secondary);
 }
@@ -693,18 +709,19 @@ body {
 
 .connect-label {
     display: block;
-    font-size: 10px;
-    font-weight: 600;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.75);
     margin-bottom: 4px;
 }
 
 .connect-handle {
     font-family: var(--font-display);
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 17px;
+    font-weight: 400;
     color: white;
     letter-spacing: -0.01em;
 }
