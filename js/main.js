@@ -7,7 +7,55 @@ document.addEventListener('DOMContentLoaded', () => {
     initEntranceAnimations();
     initDragAndDrop();
     initButtonInteractions();
+    initHoverSounds();
 });
+
+/* ===========================================
+   SUBTLE HOVER SOUNDS
+   Uses Web Audio API for soft, tasteful clicks
+   =========================================== */
+let audioContext = null;
+
+function initHoverSounds() {
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            playHoverSound();
+        });
+    });
+}
+
+function playHoverSound() {
+    // Lazy init audio context (required by browsers)
+    if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    // Resume context if suspended (browser autoplay policy)
+    if (audioContext.state === 'suspended') {
+        audioContext.resume();
+    }
+
+    // Create a very subtle, soft click
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+
+    // High frequency for subtle "tap" feel
+    oscillator.frequency.setValueAtTime(2400, audioContext.currentTime);
+    oscillator.type = 'sine';
+
+    // Very quiet - barely perceptible
+    gainNode.gain.setValueAtTime(0.015, audioContext.currentTime);
+    // Quick fade out for soft click
+    gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.04);
+
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.04);
+}
 
 /* ===========================================
    STAGGERED ENTRANCE ANIMATIONS
