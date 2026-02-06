@@ -20,9 +20,9 @@
             Andrey Esipov
         </a>
         <div class="nav-menu">
-            <a href="#top" class="nav-link active">All</a>
-            <a href="#bio" class="nav-link">Bio</a>
-            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#top" class="nav-link active" data-filter="all">All</a>
+            <a href="#bio" class="nav-link" data-filter="bio">Bio</a>
+            <a href="#projects" class="nav-link" data-filter="projects">Projects</a>
         </div>
         <div class="nav-actions">
             <a class="nav-social github" href="https://github.com/andrey-esipov" target="_blank" rel="noopener" aria-label="GitHub">
@@ -45,7 +45,7 @@
         <main class="bento-grid scroll-target" id="projects">
 
             <!-- Bio Card - Wide -->
-            <article class="card card-bio scroll-target" data-id="bio" id="bio">
+            <article class="card card-bio scroll-target" data-id="bio" data-category="bio" id="bio">
                 <div class="bio-header">
                     <div class="avatar">
                         <!-- Airbnb-style 3D Avatar SVG - Darker Blonde Hair, Blue Eyes -->
@@ -121,7 +121,7 @@
             </article>
 
             <!-- Location Card -->
-            <article class="card card-location" data-id="location">
+            <article class="card card-location" data-id="location" data-category="bio">
                 <div class="map-wrapper">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d205398.5096564152!2d-87.10976020520708!3d36.18655830558978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864660e99f3bb4f%3A0x4b0d4d7ac9b1f5b!2sNashville%2C%20TN!5e0!3m2!1sen!2sus!4v1706640000000&disableDefaultUI=true&zoomControl=true"
@@ -159,7 +159,7 @@
             </article>
 
             <!-- Connect Card (Moved up) -->
-            <a href="https://linkedin.com/in/andrey-esipov" target="_blank" rel="noopener" class="card card-connect" data-id="connect" style="text-decoration: none; color: inherit; cursor: pointer;">
+            <a href="https://linkedin.com/in/andrey-esipov" target="_blank" rel="noopener" class="card card-connect" data-id="connect" data-category="bio" style="text-decoration: none; color: inherit; cursor: pointer;">
                 <svg class="connect-icon-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="linkedinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -181,7 +181,7 @@
             </a>
 
             <!-- Project 1 - Tall Coral (Copilot + OneDrive) -->
-            <article class="card card-project card-coral card-tall project-onedrive" data-id="project1">
+            <article class="card card-project card-coral card-tall project-onedrive" data-id="project1" data-category="project">
                 <!-- Custom SVG Background: Neural Network + Cloud Sync -->
                 <svg class="project-bg-art" viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
                     <defs>
@@ -248,7 +248,7 @@
             </article>
 
             <!-- Project 2 - Blue Wide (OneDrive Archive) -->
-            <article class="card card-project card-blue card-wide" data-id="project2">
+            <article class="card card-project card-blue card-wide" data-id="project2" data-category="project">
                 <!-- Custom SVG Background: Layered Storage -->
                 <svg class="project-bg-art" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
                     <defs>
@@ -308,7 +308,7 @@
             </article>
 
             <!-- Education Card (Moved up) -->
-            <article class="card card-education" data-id="education">
+            <article class="card card-education" data-id="education" data-category="bio">
                 <svg class="edu-icon-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="capGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -346,7 +346,7 @@
             </article>
 
             <!-- Project 3 - Pink (Semantic Search) -->
-            <article class="card card-project card-pink" data-id="project3">
+            <article class="card card-project card-pink" data-id="project3" data-category="project">
                 <!-- Custom SVG Background: Radial Search Patterns -->
                 <svg class="project-bg-art" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
                     <defs>

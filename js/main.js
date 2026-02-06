@@ -1,6 +1,7 @@
 /**
  * Bento Grid - Refined Animations & Interactions
  * Editorial pastel aesthetic with expanding buttons
+ * ENHANCED: Interactive filtering & navigation
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,7 +9,138 @@ document.addEventListener('DOMContentLoaded', () => {
     initDragAndDrop();
     initButtonInteractions();
     initHoverSounds();
+    initFilteringAndNavigation();
 });
+
+/* ===========================================
+   INTERACTIVE FILTERING & NAVIGATION
+   =========================================== */
+function initFilteringAndNavigation() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const cards = document.querySelectorAll('.card[data-category]');
+    
+    // Make cards keyboard focusable
+    cards.forEach(card => {
+        card.setAttribute('tabindex', '0');
+    });
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const filter = link.dataset.filter;
+            
+            // Update active nav state
+            updateActiveNav(link);
+            
+            // Filter cards
+            filterCards(filter);
+            
+            // Smooth scroll to first visible card
+            scrollToFirstCard(filter);
+        });
+    });
+    
+    // Keyboard navigation for cards
+    cards.forEach((card, index) => {
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                // Trigger card interaction if it has a button
+                const button = card.querySelector('.expand-btn');
+                if (button) {
+                    button.click();
+                }
+            }
+            
+            // Arrow key navigation
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                const nextCard = cards[index + 1];
+                if (nextCard && !nextCard.classList.contains('inactive')) {
+                    nextCard.focus();
+                }
+            }
+            
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                const prevCard = cards[index - 1];
+                if (prevCard && !prevCard.classList.contains('inactive')) {
+                    prevCard.focus();
+                }
+            }
+        });
+    });
+}
+
+function updateActiveNav(activeLink) {
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+    activeLink.classList.add('active');
+}
+
+function filterCards(category) {
+    const cards = document.querySelectorAll('.card[data-category]');
+    
+    cards.forEach(card => {
+        const cardCategory = card.dataset.category;
+        
+        if (category === 'all') {
+            // Show all cards
+            card.classList.remove('inactive');
+            card.setAttribute('tabindex', '0');
+        } else if (category === 'projects' && cardCategory === 'project') {
+            // Show only project cards
+            card.classList.remove('inactive');
+            card.setAttribute('tabindex', '0');
+        } else if (category === 'bio' && cardCategory === 'bio') {
+            // Show only bio cards
+            card.classList.remove('inactive');
+            card.setAttribute('tabindex', '0');
+        } else {
+            // Gray out inactive cards
+            card.classList.add('inactive');
+            card.setAttribute('tabindex', '-1');
+        }
+    });
+}
+
+function scrollToFirstCard(category) {
+    let targetCard = null;
+    
+    if (category === 'all') {
+        // Scroll to top
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        return;
+    } else if (category === 'projects') {
+        // Find first project card
+        targetCard = document.querySelector('.card[data-category="project"]');
+    } else if (category === 'bio') {
+        // Find first bio card (the main bio card)
+        targetCard = document.querySelector('.card[data-category="bio"]');
+    }
+    
+    if (targetCard) {
+        const navHeight = 70; // Account for fixed navbar
+        const targetPosition = targetCard.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+        
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+        
+        // Focus the target card after scrolling
+        setTimeout(() => {
+            targetCard.focus();
+        }, 500);
+    }
+}
+
 
 /* ===========================================
    SUBTLE HOVER SOUNDS

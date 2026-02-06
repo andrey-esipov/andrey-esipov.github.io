@@ -140,6 +140,8 @@ body {
     color: var(--text-primary);
     background: var(--bg);
     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    font-weight: 600;
+    border-bottom: 2px solid #6BA3D6;
 }
 
 .nav-actions {
@@ -233,7 +235,8 @@ body {
     transition:
         transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 0.5s ease;
+        opacity 0.4s ease,
+        filter 0.4s ease;
 }
 
 .card.visible {
@@ -258,6 +261,21 @@ body {
 .card.drag-over {
     transform: scale(0.96);
     opacity: 0.6;
+}
+
+/* ===========================================
+   FILTERING STATES
+   =========================================== */
+.card.inactive {
+    opacity: 0.3;
+    transform: scale(0.95);
+    filter: grayscale(80%);
+    pointer-events: none;
+}
+
+.card.inactive:hover {
+    transform: scale(0.95);
+    box-shadow: var(--shadow-card);
 }
 
 /* ===========================================
@@ -452,13 +470,60 @@ body {
     padding-bottom: 64px;
     position: relative;
     overflow: hidden;
+    border: 4px solid transparent;
+    transition:
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.4s ease,
+        filter 0.4s ease,
+        border-color 0.4s ease;
 }
 
-.card-blue { background: var(--card-blue); }
-.card-pink { background: var(--card-pink); }
-.card-coral { background: var(--card-coral); }
-.card-mint { background: var(--card-mint); }
-.card-yellow { background: var(--card-yellow); }
+.card-blue { 
+    background: var(--card-blue);
+    border-color: #4A85BD;
+}
+
+.card-pink { 
+    background: var(--card-pink);
+    border-color: #FF8FB2;
+}
+
+.card-coral { 
+    background: var(--card-coral);
+    border-color: #FF8B7B;
+}
+
+.card-mint { 
+    background: var(--card-mint);
+}
+
+.card-yellow { 
+    background: var(--card-yellow);
+}
+
+/* Enhanced hover with glow effect */
+.card-project:hover {
+    transform: translateY(-12px) scale(1.01);
+}
+
+.card-coral:hover {
+    box-shadow: 
+        0 20px 40px rgba(255, 139, 123, 0.25),
+        0 8px 16px rgba(0,0,0,0.1);
+}
+
+.card-blue:hover {
+    box-shadow: 
+        0 20px 40px rgba(74, 133, 189, 0.25),
+        0 8px 16px rgba(0,0,0,0.1);
+}
+
+.card-pink:hover {
+    box-shadow: 
+        0 20px 40px rgba(255, 143, 178, 0.25),
+        0 8px 16px rgba(0,0,0,0.1);
+}
 
 /* SVG background art - positioned absolutely */
 .project-bg-art {
@@ -467,12 +532,12 @@ body {
     width: 100%;
     height: 100%;
     z-index: 0;
-    opacity: 1;
+    opacity: 0.6;
     transition: opacity 0.4s ease;
 }
 
 .card-project:hover .project-bg-art {
-    opacity: 0.85;
+    opacity: 0.8;
 }
 
 .project-visual {
@@ -983,7 +1048,25 @@ body::before {
 
 /* Focus states for keyboard navigation */
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+.card:focus-visible {
     outline: 3px solid #6BA3D6;
-    outline-offset: 2px;
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+}
+
+/* Make cards keyboard navigable */
+.card {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.card:focus {
+    outline: none;
+}
+
+.card:focus-visible {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 
+        0 0 0 4px rgba(107, 163, 214, 0.3),
+        var(--shadow-card-hover);
 }
