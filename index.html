@@ -17,8 +17,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <a href="#top" class="nav-logo" aria-label="Andrey Esipov">
-            <span class="logo-mark">Andrey</span>
-            <span class="logo-symbol">◆</span>
+            Andrey Esipov
         </a>
         <div class="nav-menu">
             <a href="#top" class="nav-link active">All</a>
@@ -118,7 +117,6 @@
                     <p class="bio-intro">Hi, I'm <span class="name-accent">Andrey</span>.</p>
                     <p class="bio-desc">I'm a Product Manager at Microsoft, currently building OneDrive. I love crafting software that millions of people rely on every single day.</p>
                     <p class="bio-desc">My work focuses on taking complex problems and turning them into simple, delightful experiences at scale.</p>
-                    <div class="bio-looking">Always building.</div>
                 </div>
             </article>
 
@@ -157,6 +155,29 @@
                 <div class="location-badge">
                     <span class="pulse-dot"></span>
                     <span class="location-text">[Location]</span>
+                </div>
+            </article>
+
+            <!-- Connect Card (Moved up) -->
+            <article class="card card-connect" data-id="connect">
+                <svg class="connect-icon-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="linkedinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#0A66C2"/>
+                            <stop offset="100%" style="stop-color:#004182"/>
+                        </linearGradient>
+                        <filter id="socialShadow">
+                            <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+                        </filter>
+                    </defs>
+                    <!-- LinkedIn icon - clean design -->
+                    <rect x="8" y="8" width="44" height="44" rx="10" fill="url(#linkedinGrad)" filter="url(#socialShadow)"/>
+                    <!-- "in" text style -->
+                    <text x="18" y="42" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">in</text>
+                </svg>
+                <div class="connect-content">
+                    <span class="connect-label">Let's Connect</span>
+                    <p class="connect-handle">@[Social Handle]</p>
                 </div>
             </article>
 
@@ -226,6 +247,39 @@
                 </button>
             </article>
 
+            <!-- Education Card (Moved up) -->
+            <article class="card card-education" data-id="education">
+                <svg class="edu-icon-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="capGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#2C3E50"/>
+                            <stop offset="100%" style="stop-color:#1A252F"/>
+                        </linearGradient>
+                        <filter id="capShadow">
+                            <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.2"/>
+                        </filter>
+                    </defs>
+                    <!-- Mortarboard top (diamond shape) -->
+                    <polygon points="30,8 8,22 30,36 52,22" fill="url(#capGrad)" filter="url(#capShadow)"/>
+                    <!-- Cap skull/base -->
+                    <ellipse cx="30" cy="32" rx="14" ry="6" fill="#1A252F"/>
+                    <rect x="16" y="32" width="28" height="12" fill="#1A252F"/>
+                    <ellipse cx="30" cy="44" rx="14" ry="5" fill="#2C3E50"/>
+                    <!-- Button on top -->
+                    <circle cx="30" cy="22" r="3" fill="#1A252F"/>
+                    <!-- Tassel -->
+                    <circle cx="30" cy="22" r="2" fill="#FFD700"/>
+                    <path d="M30 24 L30 28 Q35 32 32 42" stroke="#FFD700" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <circle cx="32" cy="44" r="3" fill="#FFD700"/>
+                    <ellipse cx="32" cy="47" rx="2" ry="3" fill="#FFD700"/>
+                </svg>
+                <span class="edu-label">Education</span>
+                <div class="edu-degrees">
+                    <p class="edu-degree">[Degree 1] <span class="school">[School 1]</span></p>
+                    <p class="edu-degree">[Degree 2] <span class="school">[School 2]</span></p>
+                </div>
+            </article>
+
             <!-- Writing Card - Wide (Empty placeholder) -->
             <article class="card card-writing card-empty" data-id="writing">
             </article>
@@ -262,147 +316,14 @@
                 </button>
             </article>
 
-            <!-- Project 4 - Mint Tall (Rocket) -->
-            <article class="card card-project card-mint card-tall" data-id="project4">
-                <div class="project-visual">
-                    <svg class="project-icon-svg" viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="rocketGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" style="stop-color:#F8F9FA"/>
-                                <stop offset="100%" style="stop-color:#E9ECEF"/>
-                            </linearGradient>
-                            <linearGradient id="windowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#74C0FC"/>
-                                <stop offset="100%" style="stop-color:#4DABF7"/>
-                            </linearGradient>
-                            <linearGradient id="flameGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FFE066"/>
-                                <stop offset="50%" style="stop-color:#FF922B"/>
-                                <stop offset="100%" style="stop-color:#FF6B6B"/>
-                            </linearGradient>
-                            <filter id="rocketShadow">
-                                <feDropShadow dx="3" dy="3" stdDeviation="3" flood-opacity="0.2"/>
-                            </filter>
-                        </defs>
-                        <!-- Rocket body -->
-                        <path d="M40 8 Q55 25 55 55 L55 70 L25 70 L25 55 Q25 25 40 8" fill="url(#rocketGrad)" filter="url(#rocketShadow)"/>
-                        <!-- Nose cone accent -->
-                        <path d="M40 8 Q48 20 50 35 L40 30 L30 35 Q32 20 40 8" fill="#FF6B6B"/>
-                        <!-- Window -->
-                        <circle cx="40" cy="45" r="10" fill="url(#windowGrad)"/>
-                        <circle cx="40" cy="45" r="6" fill="#E7F5FF" opacity="0.5"/>
-                        <!-- Fins -->
-                        <path d="M25 60 L15 75 L25 70 Z" fill="#FF6B6B"/>
-                        <path d="M55 60 L65 75 L55 70 Z" fill="#FF6B6B"/>
-                        <!-- Flames -->
-                        <ellipse cx="40" cy="82" rx="10" ry="15" fill="url(#flameGrad)" opacity="0.9"/>
-                        <ellipse cx="40" cy="85" rx="5" ry="8" fill="#FFE066"/>
-                        <!-- Stars -->
-                        <circle cx="15" cy="20" r="2" fill="#FFE066"/>
-                        <circle cx="68" cy="35" r="1.5" fill="#FFE066"/>
-                        <circle cx="12" cy="50" r="1.5" fill="#FFE066"/>
-                    </svg>
-                    <div class="project-glow"></div>
-                </div>
-                <button class="expand-btn" data-label="[Project 4]">
-                    <span class="btn-icon">&#8599;</span>
-                    <span class="btn-text">[Project 4]</span>
-                </button>
-            </article>
+            <!-- Education Card (Removed, moved up) -->
+            <!-- <article class="card card-education" data-id="education">...</article> -->
 
-            <!-- Education Card -->
-            <article class="card card-education" data-id="education">
-                <svg class="edu-icon-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="capGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#2C3E50"/>
-                            <stop offset="100%" style="stop-color:#1A252F"/>
-                        </linearGradient>
-                        <filter id="capShadow">
-                            <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.2"/>
-                        </filter>
-                    </defs>
-                    <!-- Mortarboard top (diamond shape) -->
-                    <polygon points="30,8 8,22 30,36 52,22" fill="url(#capGrad)" filter="url(#capShadow)"/>
-                    <!-- Cap skull/base -->
-                    <ellipse cx="30" cy="32" rx="14" ry="6" fill="#1A252F"/>
-                    <rect x="16" y="32" width="28" height="12" fill="#1A252F"/>
-                    <ellipse cx="30" cy="44" rx="14" ry="5" fill="#2C3E50"/>
-                    <!-- Button on top -->
-                    <circle cx="30" cy="22" r="3" fill="#1A252F"/>
-                    <!-- Tassel -->
-                    <circle cx="30" cy="22" r="2" fill="#FFD700"/>
-                    <path d="M30 24 L30 28 Q35 32 32 42" stroke="#FFD700" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                    <circle cx="32" cy="44" r="3" fill="#FFD700"/>
-                    <ellipse cx="32" cy="47" rx="2" ry="3" fill="#FFD700"/>
-                </svg>
-                <span class="edu-label">Education</span>
-                <div class="edu-degrees">
-                    <p class="edu-degree">[Degree 1] <span class="school">[School 1]</span></p>
-                    <p class="edu-degree">[Degree 2] <span class="school">[School 2]</span></p>
-                </div>
-            </article>
+            <!-- Project 5 (Removed) -->
+            <!-- <article class="card card-project card-yellow" data-id="project5">...</article> -->
 
-            <!-- Project 5 - Yellow (Target) -->
-            <article class="card card-project card-yellow" data-id="project5">
-                <div class="project-visual">
-                    <svg class="project-icon-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="targetGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FF6B6B"/>
-                                <stop offset="100%" style="stop-color:#EE5A5A"/>
-                            </linearGradient>
-                            <linearGradient id="targetGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FFFFFF"/>
-                                <stop offset="100%" style="stop-color:#F8F9FA"/>
-                            </linearGradient>
-                            <filter id="targetShadow">
-                                <feDropShadow dx="0" dy="3" stdDeviation="3" flood-opacity="0.2"/>
-                            </filter>
-                        </defs>
-                        <!-- Target rings -->
-                        <circle cx="40" cy="40" r="32" fill="url(#targetGrad1)" filter="url(#targetShadow)"/>
-                        <circle cx="40" cy="40" r="24" fill="url(#targetGrad2)"/>
-                        <circle cx="40" cy="40" r="16" fill="url(#targetGrad1)"/>
-                        <circle cx="40" cy="40" r="8" fill="url(#targetGrad2)"/>
-                        <circle cx="40" cy="40" r="3" fill="#FF6B6B"/>
-                        <!-- Arrow -->
-                        <line x1="58" y1="22" x2="43" y2="37" stroke="#4A5568" stroke-width="3" stroke-linecap="round"/>
-                        <polygon points="42,38 38,42 48,32" fill="#4A5568"/>
-                        <!-- Feathers -->
-                        <path d="M58 22 L65 18 L62 25 Z" fill="#FFE066"/>
-                        <path d="M58 22 L62 15 L55 18 Z" fill="#4DABF7"/>
-                    </svg>
-                    <div class="project-glow"></div>
-                </div>
-                <button class="expand-btn" data-label="[Project 5]">
-                    <span class="btn-icon">&#8599;</span>
-                    <span class="btn-text">[Project 5]</span>
-                </button>
-            </article>
-
-            <!-- Connect Card -->
-            <article class="card card-connect" data-id="connect">
-                <svg class="connect-icon-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="linkedinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#0A66C2"/>
-                            <stop offset="100%" style="stop-color:#004182"/>
-                        </linearGradient>
-                        <filter id="socialShadow">
-                            <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.15"/>
-                        </filter>
-                    </defs>
-                    <!-- LinkedIn icon - clean design -->
-                    <rect x="8" y="8" width="44" height="44" rx="10" fill="url(#linkedinGrad)" filter="url(#socialShadow)"/>
-                    <!-- "in" text style -->
-                    <text x="18" y="42" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">in</text>
-                </svg>
-                <div class="connect-content">
-                    <span class="connect-label">Let's Connect</span>
-                    <p class="connect-handle">@[Social Handle]</p>
-                </div>
-            </article>
+            <!-- Connect Card (Removed, moved up) -->
+            <!-- <article class="card card-connect" data-id="connect">...</article> -->
 
         </main>
 
