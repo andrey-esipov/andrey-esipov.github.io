@@ -1081,3 +1081,121 @@ body::before {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     z-index: 9999;
 }
+
+/* ===========================================
+   ENHANCED HOVER EFFECTS & INTERACTIONS
+   =========================================== */
+
+/* Universal card hover enhancement */
+.card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
+/* Connect card hover - LinkedIn */
+.card-connect {
+    transition: all 0.3s ease;
+}
+
+.card-connect:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(10, 102, 194, 0.2);
+}
+
+.card-connect:hover .connect-icon-svg {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Project cards - Enhanced glow effect */
+.card-project {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-project .project-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.card-coral .project-glow {
+    background: radial-gradient(circle, rgba(255,224,211,0.6) 0%, transparent 70%);
+}
+
+.card-blue .project-glow {
+    background: radial-gradient(circle, rgba(200,228,251,0.6) 0%, transparent 70%);
+}
+
+.card-pink .project-glow {
+    background: radial-gradient(circle, rgba(255,212,224,0.6) 0%, transparent 70%);
+}
+
+.card-project:hover .project-glow {
+    opacity: 1;
+}
+
+.card-project:hover .project-visual {
+    transform: scale(1.05);
+}
+
+.card-project .project-visual {
+    transition: transform 0.4s ease;
+}
+
+/* Expand button enhancement */
+.expand-btn {
+    transition: all 0.3s ease;
+}
+
+.card-project:hover .expand-btn {
+    background: rgba(26, 26, 26, 0.95);
+    transform: translateX(-2px);
+}
+
+.expand-btn:hover {
+    background: var(--text-primary) !important;
+    padding-right: 22px;
+}
+
+.expand-btn:hover .btn-icon {
+    transform: translate(4px, -4px);
+}
+
+/* Education card hover */
+.card-education:hover .edu-icon-svg {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+/* Location pulse animation enhancement */
+@keyframes pulse-ring {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+.pulse-dot {
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Icon transitions */
+.connect-icon-svg,
+.edu-icon-svg,
+.project-icon-svg {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
