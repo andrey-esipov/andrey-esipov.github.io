@@ -18,11 +18,11 @@ export default function EngineCard() {
             The Engine
           </p>
           <div className="flex items-baseline gap-2 mb-2">
-            <span className="text-4xl md:text-5xl font-bold tracking-tight">5:00</span>
+            <span className="text-4xl md:text-5xl font-bold tracking-tight">00:00</span>
             <span className="text-lg text-black/50">AM</span>
           </div>
           <p className="text-sm text-black/60">
-            Training for ÖTILLÖ Swimrun & Hyrox
+            [Current Activity or Focus]
           </p>
         </div>
 

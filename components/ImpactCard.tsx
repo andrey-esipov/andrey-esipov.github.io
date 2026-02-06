@@ -6,15 +6,15 @@ import { TrendingUp, Archive, Bot } from 'lucide-react'
 const impacts = [
   {
     icon: TrendingUp,
-    text: 'Deployed Copilot to 50k+ internal users',
+    text: '[Impact Item 1]',
   },
   {
     icon: Archive,
-    text: 'Reduced OneDrive storage costs by 15% via intelligent archiving',
+    text: '[Impact Item 2]',
   },
   {
     icon: Bot,
-    text: 'Automated competitive analysis with custom Python agents',
+    text: '[Impact Item 3]',
   },
 ]
 

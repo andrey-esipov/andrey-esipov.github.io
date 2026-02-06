@@ -18,9 +18,9 @@ export default function StackCard() {
     >
       <div>
         <p className="text-xs font-medium text-black/40 uppercase tracking-wider mb-1">
-          Prototyping
+            [Category]
         </p>
-        <p className="text-sm text-black/60">I code my own tools</p>
+        <p className="text-sm text-black/60">[Short Description]</p>
       </div>
 
       {/* Stack icons */}

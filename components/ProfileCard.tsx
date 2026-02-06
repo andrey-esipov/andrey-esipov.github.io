@@ -74,13 +74,13 @@ export default function ProfileCard() {
           className="text-center"
         >
           <p className="text-sm font-medium text-black/50 uppercase tracking-wider mb-2">
-            Principal PM, Microsoft
+            [Role / Title]
           </p>
           <h1 className="text-2xl md:text-3xl font-semibold mb-4 leading-tight">
-            Hi, I'm Andrey
+            Hi, I'm [Name]
           </h1>
           <p className="text-black/60 text-sm md:text-base leading-relaxed max-w-sm mx-auto">
-            Architecting systems at the intersection of AI, Cloud, and Product Operations.
+            [Short bio or introduction goes here]
           </p>
         </motion.div>
 

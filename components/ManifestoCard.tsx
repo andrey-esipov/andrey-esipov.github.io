@@ -16,10 +16,10 @@ export default function ManifestoCard() {
       <blockquote className="relative">
         <span className="absolute -top-4 -left-2 text-6xl text-black/10 font-serif">"</span>
         <p className="text-lg md:text-xl font-medium leading-relaxed text-black/80 relative z-10">
-          Efficiency is a feature.
+          [Headline Statement]
         </p>
         <p className="mt-4 text-sm md:text-base text-black/60 leading-relaxed">
-          I believe ambiguity is just a dataset missing a framework. I build tools to automate the mundane so teams can focus on the magnificent.
+          [Your personal philosophy or manifesto text goes here.]
         </p>
       </blockquote>
 
