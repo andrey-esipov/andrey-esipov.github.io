@@ -128,7 +128,7 @@
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
-                    <div class="map-avatar" aria-hidden="true">
+                    <div class="map-avatar pulsing-avatar" aria-hidden="true">
                         <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="miniSkin" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -167,12 +167,11 @@
                             <stop offset="100%" style="stop-color:#004182"/>
                         </linearGradient>
                         <filter id="socialShadow">
-                            <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+                            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.2"/>
                         </filter>
                     </defs>
-                    <!-- LinkedIn icon - clean design -->
+                    <!-- LinkedIn icon - refined -->
                     <rect x="8" y="8" width="44" height="44" rx="10" fill="url(#linkedinGrad)" filter="url(#socialShadow)"/>
-                    <!-- "in" text style -->
                     <text x="18" y="42" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">in</text>
                 </svg>
                 <div class="connect-content">
@@ -181,8 +180,41 @@
                 </div>
             </a>
 
-            <!-- Project 1 - Tall Coral (OneDrive Sync) -->
+            <!-- Project 1 - Tall Coral (Copilot + OneDrive) -->
             <article class="card card-project card-coral card-tall project-onedrive" data-id="project1">
+                <!-- Custom SVG Background: Neural Network + Cloud Sync -->
+                <svg class="project-bg-art" viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="coralGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FF8B7B;stop-opacity:0.4"/>
+                            <stop offset="50%" style="stop-color:#FFB5A0;stop-opacity:0.3"/>
+                            <stop offset="100%" style="stop-color:#FFE0D3;stop-opacity:0.2"/>
+                        </linearGradient>
+                        <linearGradient id="coralGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6BA3D6;stop-opacity:0.25"/>
+                            <stop offset="100%" style="stop-color:#FFB5A0;stop-opacity:0.15"/>
+                        </linearGradient>
+                        <filter id="blurSoft">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+                        </filter>
+                    </defs>
+                    
+                    <!-- Flowing neural network curves -->
+                    <path d="M-50,100 Q80,150 150,80 T300,200" stroke="url(#coralGrad1)" stroke-width="40" fill="none" opacity="0.6" filter="url(#blurSoft)"/>
+                    <path d="M-30,250 Q100,320 180,260 T350,380" stroke="url(#coralGrad2)" stroke-width="35" fill="none" opacity="0.5" filter="url(#blurSoft)"/>
+                    <path d="M0,400 Q90,480 200,420 T320,500" stroke="url(#coralGrad1)" stroke-width="30" fill="none" opacity="0.4" filter="url(#blurSoft)"/>
+                    
+                    <!-- Neural nodes (subtle circles) -->
+                    <circle cx="150" cy="80" r="20" fill="#6BA3D6" opacity="0.2"/>
+                    <circle cx="180" cy="260" r="25" fill="#FFB5A0" opacity="0.25"/>
+                    <circle cx="100" cy="420" r="18" fill="#FF8B7B" opacity="0.2"/>
+                    <circle cx="220" cy="180" r="22" fill="#6BA3D6" opacity="0.18"/>
+                    
+                    <!-- Cloud-like blobs -->
+                    <ellipse cx="50" cy="150" rx="60" ry="40" fill="url(#coralGrad1)" opacity="0.15" filter="url(#blurSoft)"/>
+                    <ellipse cx="240" cy="350" rx="70" ry="45" fill="url(#coralGrad2)" opacity="0.2" filter="url(#blurSoft)"/>
+                </svg>
+                
                 <div class="project-visual">
                     <svg class="project-icon-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
                         <defs>
@@ -208,17 +240,44 @@
                         <path d="M24 25 L20 35 L30 31" fill="url(#syncArrowGrad1)"/>
                     </svg>
                     <div class="project-glow"></div>
-                </div><button class="expand-btn" data-label="Copilot + OneDrive">
+                </div>
+                <button class="expand-btn" data-label="Copilot + OneDrive">
                     <span class="btn-icon">&#8599;</span>
                     <span class="btn-text">Copilot + OneDrive</span>
                 </button>
             </article>
 
-            <!-- Hobby Card (Removed) -->
-            <!-- <article class="card card-hobby" data-id="hobby">...</article> -->
-
-            <!-- Project 2 - Blue Wide (Microsoft Copilot) -->
+            <!-- Project 2 - Blue Wide (OneDrive Archive) -->
             <article class="card card-project card-blue card-wide" data-id="project2">
+                <!-- Custom SVG Background: Layered Storage -->
+                <svg class="project-bg-art" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="blueGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#4A85BD;stop-opacity:0.35"/>
+                            <stop offset="100%" style="stop-color:#C8E4FB;stop-opacity:0.15"/>
+                        </linearGradient>
+                        <linearGradient id="blueGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:0.15"/>
+                            <stop offset="100%" style="stop-color:#6BA3D6;stop-opacity:0.25"/>
+                        </linearGradient>
+                        <filter id="layerBlur">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+                        </filter>
+                    </defs>
+                    
+                    <!-- Stacked geometric layers suggesting file archiving -->
+                    <rect x="50" y="180" width="500" height="80" rx="20" fill="url(#blueGrad1)" opacity="0.4" filter="url(#layerBlur)"/>
+                    <rect x="80" y="140" width="440" height="70" rx="18" fill="url(#blueGrad2)" opacity="0.35" filter="url(#layerBlur)"/>
+                    <rect x="120" y="100" width="380" height="60" rx="16" fill="url(#blueGrad1)" opacity="0.3" filter="url(#layerBlur)"/>
+                    <rect x="160" y="70" width="300" height="50" rx="14" fill="url(#blueGrad2)" opacity="0.25" filter="url(#layerBlur)"/>
+                    <rect x="200" y="45" width="220" height="40" rx="12" fill="url(#blueGrad1)" opacity="0.2" filter="url(#layerBlur)"/>
+                    
+                    <!-- Subtle depth indicators -->
+                    <circle cx="100" cy="220" r="15" fill="#4A85BD" opacity="0.15"/>
+                    <circle cx="450" cy="160" r="18" fill="#C8E4FB" opacity="0.2"/>
+                    <circle cx="280" cy="100" r="12" fill="#6BA3D6" opacity="0.18"/>
+                </svg>
+                
                 <div class="project-visual">
                     <svg class="project-icon-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
                         <defs>
@@ -241,7 +300,8 @@
                         <circle cx="26" cy="30" r="2.5" fill="#A5B4FC" opacity="0.9"/>
                     </svg>
                     <div class="project-glow"></div>
-                </div><button class="expand-btn" data-label="OneDrive Archive">
+                </div>
+                <button class="expand-btn" data-label="OneDrive Archive">
                     <span class="btn-icon">&#8599;</span>
                     <span class="btn-text">OneDrive Archive</span>
                 </button>
@@ -256,18 +316,18 @@
                             <stop offset="100%" style="stop-color:#1A252F"/>
                         </linearGradient>
                         <filter id="capShadow">
-                            <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.2"/>
+                            <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-opacity="0.25"/>
                         </filter>
                     </defs>
-                    <!-- Mortarboard top (diamond shape) -->
-                    <polygon points="30,8 8,22 30,36 52,22" fill="url(#capGrad)" filter="url(#capShadow)"/>
-                    <!-- Cap skull/base -->
+                    <!-- Mortarboard top (cleaner lines) -->
+                    <polygon points="30,8 8,22 30,36 52,22" fill="url(#capGrad)" filter="url(#capShadow)" stroke="#2C3E50" stroke-width="0.5"/>
+                    <!-- Cap base -->
                     <ellipse cx="30" cy="32" rx="14" ry="6" fill="#1A252F"/>
                     <rect x="16" y="32" width="28" height="12" fill="#1A252F"/>
                     <ellipse cx="30" cy="44" rx="14" ry="5" fill="#2C3E50"/>
                     <!-- Button on top -->
                     <circle cx="30" cy="22" r="3" fill="#1A252F"/>
-                    <!-- Tassel -->
+                    <!-- Tassel (refined) -->
                     <circle cx="30" cy="22" r="2" fill="#FFD700"/>
                     <path d="M30 24 L30 28 Q35 32 32 42" stroke="#FFD700" stroke-width="2.5" fill="none" stroke-linecap="round"/>
                     <circle cx="32" cy="44" r="3" fill="#FFD700"/>
@@ -285,8 +345,48 @@
             <article class="card card-writing card-empty" data-id="writing">
             </article>
 
-            <!-- Project 3 - Pink (Windows Search) -->
+            <!-- Project 3 - Pink (Semantic Search) -->
             <article class="card card-project card-pink" data-id="project3">
+                <!-- Custom SVG Background: Radial Search Patterns -->
+                <svg class="project-bg-art" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="pinkGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD4E0;stop-opacity:0.4"/>
+                            <stop offset="100%" style="stop-color:#C8A2D8;stop-opacity:0.25"/>
+                        </linearGradient>
+                        <linearGradient id="pinkGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#7DD3FC;stop-opacity:0.3"/>
+                            <stop offset="100%" style="stop-color:#FFD4E0;stop-opacity:0.2"/>
+                        </linearGradient>
+                        <radialGradient id="searchRadial" cx="50%" cy="50%">
+                            <stop offset="0%" style="stop-color:#7DD3FC;stop-opacity:0.3"/>
+                            <stop offset="50%" style="stop-color:#FFD4E0;stop-opacity:0.15"/>
+                            <stop offset="100%" style="stop-color:#C8A2D8;stop-opacity:0.05"/>
+                        </radialGradient>
+                        <filter id="searchBlur">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="4"/>
+                        </filter>
+                    </defs>
+                    
+                    <!-- Concentric search radius circles -->
+                    <circle cx="150" cy="150" r="180" stroke="url(#pinkGrad1)" stroke-width="25" fill="none" opacity="0.2" filter="url(#searchBlur)"/>
+                    <circle cx="150" cy="150" r="130" stroke="url(#pinkGrad2)" stroke-width="20" fill="none" opacity="0.25" filter="url(#searchBlur)"/>
+                    <circle cx="150" cy="150" r="80" stroke="url(#pinkGrad1)" stroke-width="15" fill="none" opacity="0.3" filter="url(#searchBlur)"/>
+                    
+                    <!-- Light beam effects -->
+                    <path d="M150,150 L240,60" stroke="#7DD3FC" stroke-width="30" opacity="0.15" filter="url(#searchBlur)" stroke-linecap="round"/>
+                    <path d="M150,150 L60,240" stroke="#C8A2D8" stroke-width="25" opacity="0.15" filter="url(#searchBlur)" stroke-linecap="round"/>
+                    <path d="M150,150 L260,180" stroke="#FFD4E0" stroke-width="20" opacity="0.2" filter="url(#searchBlur)" stroke-linecap="round"/>
+                    
+                    <!-- Discovery points -->
+                    <circle cx="240" cy="60" r="20" fill="#7DD3FC" opacity="0.25"/>
+                    <circle cx="60" cy="240" r="22" fill="#C8A2D8" opacity="0.2"/>
+                    <circle cx="260" cy="180" r="18" fill="#FFD4E0" opacity="0.3"/>
+                    
+                    <!-- Central glow -->
+                    <circle cx="150" cy="150" r="60" fill="url(#searchRadial)" opacity="0.4"/>
+                </svg>
+                
                 <div class="project-visual">
                     <svg class="project-icon-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
                         <defs>
@@ -311,20 +411,12 @@
                         <path d="M30 32 L42 28 L44 42" stroke="url(#searchAccentGrad)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     <div class="project-glow"></div>
-                </div><button class="expand-btn" data-label="Semantic Search">
+                </div>
+                <button class="expand-btn" data-label="Semantic Search">
                     <span class="btn-icon">&#8599;</span>
                     <span class="btn-text">Semantic Search</span>
                 </button>
             </article>
-
-            <!-- Education Card (Removed, moved up) -->
-            <!-- <article class="card card-education" data-id="education">...</article> -->
-
-            <!-- Project 5 (Removed) -->
-            <!-- <article class="card card-project card-yellow" data-id="project5">...</article> -->
-
-            <!-- Connect Card (Removed, moved up) -->
-            <!-- <article class="card card-connect" data-id="connect">...</article> -->
 
         </main>
 

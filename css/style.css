@@ -1,13 +1,12 @@
 /* ===========================================
-   SOFT EDITORIAL PASTEL THEME
-   Inspired by nevflynn.com - varied grid,
-   expanding buttons, refined typography
+   AIRBNB-STYLE PREMIUM PORTFOLIO
+   Hand-crafted design with intentional polish
    =========================================== */
 :root {
     /* Background */
     --bg: #f5f4f0;
 
-    /* Card Colors - Soft Pastels */
+    /* Card Colors - Intentional Pastels */
     --card-white: #ffffff;
     --card-blue: #c8e4fb;
     --card-pink: #ffd4e0;
@@ -25,15 +24,24 @@
     --font-display: 'Instrument Serif', Georgia, serif;
     --font-body: 'General Sans', -apple-system, sans-serif;
 
-    /* Spacing & Radius */
+    /* Spacing & Radius - Airbnb-style friendly geometry */
     --radius: 28px;
     --radius-sm: 16px;
     --gap: 20px;
 
-    /* Shadows */
-    --shadow-soft: 0 2px 8px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
-    --shadow-hover: 0 12px 40px rgba(0,0,0,0.1);
-    --shadow-btn: 0 2px 12px rgba(0,0,0,0.08);
+    /* Layered Shadows - Airbnb-style depth */
+    --shadow-card: 
+        0 4px 8px rgba(0,0,0,0.04), 
+        0 1px 2px rgba(0,0,0,0.06);
+    --shadow-card-hover: 
+        0 12px 24px rgba(0,0,0,0.08),
+        0 4px 8px rgba(0,0,0,0.04);
+    --shadow-btn: 
+        0 2px 8px rgba(0,0,0,0.08),
+        0 1px 2px rgba(0,0,0,0.04);
+    --shadow-btn-hover:
+        0 8px 16px rgba(0,0,0,0.12),
+        0 2px 4px rgba(0,0,0,0.06);
 }
 
 /* ===========================================
@@ -65,7 +73,7 @@ body {
 }
 
 /* ===========================================
-   NAVIGATION BAR
+   NAVIGATION BAR - Refined
    =========================================== */
 .navbar {
     position: fixed;
@@ -77,10 +85,11 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0 40px;
-    background: rgba(245, 244, 240, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(245, 244, 240, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
 }
 
 .nav-logo {
@@ -89,27 +98,14 @@ body {
     font-weight: 400;
     color: var(--text-primary);
     text-decoration: none;
-    letter-spacing: -0.01em;
-    transition: opacity 0.3s ease;
+    letter-spacing: -0.02em;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
 .nav-logo:hover {
-    opacity: 0.7;
-}
-
-.logo-mark {
-    background: linear-gradient(135deg, var(--text-primary) 0%, #5A8EC4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.logo-symbol {
-    font-size: 10px;
-    color: #5A8EC4;
     opacity: 0.7;
 }
 
@@ -120,7 +116,7 @@ body {
     background: white;
     padding: 6px;
     border-radius: 100px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    box-shadow: var(--shadow-btn);
 }
 
 .nav-link {
@@ -131,7 +127,8 @@ body {
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 100px;
-    transition: all 0.25s ease;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: -0.01em;
 }
 
 .nav-link:hover {
@@ -159,8 +156,10 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: var(--shadow-btn);
+    transition: 
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-social svg {
@@ -170,7 +169,7 @@ body {
 
 .nav-social:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    box-shadow: var(--shadow-btn-hover);
 }
 
 .nav-contact {
@@ -180,6 +179,7 @@ body {
     color: var(--text-primary);
     text-decoration: none;
     transition: color 0.25s ease;
+    letter-spacing: -0.01em;
 }
 
 .nav-contact:hover {
@@ -212,12 +212,12 @@ body {
 }
 
 /* ===========================================
-   CARD BASE
+   CARD BASE - Premium Airbnb-style
    =========================================== */
 .card {
     background: var(--card-white);
     border-radius: var(--radius);
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-card);
     position: relative;
     overflow: hidden;
     padding: 24px;
@@ -229,10 +229,10 @@ body {
     opacity: 0;
     transform: translateY(20px) scale(0.98);
 
-    /* Smooth transitions */
+    /* Smooth, natural transitions */
     transition:
-        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
         opacity 0.5s ease;
 }
 
@@ -241,9 +241,10 @@ body {
     transform: translateY(0) scale(1);
 }
 
+/* Subtle, premium hover - NOT aggressive */
 .card:hover {
-    transform: translateY(-6px) scale(1.01);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px) scale(1.005);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .card:active { cursor: grabbing; }
@@ -261,14 +262,12 @@ body {
 
 /* ===========================================
    CARD SIZE VARIANTS
-   Tall = vertical rectangle (1 col x 2 rows)
-   Wide = horizontal rectangle (2 cols x 1 row)
    =========================================== */
 .card-tall { grid-row: span 2; }
 .card-wide { grid-column: span 2; }
 
 /* ===========================================
-   BIO CARD - 2 columns
+   BIO CARD - Intentional spacing
    =========================================== */
 .card-bio {
     grid-column: span 2;
@@ -296,20 +295,18 @@ body {
     box-shadow:
         0 4px 16px rgba(0, 100, 200, 0.12),
         inset 0 -2px 8px rgba(255,255,255,0.6);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-bio:hover .avatar {
-    transform: scale(1.08) rotate(-4deg);
+    transform: scale(1.05) rotate(-3deg);
 }
 
-.avatar img {
+.avatar img,
+.avatar svg {
     width: 100%;
     height: 100%;
-    object-fit: cover;
 }
-
-.bio-content { flex: 1; }
 
 .bio-intro {
     font-family: var(--font-body);
@@ -324,30 +321,20 @@ body {
     font-family: var(--font-display);
     font-size: 34px;
     font-weight: 400;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     color: var(--text-primary);
 }
 
 .bio-desc {
     font-size: 13px;
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.65;
     margin-top: 8px;
-}
-
-.bio-looking {
-    margin-top: 12px;
-    padding: 10px 14px;
-    background: rgba(90, 142, 196, 0.1);
-    border-left: 3px solid #5A8EC4;
-    border-radius: 0 8px 8px 0;
-    font-size: 12px;
-    color: #5A8EC4;
-    font-weight: 500;
+    letter-spacing: -0.005em;
 }
 
 /* ===========================================
-   LOCATION CARD
+   LOCATION CARD - Pulsing avatar
    =========================================== */
 .card-location {
     grid-column: span 1;
@@ -369,7 +356,7 @@ body {
     border: 0;
     pointer-events: none;
     filter: saturate(0.9);
-    transition: transform 0.6s ease;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .map-avatar {
@@ -380,9 +367,30 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
     z-index: 10;
     animation: float 3s ease-in-out infinite;
+}
+
+/* Pulsing animation for avatar */
+.pulsing-avatar {
+    animation: 
+        float 3s ease-in-out infinite,
+        pulse-grow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-grow {
+    0%, 100% { 
+        box-shadow: 0 4px 16px rgba(0,0,0,0.2), 0 0 0 0 rgba(107, 163, 214, 0.4);
+    }
+    50% { 
+        box-shadow: 0 4px 16px rgba(0,0,0,0.2), 0 0 0 8px rgba(107, 163, 214, 0);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(-50%, -60%) translateY(0); }
+    50% { transform: translate(-50%, -60%) translateY(-8px); }
 }
 
 .map-avatar svg {
@@ -423,12 +431,12 @@ body {
     inset: -4px;
     border-radius: 50%;
     background: rgba(34, 197, 94, 0.4);
-    animation: pulse 2s ease-in-out infinite;
+    animation: pulse-ring 2s ease-in-out infinite;
 }
 
-@keyframes pulse {
+@keyframes pulse-ring {
     0%, 100% { transform: scale(1); opacity: 0.6; }
-    50% { transform: scale(2); opacity: 0; }
+    50% { transform: scale(2.2); opacity: 0; }
 }
 
 .location-text {
@@ -437,12 +445,13 @@ body {
 }
 
 /* ===========================================
-   PROJECT CARDS - Colored
+   PROJECT CARDS - Custom SVG Backgrounds
    =========================================== */
 .card-project {
     padding: 20px;
     padding-bottom: 64px;
     position: relative;
+    overflow: hidden;
 }
 
 .card-blue { background: var(--card-blue); }
@@ -451,53 +460,29 @@ body {
 .card-mint { background: var(--card-mint); }
 .card-yellow { background: var(--card-yellow); }
 
+/* SVG background art - positioned absolutely */
+.project-bg-art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.card-project:hover .project-bg-art {
+    opacity: 0.85;
+}
+
 .project-visual {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-}
-
-.project-info {
-    position: relative;
     z-index: 2;
-    margin-top: 6px;
 }
-
-.project-title {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    color: var(--text-primary);
-    margin-bottom: 2px;
-}
-
-.project-desc {
-    font-size: 12px;
-    color: var(--text-secondary);
-}
-
-.project-icon {
-    font-size: 48px;
-    position: relative;
-    z-index: 2;
-    animation: float 5s ease-in-out infinite;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-6px) rotate(2deg); }
-    75% { transform: translateY(-3px) rotate(-2deg); }
-}
-
-.card-coral .project-icon { animation-delay: 0s; }
-.card-blue .project-icon { animation-delay: 0.4s; }
-.card-pink .project-icon { animation-delay: 0.8s; }
-.card-mint .project-icon { animation-delay: 1.2s; }
-.card-yellow .project-icon { animation-delay: 1.6s; }
 
 /* SVG Icons - 3D Toy Style */
 .project-icon-svg {
@@ -505,8 +490,9 @@ body {
     height: 80px;
     position: relative;
     z-index: 2;
-    animation: float 5s ease-in-out infinite;
+    animation: float-icon 5s ease-in-out infinite;
     filter: drop-shadow(0 6px 12px rgba(0,0,0,0.12));
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-tall .project-icon-svg {
@@ -519,72 +505,30 @@ body {
     height: 90px;
 }
 
+@keyframes float-icon {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-6px) rotate(2deg); }
+    75% { transform: translateY(-3px) rotate(-2deg); }
+}
+
 .card-coral .project-icon-svg { animation-delay: 0s; }
 .card-blue .project-icon-svg { animation-delay: 0.4s; }
 .card-pink .project-icon-svg { animation-delay: 0.8s; }
-.card-mint .project-icon-svg { animation-delay: 1.2s; }
-.card-yellow .project-icon-svg { animation-delay: 1.6s; }
 
-.hobby-icon-svg {
-    width: 70px;
-    height: 55px;
-    margin-bottom: 8px;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-}
-
-/* Bicycle animation */
-.bike-animated .wheel-spin {
-    transform-origin: center;
-    animation: wheelRotate 3s linear infinite;
-}
-
-.bike-animated .pedal-spin {
-    transform-origin: 36px 38px;
-    animation: pedalRotate 2s linear infinite;
-}
-
-@keyframes wheelRotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes pedalRotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-/* Subtle hover boost */
-.card-hobby:hover .bike-animated .wheel-spin {
-    animation-duration: 1s;
-}
-
-.card-hobby:hover .bike-animated .pedal-spin {
-    animation-duration: 0.7s;
-}
-
-.edu-icon-svg {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 8px;
-    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.1));
-}
-
-/* Avatar SVG styling */
-.avatar svg {
-    width: 100%;
-    height: 100%;
+.card-project:hover .project-icon-svg {
+    transform: scale(1.08);
 }
 
 .project-glow {
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     background: rgba(255,255,255,0.5);
-    filter: blur(30px);
+    filter: blur(40px);
     z-index: 1;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.5s ease;
 }
 
 .card-project:hover .project-glow {
@@ -592,8 +536,8 @@ body {
 }
 
 /* ===========================================
-   EXPANDING BUTTON - The key interaction!
-   Starts as circle, expands to pill on hover
+   EXPANDING BUTTON - Premium Airbnb-style
+   Smooth cubic-bezier, perfect timing
    =========================================== */
 .expand-btn {
     position: absolute;
@@ -611,30 +555,36 @@ body {
     align-items: center;
     gap: 0;
     overflow: hidden;
+    z-index: 10;
 
-    /* The magic: width transitions smoothly */
+    /* Start collapsed */
     width: 42px;
     transition:
-        width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.3s ease,
-        transform 0.3s ease;
+        width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.3s ease,
+        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .expand-btn:hover {
-    width: 170px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    width: 180px;
+    box-shadow: var(--shadow-btn-hover);
     transform: translateY(-2px);
+    background: rgba(26, 26, 26, 0.97);
 }
 
 .btn-icon {
     font-size: 16px;
     color: var(--text-primary);
     flex-shrink: 0;
-    transition: transform 0.3s ease;
+    transition: 
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.3s ease;
 }
 
 .expand-btn:hover .btn-icon {
-    transform: translate(2px, -2px);
+    transform: translate(3px, -3px);
+    color: white;
 }
 
 .btn-text {
@@ -647,124 +597,36 @@ body {
     transform: translateX(-8px);
     transition:
         opacity 0.25s ease 0.1s,
-        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1) 0.05s;
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0.05s,
+        color 0.3s ease;
     margin-left: 8px;
+    letter-spacing: -0.01em;
 }
 
 .expand-btn:hover .btn-text {
     opacity: 1;
     transform: translateX(0);
-}
-
-/* ===========================================
-   HOBBY CARD
-   =========================================== */
-.card-hobby {
-    grid-column: span 1;
-    grid-row: span 1;
-}
-
-.hobby-emoji {
-    font-size: 36px;
-    margin-bottom: 12px;
-}
-
-.hobby-content {
-    margin-top: auto;
-}
-
-.hobby-title {
-    font-family: var(--font-display);
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    margin-bottom: 4px;
-    color: var(--text-primary);
-}
-
-.hobby-sub {
-    font-size: 12px;
-    color: var(--text-secondary);
-}
-
-/* ===========================================
-   WRITING CARD - 2 columns
-   =========================================== */
-.card-writing {
-    grid-column: span 2;
-    grid-row: span 1;
-    justify-content: space-between;
-}
-
-.writing-title {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 1.3;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-}
-
-.writing-desc {
-    font-size: 13px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-
-.writing-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: auto;
-    padding-top: 12px;
-}
-
-.pill-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
-    background: transparent;
-    border: 1.5px solid #e0e0e0;
-    border-radius: 100px;
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.pill-btn:hover {
-    background: var(--text-primary);
     color: white;
-    border-color: var(--text-primary);
-}
-
-.pill-arrow {
-    transition: transform 0.25s ease;
-}
-
-.pill-btn:hover .pill-arrow {
-    transform: translate(3px, -3px);
-}
-
-.writing-date {
-    font-size: 12px;
-    color: var(--text-muted);
-}
-
-/* Empty card placeholder */
-.card-empty {
-    background: linear-gradient(135deg, #f8f8f6 0%, #f0efe8 100%);
 }
 
 /* ===========================================
-   EDUCATION CARD
+   EDUCATION CARD - Refined icon
    =========================================== */
 .card-education {
     grid-column: span 1;
     grid-row: span 1;
+}
+
+.edu-icon-svg {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.12));
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-education:hover .edu-icon-svg {
+    transform: scale(1.08) rotate(-4deg);
 }
 
 .edu-label {
@@ -796,19 +658,32 @@ body {
 }
 
 /* ===========================================
-   CONNECT CARD
+   CONNECT CARD - LinkedIn
    =========================================== */
 .card-connect {
     grid-column: span 1;
     grid-row: span 1;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0A66C2 0%, #004182 100%);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-connect:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(10, 102, 194, 0.25),
+        0 8px 16px rgba(0,0,0,0.1);
 }
 
 .connect-icon-svg {
     width: 45px;
     height: 45px;
     margin-bottom: 10px;
-    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.15));
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.2));
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-connect:hover .connect-icon-svg {
+    transform: scale(1.12) rotate(5deg);
 }
 
 .connect-content {
@@ -821,7 +696,7 @@ body {
     font-size: 11px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     color: rgba(255,255,255,0.75);
     margin-bottom: 4px;
 }
@@ -835,7 +710,89 @@ body {
 }
 
 /* ===========================================
-   RESPONSIVE DESIGN
+   WRITING CARD - Empty placeholder
+   =========================================== */
+.card-writing {
+    grid-column: span 2;
+    grid-row: span 1;
+    justify-content: space-between;
+}
+
+.card-empty {
+    background: linear-gradient(135deg, #f8f8f6 0%, #f0efe8 100%);
+}
+
+/* ===========================================
+   FOOTER
+   =========================================== */
+.footer {
+    width: 100%;
+    padding: 60px 24px 40px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer-tagline {
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.footer-link {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 10px 20px;
+    background: white;
+    border-radius: 100px;
+    box-shadow: var(--shadow-btn);
+    transition: 
+        all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: -0.01em;
+}
+
+.footer-link:hover {
+    color: var(--text-primary);
+    box-shadow: var(--shadow-btn-hover);
+    transform: translateY(-2px);
+}
+
+.footer-copy {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ===========================================
+   SUBTLE GRAIN TEXTURE (Premium touch)
+   =========================================== */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    z-index: 9999;
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN - Mobile first thinking
    =========================================== */
 @media (max-width: 1200px) {
     .bento-grid {
@@ -966,11 +923,6 @@ body {
         line-height: 1.5;
     }
 
-    .bio-looking {
-        font-size: 11px;
-        padding: 8px 12px;
-    }
-
     .card { 
         min-height: 140px;
         overflow: hidden;
@@ -981,6 +933,7 @@ body {
         --gap: 12px;
     }
 
+    /* Mobile: always show button text */
     .expand-btn {
         width: auto;
         padding: 0 16px;
@@ -1016,186 +969,21 @@ body {
 }
 
 /* ===========================================
-   FOOTER
+   ACCESSIBILITY - WCAG AA Compliant
    =========================================== */
-.footer {
-    width: 100%;
-    padding: 60px 24px 40px;
-    text-align: center;
-    margin-top: auto;
-}
-
-.footer-content {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.footer-tagline {
-    font-family: var(--font-display);
-    font-size: 24px;
-    color: var(--text-primary);
-    margin-bottom: 24px;
-    letter-spacing: -0.01em;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-bottom: 32px;
-}
-
-.footer-link {
-    font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-secondary);
-    text-decoration: none;
-    padding: 10px 20px;
-    background: white;
-    border-radius: 100px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    transition: all 0.25s ease;
-}
-
-.footer-link:hover {
-    color: var(--text-primary);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    transform: translateY(-2px);
-}
-
-.footer-copy {
-    font-size: 12px;
-    color: var(--text-muted);
-}
-
-/* ===========================================
-   SUBTLE GRAIN TEXTURE
-   =========================================== */
-body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    z-index: 9999;
-}
-
-/* ===========================================
-   ENHANCED HOVER EFFECTS & INTERACTIONS
-   =========================================== */
-
-/* Universal card hover enhancement */
-.card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.12);
-}
-
-/* Connect card hover - LinkedIn */
-.card-connect {
-    transition: all 0.3s ease;
-}
-
-.card-connect:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 50px rgba(10, 102, 194, 0.2);
-}
-
-.card-connect:hover .connect-icon-svg {
-    transform: scale(1.1) rotate(5deg);
-}
-
-/* Project cards - Enhanced glow effect */
-.card-project {
-    position: relative;
-    overflow: hidden;
-}
-
-.card-project .project-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.card-coral .project-glow {
-    background: radial-gradient(circle, rgba(255,224,211,0.6) 0%, transparent 70%);
-}
-
-.card-blue .project-glow {
-    background: radial-gradient(circle, rgba(200,228,251,0.6) 0%, transparent 70%);
-}
-
-.card-pink .project-glow {
-    background: radial-gradient(circle, rgba(255,212,224,0.6) 0%, transparent 70%);
-}
-
-.card-project:hover .project-glow {
-    opacity: 1;
-}
-
-.card-project:hover .project-visual {
-    transform: scale(1.05);
-}
-
-.card-project .project-visual {
-    transition: transform 0.4s ease;
-}
-
-/* Expand button enhancement */
-.expand-btn {
-    transition: all 0.3s ease;
-}
-
-.card-project:hover .expand-btn {
-    background: rgba(26, 26, 26, 0.95);
-    transform: translateX(-2px);
-}
-
-.expand-btn:hover {
-    background: var(--text-primary) !important;
-    padding-right: 22px;
-}
-
-.expand-btn:hover .btn-icon {
-    transform: translate(4px, -4px);
-}
-
-/* Education card hover */
-.card-education:hover .edu-icon-svg {
-    transform: scale(1.1) rotate(-5deg);
-}
-
-/* Location pulse animation enhancement */
-@keyframes pulse-ring {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(2.5);
-        opacity: 0;
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
 
-.pulse-dot {
-    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+/* Focus states for keyboard navigation */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #6BA3D6;
+    outline-offset: 2px;
 }
-
-/* Icon transitions */
-.connect-icon-svg,
-.edu-icon-svg,
-.project-icon-svg {
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
