@@ -1,10 +1,12 @@
 'use client'
 
+import Image from 'next/image'
+
 const SCHOOLS = [
-  { name: 'Stanford',  field: 'AI',             current: true },
-  { name: 'Harvard',   field: 'Data Science',   current: false },
-  { name: 'Arizona',   field: 'MIS',            current: false },
-  { name: 'Tennessee', field: 'MBA',            current: false },
+  { name: 'Stanford',  field: 'AI',            logo: '/schools/stanford.png', current: true  },
+  { name: 'Harvard',   field: 'Data Science',  logo: '/schools/harvard.png',  current: false },
+  { name: 'Arizona',   field: 'MIS',           logo: '/schools/arizona.png',  current: false },
+  { name: 'Tennessee', field: 'MBA',           logo: '/schools/utm.png',      current: false },
 ] as const
 
 export function EducationCard() {
@@ -23,14 +25,21 @@ export function EducationCard() {
       <ul className="mt-auto space-y-1.5 text-[11.5px] leading-tight">
         {SCHOOLS.map((s) => (
           <li key={s.name} className="flex items-center gap-2">
-            {s.current ? (
-              <span className="relative inline-flex h-1.5 w-1.5 shrink-0 items-center justify-center">
-                <span className="absolute inset-0 rounded-full bg-accent/45 pulse-soft" />
-                <span className="relative h-1.5 w-1.5 rounded-full bg-accent" />
-              </span>
-            ) : (
-              <span className="h-1 w-1 shrink-0 rounded-full bg-ink-soft/40" />
-            )}
+            <span className="relative inline-flex h-5 w-5 shrink-0 items-center justify-center">
+              <Image
+                src={s.logo}
+                alt=""
+                width={64}
+                height={64}
+                className="h-5 w-5 object-contain"
+              />
+              {s.current && (
+                <span className="absolute -right-0.5 -top-0.5 inline-flex h-2 w-2">
+                  <span className="absolute inset-0 rounded-full bg-accent/55 pulse-soft" />
+                  <span className="relative inline-block h-2 w-2 rounded-full bg-accent ring-2 ring-surface" />
+                </span>
+              )}
+            </span>
             <span className="font-medium text-ink">{s.name}</span>
             <span className="text-ink-soft/85">· {s.field}</span>
           </li>
