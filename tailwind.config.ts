@@ -32,6 +32,7 @@ const config: Config = {
         card: '0 1px 2px rgb(var(--shadow-rgb) / 0.04), 0 8px 24px rgb(var(--shadow-rgb) / 0.06)',
         'card-hover': '0 2px 4px rgb(var(--shadow-rgb) / 0.05), 0 14px 32px rgb(var(--shadow-rgb) / 0.10)',
         pill: '0 1px 2px rgb(var(--shadow-rgb) / 0.06)',
+        floating: '0 2px 6px rgb(var(--shadow-rgb) / 0.10), 0 10px 28px rgb(var(--shadow-rgb) / 0.14)',
       },
       letterSpacing: {
         'tight-display': '-0.02em',

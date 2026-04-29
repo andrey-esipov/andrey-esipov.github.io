@@ -145,12 +145,12 @@ export function StravaCard() {
       </div>
 
       {/* Top-left eyebrow chip */}
-      <span className="pointer-events-none absolute left-3 top-3 z-20 rounded-full border border-hairline/40 bg-surface/85 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-eyebrow text-ink-soft shadow-pill backdrop-blur-md">
+      <span className="pointer-events-none absolute left-3 top-3 z-20 rounded-full border border-hairline bg-surface px-2 py-0.5 text-[9px] font-semibold uppercase tracking-eyebrow text-ink-soft shadow-floating">
         Out and about
       </span>
 
       {/* Top-right activity badge */}
-      <span className="pointer-events-none absolute right-3 top-3 z-20 inline-flex items-center gap-1 rounded-full border border-hairline/40 bg-surface/85 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-eyebrow text-ink-soft shadow-pill backdrop-blur-md">
+      <span className="pointer-events-none absolute right-3 top-3 z-20 inline-flex items-center gap-1 rounded-full border border-hairline bg-surface px-2 py-0.5 text-[9px] font-semibold uppercase tracking-eyebrow text-ink-soft shadow-floating">
         <Activity className="h-2.5 w-2.5" strokeWidth={2.4} />
         {a.type}
       </span>
@@ -161,7 +161,7 @@ export function StravaCard() {
           type="button"
           onClick={() => setZoom((z) => Math.min(z + 1, MAX_ZOOM))}
           aria-label="Zoom in"
-          className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-hairline/60 bg-surface/90 text-ink shadow-pill backdrop-blur-md transition-colors duration-200 hover:bg-surface"
+          className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-hairline bg-surface text-ink shadow-floating transition-colors duration-200 hover:bg-surface-2"
         >
           <Plus className="h-3 w-3" strokeWidth={2.4} />
         </button>
@@ -169,7 +169,7 @@ export function StravaCard() {
           type="button"
           onClick={() => setZoom((z) => Math.max(z - 1, MIN_ZOOM))}
           aria-label="Zoom out"
-          className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-hairline/60 bg-surface/90 text-ink shadow-pill backdrop-blur-md transition-colors duration-200 hover:bg-surface"
+          className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-hairline bg-surface text-ink shadow-floating transition-colors duration-200 hover:bg-surface-2"
         >
           <Minus className="h-3 w-3" strokeWidth={2.4} />
         </button>
@@ -181,14 +181,14 @@ export function StravaCard() {
             setUserMoved(false)
           }}
           aria-label="Recenter on route"
-          className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-hairline/60 bg-surface/90 text-[8px] font-semibold uppercase tracking-eyebrow text-ink-soft shadow-pill backdrop-blur-md transition-colors duration-200 hover:text-ink"
+          className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-hairline bg-surface text-[8px] font-semibold uppercase tracking-eyebrow text-ink-soft shadow-floating transition-colors duration-200 hover:bg-surface-2 hover:text-ink"
         >
           ⌖
         </button>
       </div>
 
       {/* Bottom stats chip — activity name + inline stats */}
-      <div className="pointer-events-none absolute inset-x-3 bottom-3 z-20 rounded-xl border border-hairline/40 bg-surface/88 px-3 py-2 shadow-pill backdrop-blur-md">
+      <div className="pointer-events-none absolute inset-x-3 bottom-3 z-20 rounded-xl border border-hairline bg-surface px-3 py-2 shadow-floating">
         <p className="line-clamp-1 font-serif text-[13px] leading-none tracking-tight-card text-ink">
           {a.name}
         </p>
