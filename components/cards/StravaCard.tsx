@@ -47,10 +47,9 @@ function isStale(iso: string): boolean {
 function tileProvider(x: number, y: number, z: number, dpr?: number): string {
   const s = 'abc'.charAt(Math.abs(x + y) % 3)
   const retina = (dpr ?? 1) >= 2 ? '@2x' : ''
-  // Voyager (no labels) — keeps the colorful neighborhoods + road
-  // hierarchy of Voyager but drops place names so the route reads
-  // first. Way more visible than the bleached Positron tiles.
-  return `https://${s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/${z}/${x}/${y}${retina}.png`
+  // Voyager (with labels) — saturated road hierarchy + park greens stay
+  // visible even at low zoom, which matters for a small square tile.
+  return `https://${s}.basemaps.cartocdn.com/rastertiles/voyager/${z}/${x}/${y}${retina}.png`
 }
 
 const cardClass =
