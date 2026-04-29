@@ -24,8 +24,15 @@ const placeholderInner =
 export default function Site() {
   const [filter, setFilter] = useState<Filter>('all')
   const visible = SHOW_FOR[filter]
-  const visibleClass = (category: string) =>
-    visible.includes(category) ? '' : 'hidden'
+  const visibleClass = (category: string) => {
+    const isOn = visible.includes(category)
+    // Tiles outside the active filter desaturate + dim instead of
+    // disappearing — the layout stays whole so the visual rhythm reads.
+    const dimmed = filter === 'all' || isOn
+      ? 'opacity-100'
+      : 'opacity-40 saturate-[0.15] pointer-events-none'
+    return `transition-[opacity,filter] duration-[320ms] ease-smooth ${dimmed}`
+  }
 
   return (
     <div className="flex min-h-screen flex-col">

@@ -9,99 +9,32 @@ export const metadata: Metadata = {
 
 const TILE = 'rounded-card border border-hairline/60 shadow-card overflow-hidden'
 
-function HeroTile() {
-  return (
-    <div
-      className={`${TILE} relative aspect-[16/8] lg:col-span-12`}
-      style={{ background: 'linear-gradient(135deg, rgb(var(--sky)) 0%, rgb(var(--surface)) 100%)' }}
-    >
-      <Image
-        src="/onedrive-hero-blog.jpg"
-        alt="OneDrive — product visual"
-        fill
-        priority
-        sizes="(min-width: 1024px) 1100px, 100vw"
-        className="object-cover"
-      />
-    </div>
-  )
-}
-
-function NumbersTile() {
-  return (
-    <div className={`${TILE} bg-surface p-7 lg:col-span-4`}>
-      <p className="text-[11px] font-semibold uppercase tracking-eyebrow text-ink-soft">
-        Order of magnitude
-      </p>
-      <ul className="mt-4 space-y-4">
-        <li>
-          <p className="font-serif text-[40px] leading-none text-ink md:text-[48px]">10⁹</p>
-          <p className="text-[12px] text-ink-soft">devices running the Sync engine</p>
-        </li>
-        <li>
-          <p className="font-serif text-[40px] leading-none text-ink md:text-[48px]">10⁸</p>
-          <p className="text-[12px] text-ink-soft">monthly active users</p>
-        </li>
-      </ul>
-    </div>
-  )
-}
-
-function ProductTile() {
-  return (
-    <div className={`${TILE} relative aspect-[16/9] lg:col-span-8`}>
-      <Image
-        src="/onedrive-home.jpg"
-        alt="OneDrive home — For you and Recent files"
-        fill
-        sizes="(min-width: 1024px) 720px, 100vw"
-        className="object-cover"
-      />
-    </div>
-  )
-}
-
-function FeatureTile({ src, alt, eyebrow, title }: {
+function ImageTile({
+  src,
+  alt,
+  span,
+  aspect = 'aspect-[16/9]',
+  priority = false,
+  sizes,
+}: {
   src: string
   alt: string
-  eyebrow: string
-  title: string
+  span: string
+  aspect?: string
+  priority?: boolean
+  sizes: string
 }) {
   return (
-    <div className={`${TILE} relative bg-surface-2 lg:col-span-6`}>
-      <div className="relative aspect-[16/11]">
-        <Image src={src} alt={alt} fill sizes="(min-width: 1024px) 540px, 100vw" className="object-cover" />
-      </div>
-      <div className="p-5 md:p-6">
-        <p className="text-[11px] font-semibold uppercase tracking-eyebrow text-ink-soft">
-          {eyebrow}
-        </p>
-        <h4 className="mt-1.5 font-serif text-[20px] leading-tight tracking-tight-card text-ink md:text-[22px]">
-          {title}
-        </h4>
-      </div>
+    <div className={`${TILE} relative ${aspect} ${span}`}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority={priority}
+        sizes={sizes}
+        className="object-cover"
+      />
     </div>
-  )
-}
-
-function ExternalTile() {
-  return (
-    <a
-      href="https://onedrive.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`${TILE} group/tile relative bg-surface p-7 transition-transform duration-200 ease-smooth hover:-translate-y-0.5 hover:shadow-card-hover lg:col-span-12`}
-    >
-      <p className="text-[11px] font-semibold uppercase tracking-eyebrow text-ink-soft">
-        Product
-      </p>
-      <h4 className="mt-2 font-serif text-2xl leading-tight text-ink">
-        OneDrive on the web
-      </h4>
-      <p className="mt-2 text-[14px] text-ink-soft">
-        onedrive.com — what we ship for everyone.
-      </p>
-    </a>
   )
 }
 
@@ -120,22 +53,35 @@ export default function WorkPage() {
       ]}
       showcase={
         <div className="grid grid-cols-1 gap-5 md:grid-cols-6 md:gap-6 lg:grid-cols-12">
-          <HeroTile />
-          <NumbersTile />
-          <ProductTile />
-          <FeatureTile
+          <ImageTile
+            src="/onedrive-hero-blog.jpg"
+            alt="OneDrive — product visual"
+            span="lg:col-span-12"
+            aspect="aspect-[16/8]"
+            priority
+            sizes="(min-width: 1024px) 1100px, 100vw"
+          />
+          <ImageTile
+            src="/onedrive-home.jpg"
+            alt="OneDrive home — For you and Recent files"
+            span="lg:col-span-12"
+            aspect="aspect-[16/9]"
+            sizes="(min-width: 1024px) 1100px, 100vw"
+          />
+          <ImageTile
             src="/onedrive-sync.jpg"
-            alt="OneDrive cloud icon — files at rest in the cloud"
-            eyebrow="In the product"
-            title="Files in the cloud, synced everywhere."
+            alt="OneDrive cloud illustration"
+            span="lg:col-span-6"
+            aspect="aspect-[5/4]"
+            sizes="(min-width: 1024px) 540px, 100vw"
           />
-          <FeatureTile
+          <ImageTile
             src="/onedrive-sync-2.jpg"
-            alt="Files-on-Demand — download as you need them"
-            eyebrow="In the product"
-            title="Files download as you need them."
+            alt="Files-on-Demand illustration"
+            span="lg:col-span-6"
+            aspect="aspect-[5/4]"
+            sizes="(min-width: 1024px) 540px, 100vw"
           />
-          <ExternalTile />
         </div>
       }
     />

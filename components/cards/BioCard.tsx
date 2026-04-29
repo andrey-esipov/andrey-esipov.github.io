@@ -110,7 +110,7 @@ export function BioCard() {
             <p className="font-serif text-[20px] leading-[1.18] tracking-tight-display text-ink md:text-[22px]">
               I&rsquo;m{' '}
               <span className="bg-gradient-to-br from-ink via-accent to-accent bg-clip-text font-serif italic text-transparent">
-                andrey
+                Andrey
               </span>
               <span className="text-ink-soft">, a product manager at </span>
               <span className="text-ink">Microsoft</span>
@@ -118,10 +118,14 @@ export function BioCard() {
             </p>
 
             <p className="mt-2 text-[12.5px] leading-relaxed text-ink-soft md:text-[13px]">
-              On the OneDrive Sync team — building file-centric AI, semantic
-              search, and a sync engine running on a billion devices.
-              Off the clock: dad of three, endurance athlete, training
-              neural nets on weekends.
+              On the OneDrive Sync team, working to make daily file work
+              quieter and faster for hundreds of millions of people across
+              Windows, Mac, and mobile. I sweat the details, prefer simple
+              and elegant solutions over clever ones, and lean on a{' '}
+              <span className="text-ink">show&#8209;don&rsquo;t&#8209;tell</span>{' '}
+              approach &mdash; fewer slides, more demos. Off the clock:
+              dad of three, endurance athlete, training neural nets on
+              weekends.
             </p>
           </div>
 
