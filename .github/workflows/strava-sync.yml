@@ -1,0 +1,42 @@
+name: Strava sync
+
+on:
+  schedule:
+    - cron: '0 12 * * *'   # daily at noon UTC
+  workflow_dispatch:        # manual trigger
+
+permissions:
+  contents: write
+
+concurrency:
+  group: strava-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch latest activity
+        env:
+          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
+          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
+          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
+        run: node scripts/fetch-strava.mjs
+
+      - name: Commit if changed
+        run: |
+          if [[ -n "$(git status --porcelain public/data/strava-latest.json)" ]]; then
+            git config user.name "strava-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add public/data/strava-latest.json
+            git commit -m "data: refresh latest Strava activity [skip ci]"
+            git push
+          else
+            echo "No changes."
+          fi

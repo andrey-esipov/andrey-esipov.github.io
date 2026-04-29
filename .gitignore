@@ -15,3 +15,6 @@ out/
 
 # Temp files
 *.tmp
+
+# TypeScript incremental build cache
+tsconfig.tsbuildinfo
