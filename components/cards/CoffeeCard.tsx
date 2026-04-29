@@ -59,6 +59,8 @@ function Cup() {
 
       {/* Outer wall — body sides + base */}
       <path d="M30 26 L33 64 Q34 72 42 72 L58 72 Q66 72 67 64 L70 26" />
+      {/* Handle — small ear curving off the outer wall */}
+      <path d="M69 36 Q82 36 82 48 Q82 60 69 60" />
       {/* Outer rim ellipse */}
       <ellipse cx="50" cy="26" rx="20" ry="3.2" />
 
