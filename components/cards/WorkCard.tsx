@@ -12,25 +12,25 @@ export function WorkCard() {
       {/* Soft decorative blob — bottom-left blush */}
       <div className="pointer-events-none absolute -bottom-14 -left-14 h-48 w-48 rounded-full bg-blush/80 blur-2xl" />
 
-      {/* Secondary marketing visual — sits behind, tilted right, peeks lower */}
-      <div className="pointer-events-none absolute -right-[14%] bottom-[10%] w-[78%] rotate-[7deg] transition-transform duration-700 ease-smooth group-hover:rotate-[5deg] group-hover:translate-y-1">
+      {/* Secondary visual — phone with Photos UI, peeks from bottom-right tilted right */}
+      <div className="pointer-events-none absolute -right-[14%] bottom-[8%] w-[78%] rotate-[7deg] transition-transform duration-700 ease-smooth group-hover:rotate-[5deg] group-hover:translate-y-1">
         <Image
-          src="/onedrive-hero-blog.jpg"
+          src="/od3.jpg"
           alt=""
-          width={1800}
-          height={1013}
+          width={1600}
+          height={900}
           aria-hidden
           className="h-auto w-full rounded-2xl shadow-[0_18px_36px_rgb(var(--shadow-rgb)/0.22)]"
         />
       </div>
 
-      {/* Primary product UI — overflows top-right, tilted left */}
-      <div className="pointer-events-none absolute -right-[10%] top-[8%] w-[112%] rotate-[-3deg] transition-transform duration-700 ease-smooth group-hover:rotate-[-2deg] group-hover:-translate-y-1">
+      {/* Primary visual — laptop with OneDrive home, overflows top-right tilted left */}
+      <div className="pointer-events-none absolute -right-[10%] top-[6%] w-[112%] rotate-[-3deg] transition-transform duration-700 ease-smooth group-hover:rotate-[-2deg] group-hover:-translate-y-1">
         <Image
-          src="/onedrive-home.jpg"
-          alt="OneDrive product UI"
-          width={1800}
-          height={1013}
+          src="/od1.jpg"
+          alt="OneDrive on a laptop"
+          width={1600}
+          height={900}
           priority
           className="h-auto w-full rounded-2xl shadow-[0_22px_44px_rgb(var(--shadow-rgb)/0.18)]"
         />

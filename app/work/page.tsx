@@ -9,29 +9,32 @@ export const metadata: Metadata = {
 
 const TILE = 'rounded-card border border-hairline/60 shadow-card overflow-hidden'
 
-function ImageTile({
-  src,
-  alt,
-  span,
-  aspect = 'aspect-[16/9]',
-  priority = false,
-  sizes,
-}: {
-  src: string
-  alt: string
-  span: string
-  aspect?: string
-  priority?: boolean
-  sizes: string
-}) {
+function HeroTile() {
   return (
-    <div className={`${TILE} relative ${aspect} ${span}`}>
+    <div
+      className={`${TILE} relative aspect-[16/8] lg:col-span-12`}
+      style={{ background: 'linear-gradient(135deg, rgb(var(--sky)) 0%, rgb(var(--surface)) 100%)' }}
+    >
+      <Image
+        src="/onedrive-hero-blog.jpg"
+        alt="OneDrive — product visual"
+        fill
+        priority
+        sizes="(min-width: 1024px) 1100px, 100vw"
+        className="object-cover"
+      />
+    </div>
+  )
+}
+
+function GridTile({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className={`${TILE} relative aspect-[16/9] lg:col-span-6`}>
       <Image
         src={src}
         alt={alt}
         fill
-        priority={priority}
-        sizes={sizes}
+        sizes="(min-width: 1024px) 540px, 100vw"
         className="object-cover"
       />
     </div>
@@ -53,21 +56,11 @@ export default function WorkPage() {
       ]}
       showcase={
         <div className="grid grid-cols-1 gap-5 md:grid-cols-6 md:gap-6 lg:grid-cols-12">
-          <ImageTile
-            src="/onedrive-hero-blog.jpg"
-            alt="OneDrive — product visual"
-            span="lg:col-span-12"
-            aspect="aspect-[16/8]"
-            priority
-            sizes="(min-width: 1024px) 1100px, 100vw"
-          />
-          <ImageTile
-            src="/onedrive-home.jpg"
-            alt="OneDrive home — For you and Recent files"
-            span="lg:col-span-12"
-            aspect="aspect-[16/9]"
-            sizes="(min-width: 1024px) 1100px, 100vw"
-          />
+          <HeroTile />
+          <GridTile src="/od1.jpg"          alt="OneDrive on a laptop" />
+          <GridTile src="/od2.jpg"          alt="OneDrive cloud illustration" />
+          <GridTile src="/od3.jpg"          alt="OneDrive Photos on mobile" />
+          <GridTile src="/onedrive-home.jpg" alt="OneDrive home — For you and Recent files" />
         </div>
       }
     />
