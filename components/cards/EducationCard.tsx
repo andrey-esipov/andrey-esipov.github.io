@@ -24,8 +24,8 @@ export function EducationCard() {
 
       <ul className="mt-auto space-y-2 text-[13px] leading-tight">
         {SCHOOLS.map((s) => (
-          <li key={s.name} className="flex items-center gap-2.5">
-            <span className="relative inline-flex h-7 w-7 shrink-0 items-center justify-center">
+          <li key={s.name} className="group/school flex items-center gap-2.5">
+            <span className="relative inline-flex h-7 w-7 shrink-0 items-center justify-center transition-transform duration-[260ms] ease-smooth group-hover/school:scale-[1.18]">
               <Image
                 src={s.logo}
                 alt=""
