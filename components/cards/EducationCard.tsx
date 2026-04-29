@@ -3,10 +3,10 @@
 import Image from 'next/image'
 
 const SCHOOLS = [
-  { name: 'Stanford',  field: 'AI',            logo: '/schools/stanford.png', current: true  },
-  { name: 'Harvard',   field: 'Data Science',  logo: '/schools/harvard.png',  current: false },
-  { name: 'Arizona',   field: 'MIS',           logo: '/schools/arizona.png',  current: false },
-  { name: 'Tennessee', field: 'MBA',           logo: '/schools/utm.png',      current: false },
+  { name: 'Stanford',  detail: 'AI',                  logo: '/schools/stanford.png', current: true  },
+  { name: 'Harvard',   detail: "Data Science · '23", logo: '/schools/harvard.png',  current: false },
+  { name: 'Arizona',   detail: "MIS · '12",          logo: '/schools/arizona.png',  current: false },
+  { name: 'Tennessee', detail: "MIS '09 · MBA '10",  logo: '/schools/utm.png',      current: false },
 ] as const
 
 export function EducationCard() {
@@ -41,7 +41,7 @@ export function EducationCard() {
               )}
             </span>
             <span className="font-medium text-ink">{s.name}</span>
-            <span className="text-ink-soft/85">· {s.field}</span>
+            <span className="text-ink-soft/85">· {s.detail}</span>
           </li>
         ))}
       </ul>
