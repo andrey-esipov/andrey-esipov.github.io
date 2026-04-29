@@ -1,15 +1,17 @@
 'use client'
 
+import { useState } from 'react'
 import { Map, Marker } from 'pigeon-maps'
+import { Plus, Minus } from 'lucide-react'
 
 const NASHVILLE: [number, number] = [36.1627, -86.7816]
+const MIN_ZOOM = 4
+const MAX_ZOOM = 17
+const DEFAULT_ZOOM = 9
 
 function tileProvider(x: number, y: number, z: number, dpr?: number): string {
   const s = 'abc'.charAt(Math.abs(x + y) % 3)
   const retina = (dpr ?? 1) >= 2 ? '@2x' : ''
-  // Voyager — colorful neighborhoods + visible road hierarchy. Has
-  // the labels (Nashville · La Vergne · etc.) so a small map still
-  // tells you where you're looking.
   return `https://${s}.basemaps.cartocdn.com/rastertiles/voyager/${z}/${x}/${y}${retina}.png`
 }
 
@@ -23,12 +25,10 @@ function MarkerPin() {
   )
 }
 
-/**
- * Compact "where I am" tile (1:1 small). Static decorative map — no
- * pan/zoom controls, no mouse interaction. The map tile is just here to
- * give Nashville some texture; the headline does the heavy lifting.
- */
 export function LocationCard() {
+  const [zoom, setZoom] = useState(DEFAULT_ZOOM)
+  const [center, setCenter] = useState<[number, number]>(NASHVILLE)
+
   return (
     <div
       data-category="activity"
@@ -38,11 +38,18 @@ export function LocationCard() {
         <Map
           provider={tileProvider}
           dprs={[1, 2]}
-          center={NASHVILLE}
-          zoom={9}
-          mouseEvents={false}
-          touchEvents={false}
+          center={center}
+          zoom={zoom}
+          minZoom={MIN_ZOOM}
+          maxZoom={MAX_ZOOM}
           attribution={false}
+          metaWheelZoom
+          metaWheelZoomWarning="Use ⌘ + scroll to zoom"
+          twoFingerDrag
+          onBoundsChanged={({ center: c, zoom: z }) => {
+            setCenter([c[0], c[1]])
+            setZoom(z)
+          }}
         >
           <Marker anchor={NASHVILLE} width={28} offset={[14, 14]}>
             <MarkerPin />
@@ -50,6 +57,7 @@ export function LocationCard() {
         </Map>
       </div>
 
+      {/* Floating label chip — top-left */}
       <div className="pointer-events-none absolute left-3 top-3 z-20 rounded-xl border border-hairline/40 bg-surface/85 px-3 py-2 shadow-pill backdrop-blur-md">
         <p className="text-[9px] font-semibold uppercase tracking-eyebrow text-ink-soft">
           Based in
@@ -59,7 +67,42 @@ export function LocationCard() {
         </h3>
       </div>
 
-      <p className="absolute bottom-1.5 right-2.5 z-20 text-[8px] text-ink-soft/70">
+      {/* Recenter pill — top-right */}
+      <div className="absolute right-3 top-3 z-20">
+        <button
+          type="button"
+          onClick={() => {
+            setCenter(NASHVILLE)
+            setZoom(DEFAULT_ZOOM)
+          }}
+          aria-label="Recenter on Nashville"
+          className="rounded-full border border-hairline/60 bg-surface/90 px-2.5 py-1 text-[10px] font-medium text-ink-soft shadow-pill backdrop-blur-md transition-colors duration-200 hover:text-ink"
+        >
+          Recenter
+        </button>
+      </div>
+
+      {/* Zoom controls — bottom-right */}
+      <div className="absolute bottom-3 right-3 z-20 flex flex-col gap-1">
+        <button
+          type="button"
+          onClick={() => setZoom((z) => Math.min(z + 1, MAX_ZOOM))}
+          aria-label="Zoom in"
+          className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-hairline/60 bg-surface/90 text-ink shadow-pill backdrop-blur-md transition-colors duration-200 hover:bg-surface"
+        >
+          <Plus className="h-3.5 w-3.5" strokeWidth={2.4} />
+        </button>
+        <button
+          type="button"
+          onClick={() => setZoom((z) => Math.max(z - 1, MIN_ZOOM))}
+          aria-label="Zoom out"
+          className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-hairline/60 bg-surface/90 text-ink shadow-pill backdrop-blur-md transition-colors duration-200 hover:bg-surface"
+        >
+          <Minus className="h-3.5 w-3.5" strokeWidth={2.4} />
+        </button>
+      </div>
+
+      <p className="pointer-events-none absolute bottom-1.5 left-2.5 z-20 text-[8px] text-ink-soft/70">
         © OSM · CartoDB
       </p>
     </div>
