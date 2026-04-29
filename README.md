@@ -1,58 +1,129 @@
-# Andrey Esipov — Personal Website
+# andrey.dev — personal site
 
-A stunning, animated personal portfolio website featuring 3D particle effects, smooth scroll animations, and interactive elements.
+A bento-grid personal site for Andrey Esipov, principal PM at Microsoft.
+Cream + warm-orange palette, three theme modes (light, dark, sunrise),
+live Strava integration, and project detail pages for OneDrive and Rallo.
 
-## Features
+## Stack
 
-- **3D Particle Hero** — Immersive WebGL particle system using Three.js with floating geometric shapes
-- **Smooth Animations** — GSAP-powered scroll-triggered animations with text reveals and card effects
-- **Custom Cursor** — Interactive cursor with magnetic effects on buttons
-- **Responsive Design** — Fully responsive across all devices with mobile menu
-- **Modern Aesthetics** — Dark theme with accent colors, noise texture overlay, and elegant typography
+- Next.js 14 (App Router, static export → GitHub Pages)
+- React 18 + TypeScript
+- Tailwind CSS 3 with CSS-variable-driven semantic tokens
+- Framer Motion for entrance animations + tilt
+- `next/font/google` for Instrument Serif + Inter Tight
+- Strava integration via a daily GitHub Action
+- `@mapbox/polyline` to render the latest activity's route as SVG
 
-## Tech Stack
+## Local development
 
-- **Three.js** — 3D graphics and particle system
-- **GSAP + ScrollTrigger** — Smooth animations and scroll effects
-- **Vanilla JavaScript** — No framework dependencies
-- **CSS Custom Properties** — Easy theming and consistency
-- **Google Fonts** — Space Grotesk + Inter
-
-## Structure
-
-```
-├── index.html          # Main HTML file
-├── css/
-│   └── style.css       # All styles with CSS variables
-├── js/
-│   └── main.js         # All JavaScript (cursor, particles, animations)
-└── README.md
-```
-
-## Local Development
-
-Simply open `index.html` in a modern browser. No build step required.
-
-For best results, serve via a local server:
 ```bash
-npx serve .
+npm install
+npm run dev      # http://localhost:3000
 ```
+
+To produce the static export shipped to GitHub Pages:
+
+```bash
+npm run build    # writes ./out
+npx serve out    # smoke-test the static bundle
+```
+
+## Strava integration
+
+The "Out and about" card reads `public/data/strava-latest.json`, which is
+refreshed nightly by a GitHub Action.
+
+One-time setup:
+
+1. At <https://www.strava.com/settings/api>, create an app. Set the
+   Authorization Callback Domain to `localhost`.
+2. Run `STRAVA_CLIENT_ID=… STRAVA_CLIENT_SECRET=… node scripts/strava-auth.mjs`
+   and follow the prompts to get a long-lived refresh token.
+3. In repo Settings → Secrets → Actions, add:
+   - `STRAVA_CLIENT_ID`
+   - `STRAVA_CLIENT_SECRET`
+   - `STRAVA_REFRESH_TOKEN`
+
+The `Strava sync` workflow fires daily at noon UTC and on manual dispatch.
+It writes `public/data/strava-latest.json` and commits if the latest
+activity changed.
+
+If the JSON is missing or the latest activity is older than 30 days, the
+card shows a graceful "Lacing up" empty state.
+
+## Theme system
+
+Three themes: `light` (cream + orange), `dark` (warm ink), `sunrise`
+(orange-dominant, peach cream — the 6am long-run mood). All themes share
+the same token names (`--bg`, `--surface`, `--accent`, `--sage`, etc.);
+values shift per `data-theme` attribute on `<html>`.
+
+The user's choice persists in `localStorage` under `andrey-theme`. First
+visits respect `prefers-color-scheme`. A pre-hydration script applies the
+saved theme synchronously to avoid a flash of the wrong palette.
+
+## Project pages
+
+- `/` — bento home
+- `/work/` — OneDrive (work) detail page
+- `/rallo/` — Rallo (personal AI tennis coach) detail page
+
+Both detail pages use a shared `<ProjectDetail>` layout in
+`components/ProjectDetail.tsx`.
 
 ## Deployment
 
-This site is designed for GitHub Pages. Push to the `main` branch and enable GitHub Pages in repository settings.
+GitHub Pages, deployed from GitHub Actions (`.github/workflows/deploy.yml`).
+Pushes to `main` build the static export and publish via `actions/deploy-pages`.
 
-## Customization
+To enable Pages with the Actions source for the first time:
 
-Edit the CSS variables in `style.css` to change colors:
-```css
-:root {
-    --color-bg: #0a0a0f;
-    --color-accent: #6366f1;
-    /* ... */
-}
+```bash
+gh api repos/andrey-esipov/andrey-esipov.github.io/pages \
+  -X POST -f build_type=workflow
 ```
 
-## Credits
+## Project structure
 
-Built with inspiration from award-winning portfolios. Uses CDN-hosted libraries (Three.js, GSAP) for easy deployment.
+```
+app/
+  layout.tsx           root layout (fonts, theme, metadata)
+  page.tsx             home → <Site />
+  rallo/page.tsx       Rallo detail page
+  work/page.tsx        OneDrive detail page
+  globals.css          CSS variables for 3 themes + base
+  fonts.ts             Instrument Serif + Inter Tight
+components/
+  Site.tsx             top-level: TopNav + BentoGrid
+  TopNav.tsx           pill nav with All / About / Projects / Activity
+  BentoGrid.tsx        12-col grid with staggered entrance
+  ThemeProvider.tsx    3-mode theme context + bootstrap script
+  ProjectDetail.tsx    shared detail-page layout
+  ui/
+    Card.tsx           shared card primitive
+    PillToggle.tsx     segmented pill (used by nav + ThemeCard)
+  cards/
+    BioCard.tsx        avatar, intro, wave-hello easter egg
+    WorkCard.tsx       OneDrive, links to /work
+    RalloCard.tsx      Rallo, links to /rallo
+    StravaCard.tsx     latest activity, route polyline
+    LocationCard.tsx   bespoke Nashville illustration
+    AboutCard.tsx      three off-clock factoids
+    SocialsCard.tsx    LinkedIn / GitHub / X / Email tile grid
+    LinkedInCard.tsx   dedicated LinkedIn card with career highlights
+    ThemeCard.tsx      light / dark / sunrise switcher
+  visuals/
+    NashvilleSVG.tsx   bespoke city illustration
+    RalloPhoneSVG.tsx  iPhone-frame mockup with tennis court
+    RoutePolyline.tsx  decoded Strava polyline → SVG
+public/
+  avatar.png           the 3D portrait
+  data/
+    strava-latest.json refreshed by GitHub Action
+scripts/
+  fetch-strava.mjs     daily fetch via refresh token
+  strava-auth.mjs      one-time OAuth helper
+.github/workflows/
+  deploy.yml           build + deploy to Pages
+  strava-sync.yml      daily Strava refresh
+```
