@@ -22,21 +22,21 @@ export function EducationCard() {
         Always studying.
       </h3>
 
-      <ul className="mt-auto space-y-1.5 text-[11.5px] leading-tight">
+      <ul className="mt-auto space-y-2 text-[13px] leading-tight">
         {SCHOOLS.map((s) => (
-          <li key={s.name} className="flex items-center gap-2">
-            <span className="relative inline-flex h-5 w-5 shrink-0 items-center justify-center">
+          <li key={s.name} className="flex items-center gap-2.5">
+            <span className="relative inline-flex h-7 w-7 shrink-0 items-center justify-center">
               <Image
                 src={s.logo}
                 alt=""
                 width={64}
                 height={64}
-                className="h-5 w-5 object-contain"
+                className="h-7 w-7 object-contain"
               />
               {s.current && (
-                <span className="absolute -right-0.5 -top-0.5 inline-flex h-2 w-2">
+                <span className="absolute -right-0.5 -top-0.5 inline-flex h-2.5 w-2.5">
                   <span className="absolute inset-0 rounded-full bg-accent/55 pulse-soft" />
-                  <span className="relative inline-block h-2 w-2 rounded-full bg-accent ring-2 ring-surface" />
+                  <span className="relative inline-block h-2.5 w-2.5 rounded-full bg-accent ring-2 ring-surface" />
                 </span>
               )}
             </span>
