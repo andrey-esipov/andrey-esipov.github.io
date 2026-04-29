@@ -12,6 +12,10 @@ import { LocationCard } from './cards/LocationCard'
 import { StravaCard } from './cards/StravaCard'
 import { ThemeCard } from './cards/ThemeCard'
 import { LinkedInCard } from './cards/LinkedInCard'
+import { EducationCard } from './cards/EducationCard'
+import { HotTakesCard } from './cards/HotTakesCard'
+import { NowCard } from './cards/NowCard'
+import { CoffeeCard } from './cards/CoffeeCard'
 
 const SHOW_FOR: Record<Filter, ReadonlyArray<string>> = {
   all: ['bio', 'projects', 'activity', 'about', 'meta'],
@@ -29,31 +33,29 @@ type TileDef = {
 }
 
 /*
- * Default order — Theme/OneDrive swapped from prior layout. Auto-flow
- * places these into a 4×4 grid as:
+ * Default order — auto-flow places these into a 4×4 grid as:
  *
- *   Row 1: Bio Bio Work Theme
- *   Row 2: LI  Strava Work Rallo
- *   Row 3: PH  Loc    PH   Rallo
- *   Row 4: PH  PH     PH   PH
+ *   Row 1: Bio        Bio        Work      Theme
+ *   Row 2: LinkedIn   Strava     Work      Rallo
+ *   Row 3: Education  Location   HotTakes  Rallo
+ *   Row 4: Now        Now        Coffee    Placeholder
  *
  * Tiles can be dragged to swap with another tile (drag handle in the
  * top-right corner of each tile, visible on hover).
  */
 const TILES: ReadonlyArray<TileDef> = [
-  { id: 'bio',      category: 'bio',      span: 'md:col-span-6 lg:col-span-2 lg:row-span-1', Component: BioCard },
-  { id: 'work',     category: 'projects', span: 'md:col-span-3 lg:col-span-1 lg:row-span-2', Component: WorkCard },
-  { id: 'theme',    category: 'meta',     span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: ThemeCard },
-  { id: 'linkedin', category: 'about',    span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: LinkedInCard },
-  { id: 'strava',   category: 'activity', span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: StravaCard },
-  { id: 'rallo',    category: 'projects', span: 'md:col-span-3 lg:col-span-1 lg:row-span-2', Component: RalloCard },
-  { id: 'ph1',      span: 'hidden lg:col-span-1 lg:row-span-1 lg:block', placeholder: true },
-  { id: 'location', category: 'activity', span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: LocationCard },
-  { id: 'ph2',      span: 'hidden lg:col-span-1 lg:row-span-1 lg:block', placeholder: true },
-  { id: 'ph3',      span: 'hidden lg:col-span-1 lg:row-span-1 lg:block', placeholder: true },
-  { id: 'ph4',      span: 'hidden lg:col-span-1 lg:row-span-1 lg:block', placeholder: true },
-  { id: 'ph5',      span: 'hidden lg:col-span-1 lg:row-span-1 lg:block', placeholder: true },
-  { id: 'ph6',      span: 'hidden lg:col-span-1 lg:row-span-1 lg:block', placeholder: true },
+  { id: 'bio',       category: 'bio',      span: 'md:col-span-6 lg:col-span-2 lg:row-span-1', Component: BioCard },
+  { id: 'work',      category: 'projects', span: 'md:col-span-3 lg:col-span-1 lg:row-span-2', Component: WorkCard },
+  { id: 'theme',     category: 'meta',     span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: ThemeCard },
+  { id: 'linkedin',  category: 'about',    span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: LinkedInCard },
+  { id: 'strava',    category: 'activity', span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: StravaCard },
+  { id: 'rallo',     category: 'projects', span: 'md:col-span-3 lg:col-span-1 lg:row-span-2', Component: RalloCard },
+  { id: 'education', category: 'about',    span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: EducationCard },
+  { id: 'location',  category: 'activity', span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: LocationCard },
+  { id: 'hottakes',  category: 'about',    span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: HotTakesCard },
+  { id: 'now',       category: 'about',    span: 'md:col-span-6 lg:col-span-2 lg:row-span-1', Component: NowCard },
+  { id: 'coffee',    category: 'about',    span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: CoffeeCard },
+  { id: 'ph',        span: 'hidden lg:col-span-1 lg:row-span-1 lg:block', placeholder: true },
 ]
 
 const TILES_BY_ID: Record<string, TileDef> = Object.fromEntries(TILES.map((t) => [t.id, t]))
