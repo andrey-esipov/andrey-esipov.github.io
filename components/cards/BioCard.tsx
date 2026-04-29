@@ -120,7 +120,7 @@ export function BioCard() {
             <p className="mt-2 text-[12.5px] leading-relaxed text-ink-soft md:text-[13px]">
               On the OneDrive Sync team, working to make daily file work
               quieter and faster for hundreds of millions of people across
-              Windows, Mac, and mobile. I sweat the details, prefer simple
+              Windows and Mac. I sweat the details, prefer simple
               and elegant solutions over clever ones, and lean on a{' '}
               <span className="text-ink">show&#8209;don&rsquo;t&#8209;tell</span>{' '}
               approach &mdash; fewer slides, more demos. Off the clock:
