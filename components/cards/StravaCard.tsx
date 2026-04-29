@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Map } from 'pigeon-maps'
 import { Activity, MountainSnow, Plus, Minus } from 'lucide-react'
 import { fitBoundsForRoute, MapPolylineOverlay } from '../visuals/MapPolylineOverlay'
@@ -17,9 +17,12 @@ type StravaActivity = {
 }
 
 const STALE_DAYS = 30
-const VIEWPORT = { w: 280, h: 280 }
+const FALLBACK_VIEWPORT = { w: 240, h: 240 }
 const MIN_ZOOM = 2
 const MAX_ZOOM = 18
+// Slightly aggressive padding so the route is comfortably inside the
+// tile no matter what the actual rendered size ends up being.
+const FIT_PADDING = 0.16
 
 function formatDistance(m: number): string {
   const miles = m / 1609.34
@@ -58,10 +61,39 @@ const cardClass =
 export function StravaCard() {
   const a = latest as StravaActivity
   const stale = !a?.start_date_local || isStale(a.start_date_local)
-  const initialFit = !stale && a.summary_polyline ? fitBoundsForRoute(a.summary_polyline, VIEWPORT) : null
 
-  const [center, setCenter] = useState<[number, number] | null>(initialFit?.center ?? null)
-  const [zoom, setZoom] = useState<number>(initialFit?.zoom ?? 12)
+  // Track the live container size so the polyline overlay can render
+  // at exactly the same pixel dimensions the map sees, and so the
+  // initial fit picks a zoom that matches the actual tile.
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [size, setSize] = useState(FALLBACK_VIEWPORT)
+  const [userMoved, setUserMoved] = useState(false)
+  const [center, setCenter] = useState<[number, number] | null>(null)
+  const [zoom, setZoom] = useState<number>(12)
+
+  useEffect(() => {
+    if (!containerRef.current) return
+    const ro = new ResizeObserver(([entry]) => {
+      const w = Math.round(entry.contentRect.width)
+      const h = Math.round(entry.contentRect.height)
+      if (w > 0 && h > 0) setSize({ w, h })
+    })
+    ro.observe(containerRef.current)
+    return () => ro.disconnect()
+  }, [])
+
+  const initialFit = useMemo(() => {
+    if (stale || !a.summary_polyline) return null
+    return fitBoundsForRoute(a.summary_polyline, size, FIT_PADDING)
+  }, [a.summary_polyline, size, stale])
+
+  // Snap to the freshly-computed fit whenever the container resizes
+  // and the user hasn't manually panned/zoomed.
+  useEffect(() => {
+    if (!initialFit || userMoved) return
+    setCenter(initialFit.center)
+    setZoom(initialFit.zoom)
+  }, [initialFit, userMoved])
 
   if (stale || !a.summary_polyline || !initialFit || !center) {
     return (
@@ -79,7 +111,7 @@ export function StravaCard() {
   }
 
   return (
-    <div className={cardClass} data-category="activity">
+    <div ref={containerRef} className={cardClass} data-category="activity">
       <div className="absolute inset-0 map-warmth">
         <Map
           provider={tileProvider}
@@ -94,18 +126,20 @@ export function StravaCard() {
           onBoundsChanged={({ center: c, zoom: z }) => {
             setCenter([c[0], c[1]])
             setZoom(z)
+            setUserMoved(true)
           }}
         />
       </div>
 
-      {/* Polyline tracks the live center+zoom so it stays glued to the map */}
+      {/* Polyline uses the same live size as the tile, so it never
+          stretches against the map underneath. */}
       <div className="pointer-events-none absolute inset-0">
         <MapPolylineOverlay
           encoded={a.summary_polyline}
           center={center}
           zoom={zoom}
-          width={VIEWPORT.w}
-          height={VIEWPORT.h}
+          width={size.w}
+          height={size.h}
           className="h-full w-full"
         />
       </div>
@@ -144,6 +178,7 @@ export function StravaCard() {
           onClick={() => {
             setCenter(initialFit.center)
             setZoom(initialFit.zoom)
+            setUserMoved(false)
           }}
           aria-label="Recenter on route"
           className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-hairline/60 bg-surface/90 text-[8px] font-semibold uppercase tracking-eyebrow text-ink-soft shadow-pill backdrop-blur-md transition-colors duration-200 hover:text-ink"

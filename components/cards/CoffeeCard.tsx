@@ -13,14 +13,21 @@ function expectedCount(): number {
   return 4
 }
 
+/**
+ * Double-walled espresso glass. Outer wall (line drawing) + inner
+ * wall (faded line) with the espresso filling the lower half of the
+ * inner cavity. Crema sits as a flat ellipse on the espresso surface.
+ * Saucer below. No handle — most double-walled glass cups are
+ * handleless and the silhouette reads cleaner without one.
+ */
 function Cup() {
   return (
     <svg
       viewBox="0 0 100 92"
-      className="h-[92px] w-[104px] text-ink"
+      className="h-[96px] w-[110px] text-ink"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.7"
+      strokeWidth="1.6"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
@@ -36,66 +43,80 @@ function Cup() {
           <stop offset="50%"  stopColor="#B57E48" />
           <stop offset="100%" stopColor="#8E5C30" />
         </linearGradient>
-        {/* Cup interior (excludes the rim ellipse — that's drawn on top) */}
-        <clipPath id="cc-body">
-          <path d="M16 24 L20 64 Q21 73 30 73 L54 73 Q63 73 64 64 L68 24 Z" />
+        {/* Inner cavity — used to clip the espresso fill */}
+        <clipPath id="cc-inside">
+          <path d="M34 26 L36 60 Q37 68 42 68 L58 68 Q63 68 64 60 L66 26 Z" />
         </clipPath>
       </defs>
 
-      {/* Brown espresso fills the cup body */}
-      <g clipPath="url(#cc-body)">
-        <rect x="16" y="24" width="52" height="55" fill="url(#cc-brew)" />
+      {/* Espresso liquid — fills lower half of the inner cavity */}
+      <g clipPath="url(#cc-inside)">
+        <rect x="34" y="46" width="32" height="24" fill="url(#cc-brew)" />
       </g>
+      {/* Crema surface — golden ellipse where espresso meets air */}
+      <ellipse cx="50" cy="46" rx="14" ry="1.6" fill="url(#cc-crema)" />
+      <ellipse cx="50" cy="45.5" rx="11" ry="0.9" fill="#D6A06A" fillOpacity="0.55" />
 
-      {/* Crema — golden surface ellipse, tucked just inside the rim */}
-      <ellipse cx="42" cy="24" rx="25.5" ry="3.6" fill="url(#cc-crema)" />
-      {/* Subtle highlight on the crema for depth */}
-      <ellipse cx="42" cy="23.4" rx="20" ry="1.5" fill="#D6A06A" fillOpacity="0.55" />
+      {/* Outer wall — body sides + base */}
+      <path d="M30 26 L33 64 Q34 72 42 72 L58 72 Q66 72 67 64 L70 26" />
+      {/* Outer rim ellipse */}
+      <ellipse cx="50" cy="26" rx="20" ry="3.2" />
 
-      {/* Cup top rim — outline ellipse */}
-      <ellipse cx="42" cy="24" rx="26" ry="4" />
-
-      {/* Cup body sides + bottom */}
-      <path d="M16 24 L20 64 Q21 73 30 73 L54 73 Q63 73 64 64 L68 24" />
-
-      {/* Handle */}
-      <path d="M68 32 Q82 32 82 44 Q82 55 68 55" />
+      {/* Inner wall — body, faded for the double-wall illusion */}
+      <path
+        d="M34 26 L36 60 Q37 68 42 68 L58 68 Q63 68 64 60 L66 26"
+        strokeOpacity="0.55"
+        strokeWidth="1.3"
+      />
+      {/* Inner rim ellipse */}
+      <ellipse
+        cx="50"
+        cy="26"
+        rx="16"
+        ry="2.5"
+        strokeOpacity="0.55"
+        strokeWidth="1.3"
+      />
 
       {/* Saucer */}
       <ellipse
-        cx="42"
-        cy="79"
-        rx="38"
-        ry="2.5"
-        strokeOpacity="0.55"
+        cx="50"
+        cy="80"
+        rx="34"
+        ry="2.4"
+        strokeOpacity="0.5"
         strokeWidth="1.4"
       />
     </svg>
   )
 }
 
+/**
+ * Steam — three silky wisps, each a single smooth Q→T curve so the
+ * shape weaves left and right without any visible angle changes.
+ */
 function Steam({ burst }: { burst: boolean }) {
   return (
     <svg
       viewBox="0 0 60 36"
-      className="h-7 w-12 text-ink/55"
+      className="h-8 w-12 text-ink/55"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.6"
+      strokeWidth="1.5"
       strokeLinecap="round"
       aria-hidden="true"
     >
       <path
         className={`steam-wisp ${burst ? 'steam-burst' : ''}`}
-        d="M20 34 C20 28 16 26 16 20 S20 14 20 6"
+        d="M22 32 Q 14 22 22 14 T 22 0"
       />
       <path
         className={`steam-wisp steam-wisp-2 ${burst ? 'steam-burst' : ''}`}
-        d="M30 34 C30 28 34 26 34 20 S30 14 30 6"
+        d="M30 32 Q 36 22 30 14 T 30 0"
       />
       <path
         className={`steam-wisp steam-wisp-3 ${burst ? 'steam-burst' : ''}`}
-        d="M40 34 C40 28 36 26 36 20 S40 14 40 6"
+        d="M38 32 Q 30 22 38 14 T 38 0"
       />
     </svg>
   )
@@ -114,7 +135,6 @@ export function CoffeeCard() {
     e.stopPropagation()
     setCount((c) => c + 1)
     setBurst(true)
-    // Two-stage smooth animation — sip back, then settle
     await controls.start({
       rotate: -10,
       y: -3,
@@ -145,8 +165,6 @@ export function CoffeeCard() {
         </p>
       </header>
 
-      {/* Center group — cup + count grow into the remaining space and
-          sit centered as a balanced unit. */}
       <div className="flex flex-1 flex-col items-center justify-center gap-2">
         <motion.div
           animate={controls}
