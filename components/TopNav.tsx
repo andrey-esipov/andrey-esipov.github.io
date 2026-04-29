@@ -46,7 +46,7 @@ export function TopNav({ filter, onFilterChange }: TopNavProps) {
 
       {/* Contact */}
       <a
-        href="mailto:andrey.esipov@gmail.com"
+        href="mailto:andrey.esipov@outlook.com"
         className="inline-flex items-center rounded-full border border-hairline bg-surface/85 px-3.5 py-2 text-[13px] font-medium text-ink shadow-pill backdrop-blur-md transition-colors duration-200 hover:bg-surface"
       >
         Contact

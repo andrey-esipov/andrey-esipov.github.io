@@ -21,7 +21,7 @@ const SOCIALS = [
   { Icon: Linkedin, href: 'https://www.linkedin.com/in/andrey-esipov/', label: 'LinkedIn' },
   { Icon: Github,   href: 'https://github.com/andrey-esipov',          label: 'GitHub'   },
   { Icon: XIcon,    href: 'https://x.com/andreyesipov',                label: 'X'        },
-  { Icon: Mail,     href: 'mailto:andrey.esipov@gmail.com',            label: 'Email'    },
+  { Icon: Mail,     href: 'mailto:andrey.esipov@outlook.com',           label: 'Email'    },
 ] as const
 
 export function BioCard() {
