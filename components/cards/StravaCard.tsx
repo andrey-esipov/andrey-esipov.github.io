@@ -45,10 +45,11 @@ function isStale(iso: string): boolean {
   return Number.isNaN(days) || days > STALE_DAYS
 }
 
-function tileProvider(x: number, y: number, z: number, dpr?: number): string {
+function tileProvider(x: number, y: number, z: number): string {
   const s = 'abc'.charAt(Math.abs(x + y) % 3)
-  const retina = (dpr ?? 1) >= 2 ? '@2x' : ''
-  return `https://${s}.basemaps.cartocdn.com/rastertiles/voyager/${z}/${x}/${y}${retina}.png`
+  // OpenStreetMap Standard — natively high-contrast roads and labels
+  // so the route reads even on a small tile. No retina variant.
+  return `https://${s}.tile.openstreetmap.org/${z}/${x}/${y}.png`
 }
 
 const cardClass =
@@ -82,7 +83,6 @@ export function StravaCard() {
       <div className="absolute inset-0 map-warmth">
         <Map
           provider={tileProvider}
-          dprs={[1, 2]}
           center={center}
           zoom={zoom}
           minZoom={MIN_ZOOM}

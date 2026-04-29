@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 type Props = {
   label: string
@@ -13,14 +13,12 @@ type Props = {
  * Project pill — bespoke "stamp" affordance for project tiles.
  *
  * At rest: a small ink-coloured rounded square (rounded-2xl, NOT a
- * circle), tilted -6° as if pressed onto the card by hand. Just an
- * arrow glyph inside.
+ * circle), level. Just a horizontal-arrow glyph inside — distinct
+ * from the diagonal ↗ that lives on every other portfolio site.
  *
- * On hover/focus: the stamp rotates back to 0°, fills in with the
- * accent colour, and unfolds horizontally to reveal the project name
- * sliding in from the left of the arrow. The tilt + colour shift gives
- * the interaction a warm, hand-made feel — distinct from the white
- * circular ↗ pill the rest of the world is using.
+ * On hover/focus: the stamp fills with the accent colour and unfolds
+ * horizontally to reveal the project name sliding in from the left
+ * of the arrow. The arrow itself nudges right.
  */
 export function ProjectButton({ label, href, className = '' }: Props) {
   const external = href.startsWith('http')
@@ -35,9 +33,8 @@ export function ProjectButton({ label, href, className = '' }: Props) {
         'rounded-2xl bg-ink text-surface',
         'shadow-[0_8px_18px_rgb(var(--shadow-rgb)/0.22)]',
         'px-2.5',
-        'origin-bottom-left -rotate-[6deg]',
-        'transition-[transform,padding,background-color,box-shadow] duration-[420ms] ease-smooth',
-        'hover:rotate-0 hover:bg-accent hover:pl-3.5 hover:pr-2.5',
+        'transition-[padding,background-color,box-shadow] duration-[420ms] ease-smooth',
+        'hover:bg-accent hover:pl-3.5 hover:pr-2.5',
         'hover:shadow-[0_12px_24px_rgb(var(--shadow-rgb)/0.28)]',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2',
         className,
@@ -63,8 +60,8 @@ export function ProjectButton({ label, href, className = '' }: Props) {
           {label}
         </span>
       </span>
-      <ArrowUpRight
-        className="h-4 w-4 shrink-0 transition-transform duration-[300ms] ease-smooth group-hover/proj:-translate-y-0.5 group-hover/proj:translate-x-0.5"
+      <ArrowRight
+        className="h-4 w-4 shrink-0 transition-transform duration-[300ms] ease-smooth group-hover/proj:translate-x-0.5"
         strokeWidth={2.5}
       />
     </Link>

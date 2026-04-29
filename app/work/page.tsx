@@ -68,20 +68,6 @@ export default function WorkPage() {
             aspect="aspect-[16/9]"
             sizes="(min-width: 1024px) 1100px, 100vw"
           />
-          <ImageTile
-            src="/onedrive-sync.jpg"
-            alt="OneDrive cloud illustration"
-            span="lg:col-span-6"
-            aspect="aspect-[5/4]"
-            sizes="(min-width: 1024px) 540px, 100vw"
-          />
-          <ImageTile
-            src="/onedrive-sync-2.jpg"
-            alt="Files-on-Demand illustration"
-            span="lg:col-span-6"
-            aspect="aspect-[5/4]"
-            sizes="(min-width: 1024px) 540px, 100vw"
-          />
         </div>
       }
     />

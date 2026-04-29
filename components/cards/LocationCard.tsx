@@ -9,10 +9,10 @@ const MIN_ZOOM = 4
 const MAX_ZOOM = 17
 const DEFAULT_ZOOM = 9
 
-function tileProvider(x: number, y: number, z: number, dpr?: number): string {
+function tileProvider(x: number, y: number, z: number): string {
   const s = 'abc'.charAt(Math.abs(x + y) % 3)
-  const retina = (dpr ?? 1) >= 2 ? '@2x' : ''
-  return `https://${s}.basemaps.cartocdn.com/rastertiles/voyager/${z}/${x}/${y}${retina}.png`
+  // OpenStreetMap Standard — high-contrast roads + clear labels.
+  return `https://${s}.tile.openstreetmap.org/${z}/${x}/${y}.png`
 }
 
 function MarkerPin() {
@@ -37,7 +37,6 @@ export function LocationCard() {
       <div className="absolute inset-0 map-warmth">
         <Map
           provider={tileProvider}
-          dprs={[1, 2]}
           center={center}
           zoom={zoom}
           minZoom={MIN_ZOOM}
@@ -103,7 +102,7 @@ export function LocationCard() {
       </div>
 
       <p className="pointer-events-none absolute bottom-1.5 left-2.5 z-20 text-[8px] text-ink-soft/70">
-        © OSM · CartoDB
+        © OpenStreetMap
       </p>
     </div>
   )
