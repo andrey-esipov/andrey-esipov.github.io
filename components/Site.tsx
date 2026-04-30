@@ -16,6 +16,7 @@ import { EducationCard } from './cards/EducationCard'
 import { HotTakesCard } from './cards/HotTakesCard'
 import { NowCard } from './cards/NowCard'
 import { CoffeeCard } from './cards/CoffeeCard'
+import { NewsletterCard } from './cards/NewsletterCard'
 
 const SHOW_FOR: Record<Filter, ReadonlyArray<string>> = {
   all: ['bio', 'projects', 'activity', 'about', 'meta'],
@@ -55,7 +56,7 @@ const TILES: ReadonlyArray<TileDef> = [
   { id: 'hottakes',  category: 'about',    span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: HotTakesCard },
   { id: 'now',       category: 'about',    span: 'md:col-span-6 lg:col-span-2 lg:row-span-1', Component: NowCard },
   { id: 'coffee',    category: 'about',    span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: CoffeeCard },
-  { id: 'ph',        span: 'hidden lg:col-span-1 lg:row-span-1 lg:block', placeholder: true },
+  { id: 'newsletter',category: 'projects', span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: NewsletterCard },
 ]
 
 const TILES_BY_ID: Record<string, TileDef> = Object.fromEntries(TILES.map((t) => [t.id, t]))
