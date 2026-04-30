@@ -152,11 +152,11 @@ export default function Site() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col lg:h-screen lg:min-h-screen">
       <TopNav filter={filter} onFilterChange={setFilter} />
 
-      <main className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col px-4 pb-6 pt-1 md:px-6 lg:px-10 lg:pt-2 xl:px-14">
-        <BentoGrid className="lg:grid-cols-4 lg:auto-rows-fr lg:[grid-template-rows:repeat(4,minmax(0,1fr))] lg:flex-1">
+      <main className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col px-4 pb-6 pt-1 md:px-6 lg:min-h-0 lg:px-10 lg:pt-2 xl:px-14">
+        <BentoGrid className="lg:grid-cols-4 lg:auto-rows-fr lg:[grid-template-rows:repeat(4,minmax(0,1fr))] lg:min-h-0 lg:flex-1">
           {order.map((id) => {
             const t = TILES_BY_ID[id]
             const Component = t.Component
