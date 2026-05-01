@@ -1,9 +1,9 @@
 {
   "name": "Morning Run",
   "type": "Run",
-  "distance_m": 4231,
-  "moving_time_s": 1243,
-  "total_elevation_gain_m": 32,
-  "start_date_local": "2026-04-29T08:12:21Z",
-  "summary_polyline": "{dezElbspOZIl@Kb@K\\G~@YNIZ_@P_@DUJeADCP@JGl@@zBNx@DfAL^@~@Zt@l@Z\\r@`AR^b@Vd@r@HAVQnAsAVQjAc@p@]LKt@}@v@sAr@s@n@a@r@[VMjBc@l@Y^UNMd@i@V]Zk@Xa@`@[NKr@_@\\ERBj@Vd@BX\\AOF_AH_AFSZ]~AgAPGR@lADHHLb@Zh@Rf@Ft@?rACjAHdA?\\}@hIMzCGXKB_@CU@aAOoBOa@SY[Og@CU?UZuFLYBOCmBJqB_CQW?w@Pq@v@Q\\g@t@a@b@m@f@uAl@eB`@i@Re@Xg@d@q@|@a@t@]b@OHQR}@d@_AXIH_@FOHYVUJ_@b@KDE@ECEGi@eAu@sAq@y@iAaAOESAKBMJa@?[EE@g@IW?i@KY?KC{@Cu@ME@GFIfAI^Uf@a@h@SPg@PwCh@"
+  "distance_m": 4485,
+  "moving_time_s": 1221,
+  "total_elevation_gain_m": 45,
+  "start_date_local": "2026-04-30T10:35:51Z",
+  "summary_polyline": "_dezE|bspO|Cs@\\MNKVWR]FURwAJOL?dHb@f@F\\JPHt@j@hAtA`@r@NH|@fABBLA\\MlAqAd@U~@]t@c@l@m@\\i@P_@`@i@PU`@[v@g@h@Qx@Qp@Qn@W\\Sl@i@b@m@l@eATYVQp@Ur@Cf@@|@JFJBm@P}BX_@~AiARGf@Av@BD@NPDVl@lALt@C\\BdAC~@?NHn@?f@c@|Cc@~ECdA@d@CLIJE?y@EuCUe@GOI[[Qg@EUAa@Fq@LsCFo@Pe@@QGoABgAJaBAGAFW`@wAMc@B{@Vc@`@e@~@c@j@k@j@o@d@c@TM@WJqAXg@Cc@DOHQJi@h@AFa@d@m@dAq@t@q@b@wAh@[P}A~AMLIDQUc@eAc@w@aAiAq@m@_@Ym@Oq@I{@EuCUQ@e@T]ACBELIbASp@Wb@_@Zc@RoDp@"
 }
