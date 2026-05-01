@@ -22,9 +22,6 @@ export function NewsletterCard() {
         <p className="text-[10px] font-semibold uppercase tracking-eyebrow text-ink-soft">
           Newsletter
         </p>
-        <p className="text-[9px] uppercase tracking-eyebrow text-ink-soft/70 transition-colors group-hover:text-ink-soft">
-          read &rarr;
-        </p>
       </header>
 
       <div className="flex flex-1 flex-col items-center justify-center gap-3 py-2">
@@ -40,15 +37,6 @@ export function NewsletterCard() {
           Practical AI for builders with full lives.
         </p>
       </div>
-
-      <footer className="flex items-center justify-between text-[10px] uppercase tracking-eyebrow text-ink-soft">
-        <span>New every Sunday</span>
-        <span
-          className="inline-block h-1.5 w-1.5 rounded-full"
-          style={{ background: HANDS_ON_ORANGE }}
-          aria-hidden="true"
-        />
-      </footer>
     </a>
   )
 }
