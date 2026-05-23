@@ -1,9 +1,9 @@
 {
-  "name": "Lunch Run",
+  "name": "Morning Run",
   "type": "Run",
-  "distance_m": 4250,
-  "moving_time_s": 1171,
-  "total_elevation_gain_m": 20,
-  "start_date_local": "2026-05-20T11:03:04Z",
-  "summary_polyline": "}cezEhbspOPI`Cc@j@YX_@R]H]Ba@H[j@MR?\\D~@BXDhDTn@Nt@d@v@v@n@v@Vd@RNLTVRFJHBRCPINSDMFIx@w@bBs@t@e@f@k@fAeBTW^[hAs@t@SPCt@S\\Mv@a@\\WZ]f@q@Xi@`@g@lAs@PKRCR?t@ZXBZf@?bAGfABrAGXEJEPEdBO`C@f@Lb@Zd@HFPFb@HbBJp@Hr@BDCDKToEZoCFm@Fc@HeA?WGgADoAGyAEi@i@cAMa@IKKESAs@C]?E@{AjAYZK`@MrBEJQB_BMe@Bo@P]T[^q@\\{@dAi@d@gAd@_Cj@u@^YT}EjFoAf@a@VcBdBM@EE[s@_AaBWWc@k@][[WSKo@Sq@II@s@IoBKk@RS@k@EE@IHKnAOh@]f@i@b@"
+  "distance_m": 5408,
+  "moving_time_s": 1466,
+  "total_elevation_gain_m": 50,
+  "start_date_local": "2026-05-22T10:46:44Z",
+  "summary_polyline": "ecezEpbspOp@KTIn@M\\O`@YTYRc@Lk@Hq@@GNODBfA@f@NdF^`@L`@XrAvA\\f@`ApB@F?NAF[RcA^u@Po@HUHo@Jc@Lm@d@MNa@t@Qf@E\\JfBO|CDJl@FVDXLTDRLH?PD|AN`@@fCXT?j@GNE^YNQh@mAfAmCfBaDd@_ADUFk@A[Es@[aBG}@IWS_@GWDOZ]t@oAXa@^_@^Kd@[|@[j@Id@Mh@Up@]NQZSh@u@j@_AX[ZWXEHGXAVEl@Dn@JP?D@ABPeCD_@FMNQb@UdAy@LCZAb@Bf@FHHLd@h@dAHb@@`@@rAEn@HdBGbAUbB[tCM~AGhBGJQ@{@GeBQY?q@KWOW[Qu@CO@YPgCBw@D_@L]DWCsAJsB?YAGIG[BgAIq@Dk@N_@\\_@RSTYTSVu@v@k@^g@Tm@Pc@HOFI?yAn@]Xw@z@KToD`D]Le@V{@v@k@l@KHG@IGc@iAs@gAm@w@g@g@y@i@G?q@Ha@EY?_@Eg@CiAKm@AcAOIFMnAQr@QX]\\[RSFiAXcBX"
 }
