@@ -1,9 +1,9 @@
 {
-  "name": "Morning Run",
-  "type": "Run",
-  "distance_m": 5408,
-  "moving_time_s": 1466,
-  "total_elevation_gain_m": 50,
-  "start_date_local": "2026-05-22T10:46:44Z",
-  "summary_polyline": "ecezEpbspOp@KTIn@M\\O`@YTYRc@Lk@Hq@@GNODBfA@f@NdF^`@L`@XrAvA\\f@`ApB@F?NAF[RcA^u@Po@HUHo@Jc@Lm@d@MNa@t@Qf@E\\JfBO|CDJl@FVDXLTDRLH?PD|AN`@@fCXT?j@GNE^YNQh@mAfAmCfBaDd@_ADUFk@A[Es@[aBG}@IWS_@GWDOZ]t@oAXa@^_@^Kd@[|@[j@Id@Mh@Up@]NQZSh@u@j@_AX[ZWXEHGXAVEl@Dn@JP?D@ABPeCD_@FMNQb@UdAy@LCZAb@Bf@FHHLd@h@dAHb@@`@@rAEn@HdBGbAUbB[tCM~AGhBGJQ@{@GeBQY?q@KWOW[Qu@CO@YPgCBw@D_@L]DWCsAJsB?YAGIG[BgAIq@Dk@N_@\\_@RSTYTSVu@v@k@^g@Tm@Pc@HOFI?yAn@]Xw@z@KToD`D]Le@V{@v@k@l@KHG@IGc@iAs@gAm@w@g@g@y@i@G?q@Ha@EY?_@Eg@CiAKm@AcAOIFMnAQr@QX]\\[RSFiAXcBX"
+  "name": "Afternoon Ride",
+  "type": "Ride",
+  "distance_m": 5048,
+  "moving_time_s": 1810,
+  "total_elevation_gain_m": 67,
+  "start_date_local": "2026-05-25T15:30:51Z",
+  "summary_polyline": "yxezEnpspOM|@Mf@Y`@_Aj@Gb@T`AAFQHy@n@y@z@aALs@@QGS?gBBq@Fw@Ty@f@oAnAk@b@a@TYHg@HgABg@GUHu@JeD^[Dc@Ro@ISTIp@_@`@e@\\_Ab@k@PsAF]A}@G}@Og@VICFgCE}AGsA[gCm@oCKQMHSf@OHS@SNIJOJi@Jc@b@U@g@Tc@LUZcAV_@PkB|AUZYZURIPw@p@YFY_@[Gm@Cc@IS@IF[r@OHENXl@BLF`DEZCjBCFO^MJg@LIFSHP`@G\\U\\@LBLl@nAHTNSNIFKFCh@DXO^CXD^?~BVbBLTJl@JJDJNDp@NFRKLMDM?_@@ELOJQAKFMNK@@QDCDnJzAj@FVCFCT_@D{@DGHBFXAPHB^DZADABE?KCYL[Zc@XI|@s@h@FZON_@LGT?LLTLZIL?D@RXHRJEHHX|@RT^Cb@JVCLINONs@p@mA`@ONMHSDi@Ac@e@g@Jg@B_@IeB?UD_@E[Di@CcBVGJ@HK|AGdAYd@Wf@_@~@eAZY\\Sp@U|@KdFKr@SPKdB{ACWKe@Iw@?Q`@Un@g@\\u@Jq@"
 }
