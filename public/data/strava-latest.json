@@ -1,9 +1,9 @@
 {
-  "name": "Morning Tennis",
-  "type": "Tennis",
-  "distance_m": 0,
-  "moving_time_s": 5400,
-  "total_elevation_gain_m": 0,
-  "start_date_local": "2026-05-29T08:00:00Z",
-  "summary_polyline": null
+  "name": "Morning Run",
+  "type": "Run",
+  "distance_m": 5227,
+  "moving_time_s": 1549,
+  "total_elevation_gain_m": 58,
+  "start_date_local": "2026-06-01T07:49:09Z",
+  "summary_polyline": "_eezEhcspOp@Sp@OL?r@Mb@MPMTSZi@Vy@Lw@JOLAr@HvBJnBPl@Bn@T^XjAlARVf@z@j@nA?PQNUJSLe@PuAX[DKDU@a@Js@^g@h@IPE`@ELCT@NKv@Av@SzCBLDBh@DPDb@PH@RHfAPj@F`@?v@Ll@Dh@BZDRAREXKVOX_@L]HKp@gBFK^_AdCqEJi@Bm@Cm@Ie@B_@?WEWOk@m@kAAOFKf@k@f@{@b@m@x@q@r@_@b@OpAWr@Y`@UhAcA`@g@b@}@l@i@XEPIt@G`AJd@@FDJuBHo@BGFK\\[\\Sb@]PITER?hAFNNHZf@~@FRD^DpBEpAHr@?\\E`@Oz@i@tFIvAEjAADIFwAK_ACoAOWKOISWOc@GUA_@PqBFqBBUNYC}BF{AFm@?YADeEl@UJYX{@xAa@f@c@b@y@d@c@LCBa@Ls@Ly@XULi@\\a@b@o@|@Yf@a@h@oAr@[Li@Dc@Tg@`@gAfAE?ICOOe@kAs@gA]a@gAeAYQSEQBQHu@AKEe@CoAM_@AuBOIFADI|@Mn@k@|@YT[N_BX"
 }
