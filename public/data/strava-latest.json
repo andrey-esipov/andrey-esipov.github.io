@@ -1,9 +1,9 @@
 {
-  "name": "Morning Run",
-  "type": "Run",
-  "distance_m": 4191,
-  "moving_time_s": 1209,
-  "total_elevation_gain_m": 26,
-  "start_date_local": "2026-06-04T10:20:04Z",
-  "summary_polyline": "gdezEhbspOrBa@dA[NIb@o@Ry@Ju@VIRAbAJd@@r@Hj@@bAJV?d@HXHlAx@n@t@v@lAZNZb@LTL@nBoBbCkAZQj@q@Zm@p@_Av@q@ROz@_@ZK\\En@QrAm@dA}@Xc@j@cANOvA}@PGXA\\HTLh@DXRDJ?NEk@RqBDUPWhBoAJEb@A|@FJDDFJb@b@t@N`@Dj@Ct@BV?\\El@HtAAj@Mz@Gp@c@rDEfAEb@CfACLGF_AAoD]WKIIYa@Qi@AWTqDDcALa@Fa@C_@AiAN}CGHSDS?e@KYOSCUDy@^k@b@WZ]p@k@t@q@n@_Ad@g@N_ARaA\\u@d@qFvF]Lm@Z_@XkAnAQJKEIMm@uAqAgB_Ay@_@Y_AKYDUFs@AKCW?iDWM?CBQvAIVYj@Y^o@\\i@LmB\\QF"
+  "name": "Morning Tennis",
+  "type": "Tennis",
+  "distance_m": 2362,
+  "moving_time_s": 3116,
+  "total_elevation_gain_m": 0,
+  "start_date_local": "2026-06-05T08:59:22Z",
+  "summary_polyline": null
 }
