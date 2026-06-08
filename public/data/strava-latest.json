@@ -1,9 +1,9 @@
 {
-  "name": "Morning Tennis",
-  "type": "Tennis",
-  "distance_m": 2362,
-  "moving_time_s": 3116,
-  "total_elevation_gain_m": 0,
-  "start_date_local": "2026-06-05T08:59:22Z",
-  "summary_polyline": null
+  "name": "Morning Ride",
+  "type": "Ride",
+  "distance_m": 31641,
+  "moving_time_s": 4103,
+  "total_elevation_gain_m": 355,
+  "start_date_local": "2026-06-07T09:31:11Z",
+  "summary_polyline": "eqfzEhvpqOe@rBmA`H}@zA_Al@w@Rk@?sQ}@qA?iAFqAXqBz@w@l@}@fAi@`A{BfGOdAcA~N]dBu@xAuDpF}@`AsA`@cHs@oCLOFKRW`BoAzEiBnJOdBm@vK?vAm@nIJxBXn@bEvFzEfERVJ\\}@dPw@jSoAf`@Az@Fd@`@j@xEvEd@r@dDdIjEjHhHvCrHhCdAd@ZVX`AX`IFl@LVbAN`HAZEZ[fDoIZkHRYny@dHz@Bn@QRWVu@dAqEj@iJj@qEf@_BpAyAdAuAl@_@`AKxCr@r@Fd@Kh@s@Hs@d@mOF_@HIvG^hLpAvKHrS|AFRS|MNfTHbCvA~NHrB?tB[hPJzMn@rOtDtW?rAc@tC@pAN~@vAvFLdEHxL]pN[|AqAlDoAzDbGpElBjCr@~A\\pAT`CHdCDtIEVQLkEi@q@?e@PeCzBeIfGcKnI_BbBeBpCeItJ}@bAmCzBoBtA}C|AuGrBm@^eBbFmE|NYlA_AdFcAzGy@hCWrA{@hGU~BMrDU`AQVcAl@i@r@eCtFmBvC_@z@u@fCoArCgA`DuAhCq@rBoBzCw@`BaBbCSt@{@tF_C`HwCxDoC|Fi@p@s@l@_B~@sAX}ANsD~AkD~@sA|@[GGRFFPKKOIiAW{@sA}AyEuI}C{CS[AOJo@Pm@v@eAzH}AnAk@d@g@Zu@TkA\\cITyBNq@n@y@dCmA|@q@Xm@NaA?aB_@kMSeCSq@g@w@cFuDu@cBkCgIc@oBIu@?qHDu@XuAZs@b@k@hEmDl@sAT}AVoCJqKDcA\\aEn@iF?qAQoDBkANgAr@oCZwBf@gGd@mDpAaErAyMNwF^yC@sA[qG@aHkAqJCyBr@cGv@uPbAoKb@wIjAoOIO{EmDmF_FaBuBeQyVaAaA{BeBGK?]v@iDH}Ak@yHa@yHOs@a@a@s@]iLmEkEmBaEyG{CmHg@}@_GuGOu@?e@hC}s@t@}OEw@Sa@oFsEgDuEUm@Oq@@sChA_VViDrAuGnBmHPqAToHWUiARa@s@A_@OOjAbBz@KLJWnFD^X^b@LrIr@z@I~@_@p@e@nDcFhAgB\\y@`@kBn@_Kf@uDh@wB|@}Bj@mAp@{@~@w@v@_@vBm@dAMhITlEd@tDA~@MhAm@j@i@Xe@XeAz@sEf@qEb@kBh@kA|AoBj@cAXKRFhEtE"
 }
