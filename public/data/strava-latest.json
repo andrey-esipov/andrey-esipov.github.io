@@ -1,9 +1,9 @@
 {
-  "name": "Morning Run",
-  "type": "Run",
-  "distance_m": 5454,
-  "moving_time_s": 1563,
-  "total_elevation_gain_m": 61,
-  "start_date_local": "2026-06-15T09:19:20Z",
-  "summary_polyline": "idezE~bspOrA]lAUd@URSVa@\\iAFk@LMDAPAdBPd@?JDVAv@JdABr@PPHt@n@pA~Az@bBL^?DEH]T{At@uAVk@Hk@Pc@Xa@d@OZId@?ZMnA?ZIbAAp@E`@?LDHt@FFDPBx@Z\\H\\?t@J`@@lAN^BJBn@@d@CTKZWV_@hBiE`@{@zAiCPi@Ji@?WCm@Iu@Bk@I}@]}@U]AO@Ep@y@h@{@X_@|@u@j@[d@OnAYTKJA|@e@h@c@\\_@dAaBf@c@d@Qr@Gt@HLATF`@@B??DCS?WNmBFUFKNM~AkAJER?t@@\\DNLJb@^l@LZH`A?vAEfAHn@?r@E`@Mv@k@dGKjCMNgAGeAKsAIQEOGOKU[IYIc@?YDg@?OJgAFcBRu@AiCLkCBG{E`@GBm@j@y@pAeAfAg@\\a@NQPYFe@Rm@J}Ap@e@`@c@j@i@~@]b@o@d@}@^oAn@sAxASNSIISOc@Ue@m@}@yA{Ag@]UCe@Jc@CmAKW?m@GE@{@Kq@EUEE@GHQzAUp@UZi@b@qBd@cAL"
+  "name": "Morning Ride",
+  "type": "Ride",
+  "distance_m": 17708,
+  "moving_time_s": 2386,
+  "total_elevation_gain_m": 220,
+  "start_date_local": "2026-06-16T07:12:07Z",
+  "summary_polyline": "q}dzEb`spOV[^gAJu@DMHIVCp@DfFb@z@Nt@^NLrAzAb@h@v@hBFDHBTGzBqBtAm@bAu@jBiC^a@`@]b@Wd@SpBg@t@[hA{@~A_C\\Y^Sb@Kb@CP@bAJJL@Vq@bLAdA@j@Jh@Vh@VRZN^HdNjAzHv@dG`@|@JHBDFHVLAJQPEvHbAhQhB`BXrBb@lAPhHp@ZDNT?L]fFOfDa@jLq@vNI|CBPFLZTtJh@\\DLFJJH`@aAjTKdDHRFBTDfO`AhSjAxF`@RPDLDp@J`@TZf@d@NZJh@@hAUpW?`A@`ABp@^zEDvBMlCg@`I}@zT]nGWxBOn@_@t@}AzByFtHIDK?IGo@}@i@gA_AyCi@gA[_@a@_@y@e@OGc@CSB_@PQN]d@aAxBc@r@_@Xe@LU?g@E}Fm@yAa@OKY_@Oa@]sBWkAgBsEUcAEuASae@Ge@IMOEuVwC}@KwAIsEH{DLkBBqH_@gGc@k@AMDKNMl@sBpTEVKNSDSA_HuAmCWYIe@_@SYYm@GCG?UBsAh@aAXYDa@@]COEGMAGPgDFm@HkBn@wOZqF`B_SZgC\\gB\\_BtCaK~Oui@t@qBrAqChD{FnAgCx@yB|BsHAkBKEe@IyF[kJ{@wDYqHu@k@OUOU[Qm@C_@@e@tA}Wl@{M?m@IWGIIGWEwE]cBQoAEk@@cAEyAIiAM}ACk@GWKuAy@}AqAm@SsAYqBaAa@_@e@m@qA{@uAi@gAg@mBkA}EeDeA]oEm@iAMgAOsD`HwB|D[\\_@TeBn@OLCJC`@RpAlBhJLbAHzARjB`@xBJvANt@M`@?`B"
 }
