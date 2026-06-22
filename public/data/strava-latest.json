@@ -1,9 +1,9 @@
 {
-  "name": "Morning Ride",
-  "type": "Ride",
-  "distance_m": 27495,
-  "moving_time_s": 4127,
-  "total_elevation_gain_m": 261,
-  "start_date_local": "2026-06-21T06:44:25Z",
-  "summary_polyline": "{zezEltspOy@t@?n@Nj@A\\OTmBtA_CTqDFg@Js@\\kDrCq@X_DP}Db@wA^e@?SHWh@c@d@aBbAkBTyDKWZyAhJe@zFI`FFvC`@tF^~A`EhGj@jA\\bAx@pDRhDAbDa@hIOlACxCmAlWo@~PMx@@lC[lUN~Ad@fBb@|@x@fApGvGp@hAX|@Jp@DlBIhAkA~F}BfP_@bLUbBg@pA}@fAiAj@qDbAoAp@_AhAa@|@Ol@S`Bo@jQCTGBBfAGdCi@~HOpAq@~CkD~Ji@|BWrBQ~BWfI]pG_Dtb@_@nC@l@M`@IBDACx@J|@@l@xAvSVfJAhGu@j`@UdCe@bBsE|Jg@vBk@rF_@`CcF`N?^DN^^xRtMnAl@lBn@vEjA`Ab@LVCXgEvCm@v@CPBd@lA`DNVRFVG|FwDPANNhA|CBZEp@DXPTl@TLRnEdMdBjEf@dAZC`AaAZw@R_ADKTClYlElJjALJ?R_@`H?PH^THpBTPJrAdC\\x@TRr@@LOAc@`@o@NkCFUjABfBUHRBZa@dKDRh@PlFl@NYZ{CdAmNA]IIiGg@cOeBESJiAASWKa@y@SMa@BWr@IDe@EIDCn@IVeCKiDc@GP]bDCtALnAVXBl@Nh@^`ALJ|@CNKDs@C}@?KDbACd@QP_@?gAeCq@i@EQIe@CeA\\gDHUxIfAHLGbAiAz@W\\_@NCcAHeAMCh@FTk@lAD@MMSUKoHaAOKEYFqAEKGFH@Ha@PoCCQOIwYqCiDeJ?E\\p@`HiEAS_BiEEYtDuCjA_BvBgDdAuBn@gBn@qBf@gCb@}CR{Br@yKBuBMYCoAfBse@WEo@a@YGsX{CsHaAwT{E_BQaCIOICUD{FKgFwAoU@yAJOF}AKSC]vDsh@jAsU`@qC`@gB~BsG~@eDj@wDd@iGTuGH}@Z_LJo@JwBb@qA`AuAn@i@l@WhEkAz@i@r@{@j@wAh@yBEI@k@^aKfC_T^cCL{A?o@IaAWsAYs@y@kAeGiGcAyAg@{AYcBCoBXuQNuCByCzBmi@NqADoCTyG@gCSiDWyAc@kBc@sAm@sAqCgEi@gA]uA[{EG_FNqE^{D`AeGN{ANUb@E~CPjAIbBw@x@m@|@YXi@XQvEe@d@C`@FxB]hAg@`DsCjA_@tFSh@If@Q~AoAJ[?a@O{@@]NSv@q@Z}@HeA"
+  "name": "Morning Hike",
+  "type": "Hike",
+  "distance_m": 2857,
+  "moving_time_s": 3186,
+  "total_elevation_gain_m": 70,
+  "start_date_local": "2026-06-22T10:35:56Z",
+  "summary_polyline": "kgfyE~izzNHMXYJ]LG?DF@j@k@VQHKZu@DAJ[@BBBCIMQCOCGFEA?DBI@CK@KGAAUFQEEBKDAKHWACEE@EC?CP@NJIPUTMVATBFAREEMNG@CLAAADC?CRKJSGGBICEGE?IPBFCPGDG?BL?JEF[BIJA?MMQBOAMCB@AE]RCHMPOJQ?_@MUQAGKKHFDFa@i@AMJMZCVBA@AAX?LE?[FIH??BXQPC?OL@FM@??BBKVM@IF?@EGAAADM?_@F@?QPe@ISAQB_@PELKRBRNLGFJBP?ZTBJSREN@DFBQHKVOh@DHAC@?C@KJK?OHSHKDCLDHE@BEBTSHOCQ?W@BE?@_AR[IKQg@Z^Tf@HLNJ@GFFFBOEAC@CJD?ZJXCEEAHP?DCAJHFT@XA?AAPXd@bAHb@CH{@XMXKNEBIEM@QJGLI@CA_@BCNIPWHMLWFEHATEBCIG@E\\KX[b@y@d@a@f@UTIB?Hs@b@I?AGC?OJa@LWLAAI@MHIRUXUJQB"
 }
