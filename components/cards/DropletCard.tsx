@@ -34,7 +34,7 @@ export function DropletCard() {
         <div className="float-y">
           <Image
             src="/droplet-dashboard.jpg"
-            alt="Droplet — this week's watering dashboard"
+            alt="Droplet: this week's watering dashboard"
             width={680}
             height={1452}
             priority

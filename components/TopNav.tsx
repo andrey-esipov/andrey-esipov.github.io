@@ -2,6 +2,7 @@
 
 import { CommandTrigger } from '@/components/command/CommandTrigger'
 import { PillToggle } from './ui/PillToggle'
+import { ThemeToggle } from './ThemeToggle'
 
 export type Filter = 'all' | 'about' | 'projects' | 'activity'
 
@@ -26,10 +27,10 @@ export function TopNav({ filter, onFilterChange }: TopNavProps) {
       {/* Wordmark */}
       <a
         href="/"
-        aria-label="andrey — home"
+        aria-label="andrey, home"
         className="font-serif text-[26px] leading-none tracking-tight-display"
       >
-        <span className="bg-gradient-to-br from-ink via-accent to-accent bg-clip-text text-transparent">
+        <span className="text-ink">
           andrey
         </span>
       </a>
@@ -47,7 +48,10 @@ export function TopNav({ filter, onFilterChange }: TopNavProps) {
 
       {/* Actions */}
       <div className="flex items-center gap-2">
-        <CommandTrigger />
+        <ThemeToggle />
+        <div className="hidden sm:flex">
+          <CommandTrigger />
+        </div>
         <a
           href="mailto:andrey.esipov@outlook.com"
           className="inline-flex items-center rounded-full border border-hairline bg-surface/85 px-3.5 py-2 text-[13px] font-medium text-ink shadow-pill backdrop-blur-md transition-colors duration-200 hover:bg-surface"

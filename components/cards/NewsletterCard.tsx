@@ -15,7 +15,7 @@ export function NewsletterCard() {
       target="_blank"
       rel="noopener noreferrer"
       data-category="projects"
-      aria-label="Hands On — Andrey's newsletter"
+      aria-label="Hands On, Andrey's newsletter"
       className="theme-transition group relative flex h-full w-full flex-col overflow-hidden rounded-card border border-hairline/60 bg-surface px-5 py-4 text-left shadow-card transition-[transform,box-shadow] duration-[260ms] ease-smooth hover:-translate-y-0.5 hover:shadow-card-hover"
     >
       <header className="flex w-full items-center justify-between">
@@ -41,8 +41,7 @@ export function NewsletterCard() {
         </p>
       </div>
 
-      <footer className="flex items-center justify-between text-[10px] uppercase tracking-eyebrow text-ink-soft">
-        <span>New every Sunday</span>
+      <footer className="flex items-center justify-center">
         <span
           className="inline-block h-1.5 w-1.5 rounded-full"
           style={{ background: HANDS_ON_ORANGE }}

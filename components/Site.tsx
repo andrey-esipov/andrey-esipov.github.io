@@ -11,8 +11,6 @@ import { RalloCard } from './cards/RalloCard'
 import { DropletCard } from './cards/DropletCard'
 import { LocationCard } from './cards/LocationCard'
 import { StravaCard } from './cards/StravaCard'
-import { ThemeCard } from './cards/ThemeCard'
-import { LinkedInCard } from './cards/LinkedInCard'
 import { EducationCard } from './cards/EducationCard'
 import { HotTakesCard } from './cards/HotTakesCard'
 import { NowCard } from './cards/NowCard'
@@ -35,17 +33,16 @@ type TileDef = {
 }
 
 /*
- * Default order — auto-flow packs these into a 4×5 grid on large screens:
+ * Default order — auto-flow packs these into a 4×4 grid on large screens:
  *
- *   Row 1: Bio        Bio        Work      Rallo
- *   Row 2: Bio        Bio        Work      Rallo
- *   Row 3: Droplet    Theme      LinkedIn  Strava
- *   Row 4: Droplet    Now        Now       Education
- *   Row 5: Location   HotTakes   Coffee    Newsletter
+ *   Row 1: Bio       Bio        Work      Rallo
+ *   Row 2: Droplet   Strava     Work      Rallo
+ *   Row 3: Droplet   Now        Now       Education
+ *   Row 4: Location  HotTakes   Coffee    Newsletter
  *
- * Bio is a 2×2 hero; Work / Rallo / Droplet are three matching 1×2 project
- * pillars. The image-driven tiles carry a mobile/tablet min-height so they
- * don't collapse before the large-screen row spans kick in. Tiles can be
+ * Bio is a wide 2×1 lead card; Work / Rallo / Droplet are three matching 1×2
+ * project pillars. The image-driven tiles carry a mobile/tablet min-height so
+ * they don't collapse before the large-screen row spans kick in. Tiles can be
  * dragged to swap (drag handle, top-right on hover).
  */
 const PILLAR = 'md:col-span-3 lg:col-span-1 lg:row-span-2 min-h-[420px] lg:min-h-0'
@@ -53,12 +50,10 @@ const VISUAL = 'md:col-span-3 lg:col-span-1 lg:row-span-1 min-h-[210px] lg:min-h
 const SMALL = 'md:col-span-3 lg:col-span-1 lg:row-span-1'
 
 const TILES: ReadonlyArray<TileDef> = [
-  { id: 'bio',       category: 'bio',      span: 'md:col-span-6 lg:col-span-2 lg:row-span-2', Component: BioCard },
+  { id: 'bio',       category: 'bio',      span: 'md:col-span-6 lg:col-span-2 lg:row-span-1', Component: BioCard },
   { id: 'work',      category: 'projects', span: PILLAR, Component: WorkCard },
   { id: 'rallo',     category: 'projects', span: PILLAR, Component: RalloCard },
   { id: 'droplet',   category: 'projects', span: PILLAR, Component: DropletCard },
-  { id: 'theme',     category: 'meta',     span: SMALL,  Component: ThemeCard },
-  { id: 'linkedin',  category: 'about',    span: VISUAL, Component: LinkedInCard },
   { id: 'strava',    category: 'activity', span: VISUAL, Component: StravaCard },
   { id: 'now',       category: 'about',    span: 'md:col-span-6 lg:col-span-2 lg:row-span-1', Component: NowCard },
   { id: 'education', category: 'about',    span: SMALL,  Component: EducationCard },

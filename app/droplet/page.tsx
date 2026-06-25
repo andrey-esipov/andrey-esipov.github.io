@@ -4,9 +4,9 @@ import { ProjectDetail } from '@/components/ProjectDetail'
 import { DropletGlyph } from '@/components/visuals/DropletGlyph'
 
 export const metadata: Metadata = {
-  title: 'Droplet — water-saving control for Rain Bird sprinklers',
+  title: 'Droplet · water-saving control for Rain Bird sprinklers',
   description:
-    'Droplet: a modern, open-source replacement for the Rain Bird app that waters the right amount using free weather data — and proves the savings in real dollars.',
+    'Droplet: a modern, open-source replacement for the Rain Bird app that waters the right amount using free weather data, and proves the savings in real dollars.',
 }
 
 const TILE = 'rounded-card border border-hairline/60 shadow-card overflow-hidden'
@@ -86,7 +86,7 @@ function MethodologyTile() {
           </h4>
           <p className="mt-3 max-w-[60ch] text-[14px] leading-relaxed text-ink-soft md:text-[15px]">
             Droplet estimates your water use and cost from your setup and local
-            weather — no flow meters, no catch-cups. It&rsquo;s an honest model,
+            weather. No flow meters, no catch-cups. It&rsquo;s an honest model,
             labelled as an estimate, that turns &ldquo;am I overwatering?&rdquo;
             into a number in dollars.
           </p>
@@ -106,28 +106,28 @@ export default function DropletPage() {
   return (
     <ProjectDetail
       title="Droplet"
-      tagline="Water the right amount — and prove the savings in real dollars."
+      tagline="Water the right amount, and prove the savings in real dollars."
       tags={[
         { label: 'Rain Bird LNK' },
         { label: 'Expo / React Native' },
         { label: 'Open source' },
       ]}
       body={[
-        "Droplet is the sprinkler app I'm building to replace Rain Bird's flaky official one. Its whole job is to water the right amount and cut your water bill — then show the savings back to you in real dollars.",
-        "It leans on free, accurate weather and evapotranspiration data to apply only what your yard actually needs, and estimates usage and cost without any extra hardware — no flow meters, no catch-cups to bury in the lawn.",
+        "Droplet is the sprinkler app I'm building to replace Rain Bird's flaky official one. Its whole job is to water the right amount and cut your water bill, then show the savings back to you in real dollars.",
+        "It leans on free, accurate weather and evapotranspiration data to apply only what your yard actually needs, and estimates usage and cost without any extra hardware. No flow meters, no catch-cups to bury in the lawn.",
         "Run it local-only on your home WiFi, or add an always-on bridge for weather-based watering while you're away, history, notifications, and an AI assistant. Open-source, and in active development.",
       ]}
       showcase={
         <div className="grid grid-cols-1 gap-5 md:grid-cols-6 md:gap-6 lg:grid-cols-12">
           <WordmarkTile />
           <GlyphTile />
-          <ScreenTile src="/droplet-dashboard.jpg" alt="Droplet dashboard — this week's watering, on target" label="On-target watering, at a glance." />
-          <ScreenTile src="/droplet-reveal.jpg" alt="Droplet onboarding — your water balance result" label="A weather-adjusted schedule in a minute." />
-          <ScreenTile src="/droplet-savings.jpg" alt="Droplet savings — real dollars, right-sized to the weather" label="Savings, in real dollars." />
+          <ScreenTile src="/droplet-dashboard.jpg" alt="Droplet dashboard: this week's watering, on target" label="On-target watering, at a glance." />
+          <ScreenTile src="/droplet-reveal.jpg" alt="Droplet onboarding: your water balance result" label="A weather-adjusted schedule in a minute." />
+          <ScreenTile src="/droplet-savings.jpg" alt="Droplet savings: real dollars, right-sized to the weather" label="Savings, in real dollars." />
           <ModeTile
             eyebrow="Local mode"
             title="Just the app, no extra hardware."
-            body="On your home WiFi it talks straight to your controller — manual control, schedules, and sensor-free savings estimates."
+            body="On your home WiFi it talks straight to your controller: manual control, schedules, and sensor-free savings estimates."
             tone="surface-2"
           />
           <ModeTile

@@ -3,9 +3,9 @@
 import { Hammer, BookOpen, Headphones } from 'lucide-react'
 
 const NOW = {
-  building: 'AI eval frameworks for OneDrive Copilot',
+  building: 'Rallo (AI tennis coach) + Droplet (smart watering)',
   reading: 'Designing Data-Intensive Applications',
-  listening: 'Bonobo — Black Sands',
+  listening: 'Bonobo · Black Sands',
   updated: 'Apr 2026',
 } as const
 

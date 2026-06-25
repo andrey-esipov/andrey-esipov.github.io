@@ -105,7 +105,8 @@ app/
   fonts.ts             Instrument Serif + Inter Tight
 components/
   Site.tsx             top-level: TopNav + draggable BentoGrid
-  TopNav.tsx           pill nav with All / About / Projects / Activity
+  TopNav.tsx           pill nav: filters + theme toggle + command + contact
+  ThemeToggle.tsx      compact day-cycle theme switcher (lives in the nav)
   BentoGrid.tsx        responsive bento grid (1 / 6 / 4 cols)
   ThemeProvider.tsx    4-theme day-cycle context + bootstrap script
   command/             command palette components
@@ -114,25 +115,22 @@ components/
   TileSounds.tsx       optional tile interaction sounds
   ui/
     Card.tsx           shared card primitive
-    PillToggle.tsx     segmented pill (used by nav + ThemeCard)
+    PillToggle.tsx     segmented pill (used by nav filters + theme toggle)
     ProjectButton.tsx  animated learn-more pill on project tiles
   cards/
     BioCard.tsx        avatar, intro, wave-hello easter egg
     WorkCard.tsx       OneDrive, links to /work
-    RalloCard.tsx      Rallo, links to /rallo
+    RalloCard.tsx      Rallo, real app screenshots, links to /rallo
     DropletCard.tsx    Droplet, links to /droplet
     StravaCard.tsx     latest activity, route polyline
     LocationCard.tsx   Nashville map tile
-    LinkedInCard.tsx   dedicated LinkedIn card with career highlights
     EducationCard.tsx  schools / "always studying"
     NowCard.tsx        what I'm building / reading / listening
     HotTakesCard.tsx   rotating one-line opinions
     CoffeeCard.tsx     espresso counter easter egg
     NewsletterCard.tsx "hands on" newsletter teaser
-    ThemeCard.tsx      day-cycle theme slider
   visuals/
     DropletGlyph.tsx       bespoke Droplet teardrop brand mark
-    RalloPhoneSVG.tsx      iPhone-frame mockup with tennis court
     RoutePolyline.tsx      decoded Strava polyline → SVG
     MapPolylineOverlay.tsx route overlay for the location map
 public/

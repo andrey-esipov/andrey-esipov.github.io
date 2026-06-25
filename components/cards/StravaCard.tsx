@@ -29,7 +29,7 @@ function formatDistance(m: number): string {
   return miles >= 10 ? `${miles.toFixed(1)} mi` : `${miles.toFixed(2)} mi`
 }
 function formatPace(distance_m: number, moving_time_s: number): string {
-  if (distance_m === 0) return '—'
+  if (distance_m === 0) return '–'
   const miles = distance_m / 1609.34
   const minPerMile = (moving_time_s / 60) / miles
   const min = Math.floor(minPerMile)
