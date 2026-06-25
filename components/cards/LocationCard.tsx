@@ -58,7 +58,7 @@ export function LocationCard() {
 
       {/* Floating label chip — top-left */}
       <div className="pointer-events-none absolute left-3 top-3 z-20 rounded-xl border border-hairline bg-surface px-3 py-2 shadow-floating">
-        <p className="text-[9px] font-semibold uppercase tracking-eyebrow text-ink-soft">
+        <p className="text-[10px] font-semibold uppercase tracking-eyebrow text-ink-soft">
           Based in
         </p>
         <h3 className="mt-0.5 font-serif text-[16px] leading-[1.05] tracking-tight-card text-ink md:text-[17px]">

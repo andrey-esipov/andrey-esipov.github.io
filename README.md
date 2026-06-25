@@ -1,8 +1,9 @@
 # andrey.dev — personal site
 
 A bento-grid personal site for Andrey Esipov, principal PM at Microsoft.
-Cream + warm-orange palette, three theme modes (light, dark, sunrise),
-live Strava integration, and project detail pages for OneDrive and Rallo.
+Cream + warm-orange palette, four day-cycle themes (sunrise, day, sunset,
+night), live Strava integration, and project detail pages for OneDrive,
+Rallo, and Droplet.
 
 ## Stack
 
@@ -53,10 +54,11 @@ card shows a graceful "Lacing up" empty state.
 
 ## Theme system
 
-Three themes: `light` (cream + orange), `dark` (warm ink), `sunrise`
-(orange-dominant, peach cream — the 6am long-run mood). All themes share
-the same token names (`--bg`, `--surface`, `--accent`, `--sage`, etc.);
-values shift per `data-theme` attribute on `<html>`.
+Four day-cycle themes: `sunrise` (orange-dominant, peach cream — the 6am
+long-run mood), `day` (cream + orange), `sunset` (warm amber dusk), and
+`night` (warm ink). All themes share the same token names (`--bg`,
+`--surface`, `--accent`, `--sage`, etc.); values shift per `data-theme`
+attribute on `<html>`.
 
 The user's choice persists in `localStorage` under `andrey-theme`. First
 visits respect `prefers-color-scheme`. A pre-hydration script applies the
@@ -67,8 +69,9 @@ saved theme synchronously to avoid a flash of the wrong palette.
 - `/` — bento home
 - `/work/` — OneDrive (work) detail page
 - `/rallo/` — Rallo (personal AI tennis coach) detail page
+- `/droplet/` — Droplet (water-saving Rain Bird controller) detail page
 
-Both detail pages use a shared `<ProjectDetail>` layout in
+These detail pages use a shared `<ProjectDetail>` layout in
 `components/ProjectDetail.tsx`.
 
 ## Deployment
@@ -89,33 +92,42 @@ gh api repos/andrey-esipov/andrey-esipov.github.io/pages \
 app/
   layout.tsx           root layout (fonts, theme, metadata)
   page.tsx             home → <Site />
+  droplet/page.tsx     Droplet detail page
   rallo/page.tsx       Rallo detail page
   work/page.tsx        OneDrive detail page
-  globals.css          CSS variables for 3 themes + base
+  globals.css          CSS variables for 4 day-cycle themes + base
   fonts.ts             Instrument Serif + Inter Tight
 components/
-  Site.tsx             top-level: TopNav + BentoGrid
+  Site.tsx             top-level: TopNav + draggable BentoGrid
   TopNav.tsx           pill nav with All / About / Projects / Activity
-  BentoGrid.tsx        12-col grid with staggered entrance
-  ThemeProvider.tsx    3-mode theme context + bootstrap script
+  BentoGrid.tsx        responsive bento grid (1 / 6 / 4 cols)
+  ThemeProvider.tsx    4-theme day-cycle context + bootstrap script
   ProjectDetail.tsx    shared detail-page layout
+  MouseSpotlight.tsx   soft cursor-following glow
+  TileSounds.tsx       optional tile interaction sounds
   ui/
     Card.tsx           shared card primitive
     PillToggle.tsx     segmented pill (used by nav + ThemeCard)
+    ProjectButton.tsx  animated learn-more pill on project tiles
   cards/
     BioCard.tsx        avatar, intro, wave-hello easter egg
     WorkCard.tsx       OneDrive, links to /work
     RalloCard.tsx      Rallo, links to /rallo
+    DropletCard.tsx    Droplet, links to /droplet
     StravaCard.tsx     latest activity, route polyline
-    LocationCard.tsx   bespoke Nashville illustration
-    AboutCard.tsx      three off-clock factoids
-    SocialsCard.tsx    LinkedIn / GitHub / X / Email tile grid
+    LocationCard.tsx   Nashville map tile
     LinkedInCard.tsx   dedicated LinkedIn card with career highlights
-    ThemeCard.tsx      light / dark / sunrise switcher
+    EducationCard.tsx  schools / "always studying"
+    NowCard.tsx        what I'm building / reading / listening
+    HotTakesCard.tsx   rotating one-line opinions
+    CoffeeCard.tsx     espresso counter easter egg
+    NewsletterCard.tsx "hands on" newsletter teaser
+    ThemeCard.tsx      day-cycle theme slider
   visuals/
-    NashvilleSVG.tsx   bespoke city illustration
-    RalloPhoneSVG.tsx  iPhone-frame mockup with tennis court
-    RoutePolyline.tsx  decoded Strava polyline → SVG
+    DropletGlyph.tsx       bespoke Droplet teardrop brand mark
+    RalloPhoneSVG.tsx      iPhone-frame mockup with tennis court
+    RoutePolyline.tsx      decoded Strava polyline → SVG
+    MapPolylineOverlay.tsx route overlay for the location map
 public/
   avatar.png           the 3D portrait
   data/

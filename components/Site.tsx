@@ -8,6 +8,7 @@ import { TopNav, type Filter } from './TopNav'
 import { BioCard } from './cards/BioCard'
 import { WorkCard } from './cards/WorkCard'
 import { RalloCard } from './cards/RalloCard'
+import { DropletCard } from './cards/DropletCard'
 import { LocationCard } from './cards/LocationCard'
 import { StravaCard } from './cards/StravaCard'
 import { ThemeCard } from './cards/ThemeCard'
@@ -34,29 +35,37 @@ type TileDef = {
 }
 
 /*
- * Default order — auto-flow places these into a 4×4 grid as:
+ * Default order — auto-flow packs these into a 4×5 grid on large screens:
  *
- *   Row 1: Bio        Bio        Work      Theme
- *   Row 2: LinkedIn   Strava     Work      Rallo
- *   Row 3: Education  Location   HotTakes  Rallo
- *   Row 4: Now        Now        Coffee    Placeholder
+ *   Row 1: Bio        Bio        Work      Rallo
+ *   Row 2: Bio        Bio        Work      Rallo
+ *   Row 3: Droplet    Theme      LinkedIn  Strava
+ *   Row 4: Droplet    Now        Now       Education
+ *   Row 5: Location   HotTakes   Coffee    Newsletter
  *
- * Tiles can be dragged to swap with another tile (drag handle in the
- * top-right corner of each tile, visible on hover).
+ * Bio is a 2×2 hero; Work / Rallo / Droplet are three matching 1×2 project
+ * pillars. The image-driven tiles carry a mobile/tablet min-height so they
+ * don't collapse before the large-screen row spans kick in. Tiles can be
+ * dragged to swap (drag handle, top-right on hover).
  */
+const PILLAR = 'md:col-span-3 lg:col-span-1 lg:row-span-2 min-h-[420px] lg:min-h-0'
+const VISUAL = 'md:col-span-3 lg:col-span-1 lg:row-span-1 min-h-[210px] lg:min-h-0'
+const SMALL = 'md:col-span-3 lg:col-span-1 lg:row-span-1'
+
 const TILES: ReadonlyArray<TileDef> = [
-  { id: 'bio',       category: 'bio',      span: 'md:col-span-6 lg:col-span-2 lg:row-span-1', Component: BioCard },
-  { id: 'work',      category: 'projects', span: 'md:col-span-3 lg:col-span-1 lg:row-span-2', Component: WorkCard },
-  { id: 'theme',     category: 'meta',     span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: ThemeCard },
-  { id: 'linkedin',  category: 'about',    span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: LinkedInCard },
-  { id: 'strava',    category: 'activity', span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: StravaCard },
-  { id: 'rallo',     category: 'projects', span: 'md:col-span-3 lg:col-span-1 lg:row-span-2', Component: RalloCard },
-  { id: 'education', category: 'about',    span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: EducationCard },
-  { id: 'location',  category: 'activity', span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: LocationCard },
-  { id: 'hottakes',  category: 'about',    span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: HotTakesCard },
+  { id: 'bio',       category: 'bio',      span: 'md:col-span-6 lg:col-span-2 lg:row-span-2', Component: BioCard },
+  { id: 'work',      category: 'projects', span: PILLAR, Component: WorkCard },
+  { id: 'rallo',     category: 'projects', span: PILLAR, Component: RalloCard },
+  { id: 'droplet',   category: 'projects', span: PILLAR, Component: DropletCard },
+  { id: 'theme',     category: 'meta',     span: SMALL,  Component: ThemeCard },
+  { id: 'linkedin',  category: 'about',    span: VISUAL, Component: LinkedInCard },
+  { id: 'strava',    category: 'activity', span: VISUAL, Component: StravaCard },
   { id: 'now',       category: 'about',    span: 'md:col-span-6 lg:col-span-2 lg:row-span-1', Component: NowCard },
-  { id: 'coffee',    category: 'about',    span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: CoffeeCard },
-  { id: 'newsletter',category: 'projects', span: 'md:col-span-3 lg:col-span-1 lg:row-span-1', Component: NewsletterCard },
+  { id: 'education', category: 'about',    span: SMALL,  Component: EducationCard },
+  { id: 'location',  category: 'activity', span: VISUAL, Component: LocationCard },
+  { id: 'hottakes',  category: 'about',    span: SMALL,  Component: HotTakesCard },
+  { id: 'coffee',    category: 'about',    span: SMALL,  Component: CoffeeCard },
+  { id: 'newsletter',category: 'projects', span: SMALL,  Component: NewsletterCard },
 ]
 
 const TILES_BY_ID: Record<string, TileDef> = Object.fromEntries(TILES.map((t) => [t.id, t]))
@@ -152,12 +161,12 @@ export default function Site() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col lg:h-screen lg:min-h-screen">
+    <div className="flex min-h-screen flex-col">
       <TopNav filter={filter} onFilterChange={setFilter} />
 
-      <main className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col px-4 pb-6 pt-1 md:px-6 lg:min-h-0 lg:px-10 lg:pt-2 xl:px-14">
-        <BentoGrid className="lg:grid-cols-4 lg:auto-rows-fr lg:[grid-template-rows:repeat(4,minmax(0,1fr))] lg:min-h-0 lg:flex-1">
-          {order.map((id) => {
+      <main className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col px-4 pb-10 pt-1 md:px-6 lg:px-10 lg:pb-14 lg:pt-2 xl:px-14">
+        <BentoGrid className="lg:grid-cols-4 lg:auto-rows-[210px]">
+          {order.map((id, index) => {
             const t = TILES_BY_ID[id]
             const Component = t.Component
             return (
@@ -170,7 +179,12 @@ export default function Site() {
                 onSwap={handleSwap}
                 placeholder={t.placeholder}
               >
-                {t.placeholder ? <PlaceholderInner /> : Component ? <Component /> : null}
+                <div
+                  className="tile-in h-full"
+                  style={{ animationDelay: `${Math.min(index * 35, 350)}ms` }}
+                >
+                  {t.placeholder ? <PlaceholderInner /> : Component ? <Component /> : null}
+                </div>
               </DraggableTile>
             )
           })}

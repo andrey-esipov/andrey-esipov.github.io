@@ -66,7 +66,7 @@ export function BioCard() {
           rotateY: hovering ? rotateY : 0,
           transformStyle: 'preserve-3d',
         }}
-        className="relative flex h-full flex-col p-5 md:p-6"
+        className="relative flex h-full flex-col p-5 md:p-6 lg:p-8"
       >
         {/* Top row — avatar (left) + wave pill (right) */}
         <div className="flex items-start justify-between gap-3">
@@ -83,7 +83,7 @@ export function BioCard() {
               width={736}
               height={736}
               priority
-              className={`h-14 w-14 object-cover object-top md:h-16 md:w-16 ${waving ? 'wave-once' : ''}`}
+              className={`h-14 w-14 object-cover object-top md:h-16 md:w-16 lg:h-[72px] lg:w-[72px] ${waving ? 'wave-once' : ''}`}
             />
           </div>
 
@@ -107,9 +107,9 @@ export function BioCard() {
           className="mt-3 flex flex-1 flex-col justify-between"
         >
           <div>
-            <p className="font-serif text-[20px] leading-[1.18] tracking-tight-display text-ink md:text-[22px]">
+            <p className="font-serif text-[20px] leading-[1.18] tracking-tight-display text-ink md:text-[22px] lg:text-[27px] lg:leading-[1.16]">
               I&rsquo;m{' '}
-              <span className="bg-gradient-to-br from-ink via-accent to-accent bg-clip-text font-serif italic text-transparent">
+              <span className="font-serif italic text-accent">
                 Andrey
               </span>
               <span className="text-ink-soft">, a product manager at </span>
@@ -117,7 +117,7 @@ export function BioCard() {
               <span className="text-ink-soft">.</span>
             </p>
 
-            <p className="mt-2 text-[12.5px] leading-relaxed text-ink-soft md:text-[13px]">
+            <p className="mt-2 text-[12.5px] leading-relaxed text-ink-soft md:text-[13px] lg:mt-3.5 lg:text-[14.5px] lg:leading-[1.7]">
               On the OneDrive Sync team, working to make daily file work
               quieter and faster for hundreds of millions of people across
               Windows and Mac. I sweat the details, prefer simple
@@ -139,9 +139,9 @@ export function BioCard() {
                   target={external ? '_blank' : undefined}
                   rel={external ? 'noopener noreferrer' : undefined}
                   aria-label={label}
-                  className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-hairline bg-surface-2 text-ink-soft transition-all duration-200 ease-smooth hover:-translate-y-0.5 hover:bg-surface hover:text-ink"
+                  className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-hairline bg-surface-2 text-ink-soft transition-all duration-200 ease-smooth hover:-translate-y-0.5 hover:bg-surface hover:text-ink lg:h-9 lg:w-9"
                 >
-                  <Icon className="h-3.5 w-3.5" />
+                  <Icon className="h-3.5 w-3.5 lg:h-4 lg:w-4" />
                 </Link>
               )
             })}
