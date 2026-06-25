@@ -16,6 +16,7 @@ import { HotTakesCard } from './cards/HotTakesCard'
 import { NowCard } from './cards/NowCard'
 import { CoffeeCard } from './cards/CoffeeCard'
 import { NewsletterCard } from './cards/NewsletterCard'
+import { ThemeCard } from './cards/ThemeCard'
 
 const SHOW_FOR: Record<Filter, ReadonlyArray<string>> = {
   all: ['bio', 'projects', 'activity', 'about', 'meta'],
@@ -38,13 +39,12 @@ type TileDef = {
  *   Row 1: Bio       Bio        Work      Rallo
  *   Row 2: Droplet   Strava     Work      Rallo
  *   Row 3: Droplet   Now        Education Location
- *   Row 4: HotTakes  Coffee     Newsletter Newsletter
+ *   Row 4: HotTakes  Coffee     Newsletter Theme
  *
  * Bio is a wide 2×1 lead card; Work / Rallo / Droplet are three matching 1×2
- * project pillars; Newsletter is a wide 2×1 CTA closing the grid. The
- * image-driven tiles carry a mobile/tablet min-height so they don't collapse
- * before the large-screen row spans kick in. Tiles can be dragged to swap
- * (drag handle, top-right on hover).
+ * project pillars. Everything else is a 1×1. The image-driven tiles carry a
+ * mobile/tablet min-height so they don't collapse before the large-screen row
+ * spans kick in. Tiles can be dragged to swap (drag handle, top-right on hover).
  */
 const PILLAR = 'md:col-span-3 lg:col-span-1 lg:row-span-2 min-h-[420px] lg:min-h-0'
 const VISUAL = 'md:col-span-3 lg:col-span-1 lg:row-span-1 min-h-[210px] lg:min-h-0'
@@ -62,7 +62,8 @@ const TILES: ReadonlyArray<TileDef> = [
   { id: 'location',  category: 'activity', span: VISUAL, Component: LocationCard },
   { id: 'hottakes',  category: 'about',    span: SMALL,  Component: HotTakesCard },
   { id: 'coffee',    category: 'about',    span: SMALL,  Component: CoffeeCard },
-  { id: 'newsletter',category: 'projects', span: WIDE,   Component: NewsletterCard },
+  { id: 'newsletter',category: 'projects', span: SMALL,  Component: NewsletterCard },
+  { id: 'theme',     category: 'meta',     span: SMALL,  Component: ThemeCard },
 ]
 
 const TILES_BY_ID: Record<string, TileDef> = Object.fromEntries(TILES.map((t) => [t.id, t]))
