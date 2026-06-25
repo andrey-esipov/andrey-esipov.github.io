@@ -18,3 +18,5 @@ out/
 
 # TypeScript incremental build cache
 tsconfig.tsbuildinfo
+.gstack/
+.impeccable/

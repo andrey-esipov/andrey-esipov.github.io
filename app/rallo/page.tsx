@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { ProjectDetail } from '@/components/ProjectDetail'
-import { RalloPhoneSVG } from '@/components/visuals/RalloPhoneSVG'
 
 export const metadata: Metadata = {
-  title: 'Rallo — AI tennis coach for iOS',
+  title: 'Rallo · AI tennis coach for iOS',
   description: 'Rallo: an AI tennis coach for iOS that watches your swing and tells you what to fix.',
 }
 
@@ -13,7 +13,7 @@ function WordmarkTile() {
   return (
     <div className={`${TILE} bg-surface flex items-center justify-center p-10 lg:col-span-6 lg:row-span-1`}>
       <span className="font-serif text-[88px] leading-none tracking-tight-display md:text-[120px]">
-        <span className="bg-gradient-to-br from-ink via-accent to-accent bg-clip-text text-transparent">Rallo</span>
+        <span className="text-ink">Rallo</span>
         <span className="text-accent">.</span>
       </span>
     </div>
@@ -47,8 +47,14 @@ function IconFilledTile() {
 function PhoneTile() {
   return (
     <div className={`${TILE} relative bg-butter overflow-hidden lg:col-span-4 lg:row-span-2 min-h-[420px]`}>
-      <div className="absolute -bottom-4 left-1/2 w-[78%] -translate-x-1/2">
-        <RalloPhoneSVG className="h-auto w-full" />
+      <div className="pointer-events-none absolute -bottom-5 left-1/2 h-[68%] -translate-x-1/2 rotate-[2deg]">
+        <Image
+          src="/rallo-stats.jpg"
+          alt="Rallo: weekly training load and on-court stats"
+          width={680}
+          height={1478}
+          className="h-full w-auto rounded-[1.6rem] border border-white/50 shadow-[0_20px_36px_rgb(var(--shadow-rgb)/0.22)]"
+        />
       </div>
       <p className="relative z-10 px-7 pt-7 font-serif text-[26px] leading-[1.1] text-ink md:text-[28px]">
         Watches your swing.
@@ -101,7 +107,7 @@ export default function RalloPage() {
         { label: 'Personal', href: '#', external: false },
       ]}
       body={[
-        "I'm building Rallo as a tennis coach in your pocket — point your phone at the court and it watches your stance, contact point, and follow-through, then tells you what one thing to change next.",
+        "I'm building Rallo as a tennis coach in your pocket. Point your phone at the court and it watches your stance, contact point, and follow-through, then tells you what one thing to change next.",
         "It's the side project I keep coming back to. Tennis is precise enough that small adjustments compound, and recreational players almost never get film, let alone film with feedback. Rallo is what I wish I had on every weekend court.",
         "Right now: native SwiftUI app, on-device pose estimation, GPT-powered drill recommendations. Slowly opening to a wider beta as the model improves.",
       ]}

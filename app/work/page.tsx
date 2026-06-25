@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { ProjectDetail } from '@/components/ProjectDetail'
 
 export const metadata: Metadata = {
-  title: 'Work — OneDrive · Microsoft',
+  title: 'Work · OneDrive · Microsoft',
   description: 'Principal product manager on the OneDrive Sync team at Microsoft.',
 }
 
@@ -17,7 +17,7 @@ function HeroTile() {
     >
       <Image
         src="/onedrive-hero-blog.jpg"
-        alt="OneDrive — product visual"
+        alt="OneDrive product visual"
         fill
         priority
         sizes="(min-width: 1024px) 1100px, 100vw"
@@ -51,7 +51,7 @@ export default function WorkPage() {
         { label: 'Principal PM', external: false },
       ]}
       body={[
-        "Principal product manager on the OneDrive Sync team at Microsoft. We build the file engine that runs on Windows, macOS, iOS, Android, and the web — keeping documents, photos, and videos moving between local devices and the cloud.",
+        "Principal product manager on the OneDrive Sync team at Microsoft. We build the file engine that runs on Windows, macOS, iOS, Android, and the web, keeping documents, photos, and videos moving between local devices and the cloud.",
         "My work spans product strategy, specs, and the cross-team coordination it takes to ship file experiences inside Windows, Microsoft 365, and a growing surface area of AI-powered products.",
       ]}
       showcase={
@@ -60,7 +60,7 @@ export default function WorkPage() {
           <GridTile src="/od1.jpg"          alt="OneDrive on a laptop" />
           <GridTile src="/od2.jpg"          alt="OneDrive cloud illustration" />
           <GridTile src="/od3.jpg"          alt="OneDrive Photos on mobile" />
-          <GridTile src="/onedrive-home.jpg" alt="OneDrive home — For you and Recent files" />
+          <GridTile src="/onedrive-home.jpg" alt="OneDrive home: For you and Recent files" />
         </div>
       }
     />

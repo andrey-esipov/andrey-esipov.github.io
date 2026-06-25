@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import {
   BriefcaseBusiness,
   Copy,
+  Droplet,
   Github,
   Home,
   Linkedin,
@@ -112,6 +113,15 @@ export function useCommands(): Command[] {
         Icon: Trophy,
         hint: '/rallo',
         run: () => router.push('/rallo'),
+      },
+      {
+        id: 'navigate-droplet',
+        section: 'Navigate',
+        label: 'Droplet',
+        keywords: ['water', 'sprinkler', 'irrigation', 'rain bird', 'savings', 'project'],
+        Icon: Droplet,
+        hint: '/droplet',
+        run: () => router.push('/droplet'),
       },
     ]
 

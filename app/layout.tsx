@@ -9,7 +9,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Andrey Esipov - Product @ Microsoft',
   description:
-    'Andrey Esipov: product manager at Microsoft on the OneDrive Sync team — file-centric AI, semantic search, smart organization. Off the clock: dad of three, endurance athlete, training neural nets.',
+    'Andrey Esipov: product manager at Microsoft on the OneDrive Sync team. File-centric AI, semantic search, smart organization. Off the clock: dad of three, endurance athlete, building with AI.',
   metadataBase: new URL('https://andrey-esipov.github.io'),
   openGraph: {
     title: 'Andrey Esipov - Product @ Microsoft',

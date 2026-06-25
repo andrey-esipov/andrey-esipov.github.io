@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
-import { RotateCw, Linkedin, Github, Mail } from 'lucide-react'
+import { Linkedin, Github, Mail } from 'lucide-react'
 
 function XIcon({ className = '' }: { className?: string }) {
   return (
@@ -33,8 +33,8 @@ export function BioCard() {
   const y = useMotionValue(0)
   const xs = useSpring(x, { stiffness: 160, damping: 22 })
   const ys = useSpring(y, { stiffness: 160, damping: 22 })
-  const rotateX = useTransform(ys, [-0.5, 0.5], ['3deg', '-3deg'])
-  const rotateY = useTransform(xs, [-0.5, 0.5], ['-3deg', '3deg'])
+  const rotateX = useTransform(ys, [-0.5, 0.5], ['2deg', '-2deg'])
+  const rotateY = useTransform(xs, [-0.5, 0.5], ['-2deg', '2deg'])
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     if (!ref.current) return
@@ -66,70 +66,53 @@ export function BioCard() {
           rotateY: hovering ? rotateY : 0,
           transformStyle: 'preserve-3d',
         }}
-        className="relative flex h-full flex-col p-5 md:p-6"
+        className="flex h-full items-center gap-4 p-5 md:gap-5 md:p-6 lg:gap-6 lg:p-7"
       >
-        {/* Top row — avatar (left) + wave pill (right) */}
-        <div className="flex items-start justify-between gap-3">
-          <div
-            className="relative overflow-hidden rounded-full shadow-card"
-            style={{
-              transform: hovering ? 'translateZ(28px)' : 'translateZ(0)',
-              transition: 'transform .35s cubic-bezier(.2,.7,.3,1)',
-            }}
-          >
-            <Image
-              src="/avatar.png"
-              alt="Andrey, illustrated portrait"
-              width={736}
-              height={736}
-              priority
-              className={`h-14 w-14 object-cover object-top md:h-16 md:w-16 ${waving ? 'wave-once' : ''}`}
-            />
-          </div>
-
-          <button
-            type="button"
-            onClick={triggerWave}
-            className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-surface/90 px-3 py-1.5 text-[11px] font-medium text-ink-soft shadow-pill backdrop-blur-sm transition-colors duration-200 hover:text-ink"
-            aria-label="Wave hello"
-          >
-            <RotateCw className="h-3 w-3" strokeWidth={2.25} />
-            Wave hello
-          </button>
-        </div>
-
-        {/* Intro + brief — condensed to fit a wide-short tile */}
-        <div
+        {/* Avatar — click to wave */}
+        <button
+          type="button"
+          onClick={triggerWave}
+          aria-label="Wave hello"
+          title="Wave hello"
+          className="relative shrink-0 overflow-hidden rounded-full shadow-card outline-none ring-accent/40 focus-visible:ring-2"
           style={{
-            transform: hovering ? 'translateZ(20px)' : 'translateZ(0)',
+            transform: hovering ? 'translateZ(26px)' : 'translateZ(0)',
             transition: 'transform .35s cubic-bezier(.2,.7,.3,1)',
           }}
-          className="mt-3 flex flex-1 flex-col justify-between"
         >
-          <div>
-            <p className="font-serif text-[20px] leading-[1.18] tracking-tight-display text-ink md:text-[22px]">
-              I&rsquo;m{' '}
-              <span className="bg-gradient-to-br from-ink via-accent to-accent bg-clip-text font-serif italic text-transparent">
-                Andrey
-              </span>
-              <span className="text-ink-soft">, a product manager at </span>
-              <span className="text-ink">Microsoft</span>
-              <span className="text-ink-soft">.</span>
-            </p>
+          <Image
+            src="/avatar.png"
+            alt="Andrey, illustrated portrait"
+            width={736}
+            height={736}
+            priority
+            className={`h-16 w-16 object-cover object-top md:h-[72px] md:w-[72px] lg:h-[84px] lg:w-[84px] ${waving ? 'wave-once' : ''}`}
+          />
+        </button>
 
-            <p className="mt-2 text-[12.5px] leading-relaxed text-ink-soft md:text-[13px]">
-              On the OneDrive Sync team, working to make daily file work
-              quieter and faster for hundreds of millions of people across
-              Windows and Mac. I sweat the details, prefer simple
-              and elegant solutions over clever ones, and lean on a{' '}
-              <span className="text-ink">show&#8209;don&rsquo;t&#8209;tell</span>{' '}
-              approach &mdash; fewer slides, more demos. Off the clock:
-              dad of three, endurance athlete, training neural nets on
-              weekends.
-            </p>
-          </div>
+        {/* Name, brief, and socials */}
+        <div
+          className="min-w-0 flex-1"
+          style={{
+            transform: hovering ? 'translateZ(16px)' : 'translateZ(0)',
+            transition: 'transform .35s cubic-bezier(.2,.7,.3,1)',
+          }}
+        >
+          <p className="font-serif text-[19px] leading-[1.2] tracking-tight-display text-ink md:text-[21px] lg:text-[23px] lg:leading-[1.18]">
+            I&rsquo;m{' '}
+            <span className="font-serif italic text-accent">Andrey</span>
+            <span className="text-ink-soft">, a product manager at </span>
+            <span className="text-ink">Microsoft</span>
+            <span className="text-ink-soft">.</span>
+          </p>
 
-          <div className="flex items-center justify-end gap-1.5 pt-3">
+          <p className="mt-1.5 text-[12.5px] leading-relaxed text-ink-soft md:text-[13px] lg:mt-2 lg:text-[13.5px] lg:leading-[1.55]">
+            I make everyday file sync quieter for hundreds of millions on the
+            OneDrive team. Off the clock: dad of three, endurance athlete,
+            building with AI on weekends.
+          </p>
+
+          <div className="mt-3 flex items-center gap-2 lg:mt-3.5">
             {SOCIALS.map(({ Icon, href, label }) => {
               const external = href.startsWith('http')
               return (
@@ -139,7 +122,7 @@ export function BioCard() {
                   target={external ? '_blank' : undefined}
                   rel={external ? 'noopener noreferrer' : undefined}
                   aria-label={label}
-                  className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-hairline bg-surface-2 text-ink-soft transition-all duration-200 ease-smooth hover:-translate-y-0.5 hover:bg-surface hover:text-ink"
+                  className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-hairline bg-surface-2 text-ink-soft transition-all duration-200 ease-smooth hover:-translate-y-0.5 hover:bg-surface hover:text-ink lg:h-8 lg:w-8"
                 >
                   <Icon className="h-3.5 w-3.5" />
                 </Link>
