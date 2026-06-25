@@ -29,6 +29,12 @@ npm run build    # writes ./out
 npx serve out    # smoke-test the static bundle
 ```
 
+## Command palette
+
+Press `⌘K` on Mac or `Ctrl+K` on Windows/Linux to open the command palette.
+Use it to navigate between pages, switch themes, open social links, email, or
+copy the email address.
+
 ## Strava integration
 
 The "Out and about" card reads `public/data/strava-latest.json`, which is
@@ -102,6 +108,7 @@ components/
   TopNav.tsx           pill nav with All / About / Projects / Activity
   BentoGrid.tsx        responsive bento grid (1 / 6 / 4 cols)
   ThemeProvider.tsx    4-theme day-cycle context + bootstrap script
+  command/             command palette components
   ProjectDetail.tsx    shared detail-page layout
   MouseSpotlight.tsx   soft cursor-following glow
   TileSounds.tsx       optional tile interaction sounds

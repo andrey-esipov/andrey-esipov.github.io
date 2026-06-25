@@ -108,7 +108,7 @@ function DraggableTile({
       whileDrag={{ scale: 1.03, zIndex: 50 }}
       transition={{ layout: { type: 'spring', stiffness: 360, damping: 32 } }}
       onDragEnd={(_, info) => onSwap(id, info)}
-      className={`group/drag relative ${span} ${dimClass} transition-[opacity,filter] duration-[320ms] ease-smooth`}
+      className={`group/drag relative min-h-0 min-w-0 ${span} ${dimClass} transition-[opacity,filter] duration-[320ms] ease-smooth`}
       data-tile-id={id}
       data-category={category ?? ''}
     >
