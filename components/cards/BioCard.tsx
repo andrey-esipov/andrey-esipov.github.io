@@ -107,9 +107,9 @@ export function BioCard() {
           </p>
 
           <p className="mt-1.5 text-[12.5px] leading-relaxed text-ink-soft md:text-[13px] lg:mt-2 lg:text-[13.5px] lg:leading-[1.55]">
-            I make everyday file sync quieter for hundreds of millions on the
-            OneDrive team. Off the clock: dad of three, endurance athlete,
-            building with AI on weekends.
+            I work on OneDrive, where hundreds of millions of people trust their
+            files to sync quietly in the background. Off the clock: dad of three,
+            endurance athlete, building with AI on weekends.
           </p>
 
           <div className="mt-3 flex items-center gap-2 lg:mt-3.5">
