@@ -1,7 +1,7 @@
 # andrey.dev — personal site
 
 A bento-grid personal site for Andrey Esipov, principal PM at Microsoft.
-Cream + warm-orange palette, three theme modes (light, dark, sunrise),
+Cream + warm-orange palette, four theme modes (sunrise, day, sunset, night),
 live Strava integration, and project detail pages for OneDrive and Rallo.
 
 ## Stack
@@ -28,6 +28,12 @@ npm run build    # writes ./out
 npx serve out    # smoke-test the static bundle
 ```
 
+## Command palette
+
+Press `⌘K` on Mac or `Ctrl+K` on Windows/Linux to open the command palette.
+Use it to navigate between pages, switch themes, open social links, email, or
+copy the email address.
+
 ## Strava integration
 
 The "Out and about" card reads `public/data/strava-latest.json`, which is
@@ -53,10 +59,10 @@ card shows a graceful "Lacing up" empty state.
 
 ## Theme system
 
-Three themes: `light` (cream + orange), `dark` (warm ink), `sunrise`
-(orange-dominant, peach cream — the 6am long-run mood). All themes share
-the same token names (`--bg`, `--surface`, `--accent`, `--sage`, etc.);
-values shift per `data-theme` attribute on `<html>`.
+Four themes: `sunrise` (orange-dominant, peach cream — the 6am long-run mood),
+`day` (cream + orange), `sunset` (golden hour), and `night` (warm ink). All
+themes share the same token names (`--bg`, `--surface`, `--accent`, `--sage`,
+etc.); values shift per `data-theme` attribute on `<html>`.
 
 The user's choice persists in `localStorage` under `andrey-theme`. First
 visits respect `prefers-color-scheme`. A pre-hydration script applies the
@@ -91,13 +97,14 @@ app/
   page.tsx             home → <Site />
   rallo/page.tsx       Rallo detail page
   work/page.tsx        OneDrive detail page
-  globals.css          CSS variables for 3 themes + base
+  globals.css          CSS variables for 4 themes + base
   fonts.ts             Instrument Serif + Inter Tight
 components/
   Site.tsx             top-level: TopNav + BentoGrid
   TopNav.tsx           pill nav with All / About / Projects / Activity
   BentoGrid.tsx        12-col grid with staggered entrance
-  ThemeProvider.tsx    3-mode theme context + bootstrap script
+  ThemeProvider.tsx    4-mode theme context + bootstrap script
+  command/             command palette components
   ProjectDetail.tsx    shared detail-page layout
   ui/
     Card.tsx           shared card primitive
@@ -111,7 +118,7 @@ components/
     AboutCard.tsx      three off-clock factoids
     SocialsCard.tsx    LinkedIn / GitHub / X / Email tile grid
     LinkedInCard.tsx   dedicated LinkedIn card with career highlights
-    ThemeCard.tsx      light / dark / sunrise switcher
+    ThemeCard.tsx      sunrise / day / sunset / night switcher
   visuals/
     NashvilleSVG.tsx   bespoke city illustration
     RalloPhoneSVG.tsx  iPhone-frame mockup with tennis court

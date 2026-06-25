@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { serif, sans } from './fonts'
 import { ThemeProvider, ThemeBootstrapScript } from '@/components/ThemeProvider'
+import { CommandPaletteProvider } from '@/components/command/CommandPaletteProvider'
 import { MouseSpotlight } from '@/components/MouseSpotlight'
 import { TileSounds } from '@/components/TileSounds'
 import './globals.css'
@@ -41,7 +42,7 @@ export default function RootLayout({
         <ThemeProvider>
           <MouseSpotlight />
           <TileSounds />
-          {children}
+          <CommandPaletteProvider>{children}</CommandPaletteProvider>
         </ThemeProvider>
       </body>
     </html>
