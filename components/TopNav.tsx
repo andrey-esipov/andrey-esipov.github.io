@@ -22,21 +22,23 @@ export function TopNav({ filter, onFilterChange }: TopNavProps) {
   return (
     <nav
       aria-label="Primary"
-      className="mx-auto flex w-full max-w-[1280px] items-center justify-between gap-4 px-4 pt-4 pb-2 md:px-6 lg:px-10 lg:pt-5 lg:pb-3 xl:px-14"
+      className="mx-auto flex w-full max-w-[1280px] items-center gap-4 px-4 pt-4 pb-2 md:px-6 lg:px-10 lg:pt-5 lg:pb-3 xl:px-14"
     >
       {/* Wordmark */}
-      <a
-        href="/"
-        aria-label="andrey, home"
-        className="font-serif text-[26px] leading-none tracking-tight-display"
-      >
-        <span className="text-ink">
-          andrey
-        </span>
-      </a>
+      <div className="flex flex-1 justify-start">
+        <a
+          href="/"
+          aria-label="andrey, home"
+          className="font-serif text-[26px] leading-none tracking-tight-display"
+        >
+          <span className="text-ink">
+            andrey
+          </span>
+        </a>
+      </div>
 
-      {/* Filter pill (desktop center) */}
-      <div className="hidden md:flex">
+      {/* Filter pill (true center) */}
+      <div className="hidden shrink-0 md:flex">
         <PillToggle
           items={FILTERS}
           value={filter}
@@ -47,7 +49,7 @@ export function TopNav({ filter, onFilterChange }: TopNavProps) {
       </div>
 
       {/* Actions */}
-      <div className="flex items-center gap-2">
+      <div className="flex flex-1 items-center justify-end gap-2">
         <ThemeToggle />
         <div className="hidden sm:flex">
           <CommandTrigger />

@@ -13,25 +13,25 @@ export function EducationCard() {
   return (
     <div
       data-category="about"
-      className="theme-transition relative flex h-full flex-col gap-2.5 overflow-hidden rounded-card border border-hairline/60 bg-surface px-5 py-5 shadow-card"
+      className="theme-transition relative flex h-full flex-col gap-2 overflow-hidden rounded-card border border-hairline/60 bg-surface px-5 py-4 shadow-card"
     >
       <p className="text-[10px] font-semibold uppercase tracking-eyebrow text-ink-soft">
         School
       </p>
-      <h3 className="font-serif text-[18px] leading-[1.1] tracking-tight-card text-ink md:text-[19px]">
+      <h3 className="font-serif text-[16px] leading-[1.1] tracking-tight-card text-ink md:text-[17px]">
         Always studying.
       </h3>
 
-      <ul className="mt-auto space-y-2 text-[13px] leading-tight">
+      <ul className="mt-auto space-y-1.5 text-[12px] leading-tight">
         {SCHOOLS.map((s) => (
-          <li key={s.name} className="group/school flex items-center gap-2.5">
-            <span className="relative inline-flex h-7 w-7 shrink-0 items-center justify-center transition-transform duration-[260ms] ease-smooth group-hover/school:scale-[1.18]">
+          <li key={s.name} className="group/school flex items-center gap-2">
+            <span className="relative inline-flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-[260ms] ease-smooth group-hover/school:scale-[1.18]">
               <Image
                 src={s.logo}
                 alt=""
                 width={64}
                 height={64}
-                className="h-7 w-7 object-contain"
+                className="h-6 w-6 object-contain"
               />
               {s.current && (
                 <span className="absolute -right-0.5 -top-0.5 inline-flex h-2.5 w-2.5">
@@ -41,7 +41,7 @@ export function EducationCard() {
               )}
             </span>
             <span className="font-medium text-ink">{s.name}</span>
-            <span className="text-ink-soft/85">· {s.detail}</span>
+            <span className="truncate text-ink-soft/85">· {s.detail}</span>
           </li>
         ))}
       </ul>
