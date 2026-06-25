@@ -1,9 +1,9 @@
 {
-  "name": "Morning Hike",
-  "type": "Hike",
-  "distance_m": 2857,
-  "moving_time_s": 3186,
-  "total_elevation_gain_m": 70,
-  "start_date_local": "2026-06-22T10:35:56Z",
-  "summary_polyline": "kgfyE~izzNHMXYJ]LG?DF@j@k@VQHKZu@DAJ[@BBBCIMQCOCGFEA?DBI@CK@KGAAUFQEEBKDAKHWACEE@EC?CP@NJIPUTMVATBFAREEMNG@CLAAADC?CRKJSGGBICEGE?IPBFCPGDG?BL?JEF[BIJA?MMQBOAMCB@AE]RCHMPOJQ?_@MUQAGKKHFDFa@i@AMJMZCVBA@AAX?LE?[FIH??BXQPC?OL@FM@??BBKVM@IF?@EGAAADM?_@F@?QPe@ISAQB_@PELKRBRNLGFJBP?ZTBJSREN@DFBQHKVOh@DHAC@?C@KJK?OHSHKDCLDHE@BEBTSHOCQ?W@BE?@_AR[IKQg@Z^Tf@HLNJ@GFFFBOEAC@CJD?ZJXCEEAHP?DCAJHFT@XA?AAPXd@bAHb@CH{@XMXKNEBIEM@QJGLI@CA_@BCNIPWHMLWFEHATEBCIG@E\\KX[b@y@d@a@f@UTIB?Hs@b@I?AGC?OJa@LWLAAI@MHIRUXUJQB"
+  "name": "Morning Ride",
+  "type": "Ride",
+  "distance_m": 13235,
+  "moving_time_s": 1764,
+  "total_elevation_gain_m": 192,
+  "start_date_local": "2026-06-25T08:27:52Z",
+  "summary_polyline": "g}ezEdvspO?L@TPp@@XIPy@n@]Z_@T[HY@oBFoBBM@iAVqA|@gAfAgAn@]HWDiABwAJaDd@o@Du@PWBWNc@r@aAx@k@X_@Jm@Jg@D_AAuBSMJKT[bCc@jC]pCMxAShECbCFtCTdEJt@Tv@Rh@h@|@xAnBf@z@|@lBRh@j@`CNz@RzC@~@EbCOnDObCOpA?rAE~AeAnTw@jSCRI\\AXFd@@XMfGMhM?v@PxA^zAVl@Xd@b@l@x@|@xF|F^p@Pd@Lj@Hj@DfA?n@KdAsAzGmApI_@|BM|@K`CK`@QF{ACkAD_@Dg@BcBCyAWsBcAg@S_@WyBoB}AiA}EiCm@_@]Yy@w@m@m@S[a@_@[Qe@]uBqBe@[WWO?GCWSa@GaAe@k@S_Ba@o@ISSEYFmBPgCHe@AOGS?Wd@aIRgCb@}DPUVCh@H`AJrCFhFF`@@NDd@CRDFGC]BgCOwDD}AYaC?[PWn@c@Z[T[h@g@rC_Dl@g@RKhAa@r@Kl@@VDn@RRJVRTVnAdBd@\\XLnAPd@PJ?FIFOE_ABk@rAa^d@iLD[JY@[Ei@@[\\sIBqAAaAKcBSwB_@eB[cAm@yA]q@o@gAoBkCSi@Sq@Ig@Q{AMoCEaDDgCNwCPsBPuAn@uDV_CNYXGbBN~AAPCfAW`CuAb@KNI^k@LKz@QvEo@JOB[ImBUgCOiAi@eCeBmGaA{D_@iCu@sGAy@HkBf@{FZqBPy@`@uANy@D{@?]UeLNUvGuApLmCfGqApA_@^?NJFN^fDrAvGJz@PpCFh@`@fCVbCN^RXf@TDD?DCj@"
 }
