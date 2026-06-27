@@ -1,9 +1,9 @@
 {
-  "name": "Morning Ride",
-  "type": "Ride",
-  "distance_m": 27658,
-  "moving_time_s": 3430,
-  "total_elevation_gain_m": 289,
-  "start_date_local": "2026-06-26T07:41:27Z",
-  "summary_polyline": "a}dzE|_spOR_@Ps@N_ADMRIdIn@`A\\\\Tp@r@hAxAv@jBT@bCwBxAo@z@m@z@aAp@eAz@{@bAm@|Cy@nAu@tCqDLI~@WhBDPL@Xy@~NDf@Ph@f@j@ZL~NtAnJ`AnFZfARtDZnCb@xPbBpCb@fDt@j\\|CbXnEd@BNC\\UHQLg@z@iNLs@~AoD\\aBX{AbCcP~AgJbAyG\\cB~@eBnAaBLUJe@b@gIVcDhAoRHm@FST]`@MzAGZWLg@h@{KLiBNe@d@i@^OfBI\\SRa@RoB\\wKFOLGfP|@hAH|@R`@VRZdAnDP\\b@h@lA|@dAj@fA`@bL~B`@J\\Tl@t@l@tAdCtHvE~NjCvEnApBLHn@HrA[r@HxMnIbA^vBj@lD|ArAd@tA`@zB\\fJdAhCb@pAf@t@d@pC`CdAn@pA^x@LrHl@fFj@`G\\`ALfABXEd@UlCiBp@O`ADb@ThAt@RADU[aFGgBAoBJoEPeCTsBZ}Ah@mAj@e@pDyArBcA~@m@|IuJjLcMz@oARgAE}@Ss@k@u@aA{@w@gAs@{A_@kAk@sAi@aBiBaGeC{Jq@_GKuBUiLWkGCaBlAuRZeId@cI\\kMCQIGSKaFe@cj@}DuF[iK_@gFe@{JkAqMeAkReAeCYuKu@u@ESFMPEZFlAVlAd@dBNv@Fz@GlDGhCIr@O`Ae@rAuBrCmAdB_@fAOnBAPIDCNi@|MOzBQXe@RcM}@oEg@uAF]PK\\G\\m@pRw@bSMjBmAfLg@|FU`A]J_Ea@mNk@MBUZCN]lKS~A_@f@oBPUJc@d@QXKZK`Ac@fLGr@OVSJ}AHc@NUTOh@K~@Y|F_@~Ey@~NOnBQd@aCjDSh@Sv@sCpPmEjYYx@cAtBSp@UfBk@dKK`@OZKHk@D}RcDoFw@qYsCcFaAkBYoHq@gI_AkFq@SKo@AwGc@mOsA{I_A]MWUSYM_@Ea@t@aOCc@SQ}@CiAFa@NSLo@t@y@lAw@v@gAj@yA^_Bn@{@r@cAlAu@pA?`@x@lCRpAF`AEn@GXIZ_BvCyCtG[`@o@X_ADsE_@kAQ{Cu@aDB}@EWQC]NwBEe@WU]BSTCNIrBBZLVb@PbAHxDDPMXuFVqAb@}@jA_ArEeAz@_@N[BWIe@{@}AkAwAcAs@c@OgAOaHc@QP]dBQ^m@p@"
+  "name": "Morning Run",
+  "type": "Run",
+  "distance_m": 4076,
+  "moving_time_s": 1260,
+  "total_elevation_gain_m": 25,
+  "start_date_local": "2026-06-27T06:20:13Z",
+  "summary_polyline": "eeezEhcspO`@IR@VETG\\EXKh@Kb@Qf@e@Te@Lc@NsAJCJAxBRJ?x@JtBF^JdAn@vA`B^n@PJr@|@FBH?lBkBr@_@zAm@LKl@o@^w@HGP]X]p@k@t@c@nCu@TI~@e@j@g@d@m@\\s@l@o@lAq@PGPCTFh@RJANDJDHXDB@CI~BBrBQb@CRGzAQzB?VFd@HRZ^RJPFRBr@?bANvAJHEBMHcCDs@NmARcCRsA@q@Gq@BoBCkAGg@_AsBOEu@G_@?QF_@VSJ}@v@IPIl@KhBo@?e@EKCUAm@Fo@Rc@`@}@xAe@h@]Zk@\\}@`@o@N]Du@RyHhHcAb@M?WJi@f@KFY\\SHMEQY{@aAWa@[a@OOU[m@g@m@]u@IiAGYG]?UEW?q@IW@m@KIDCDI`AQt@OVc@f@_@VOFs@NS@qAX"
 }
